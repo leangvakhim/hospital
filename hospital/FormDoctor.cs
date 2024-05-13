@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,7 +19,8 @@ namespace hospital
         private string doctor_role;
         String MySQLConn = "";
         byte[] ImageData = null;
-        MySqlConnection conn;
+        private string sqlquery = "SELECT * FROM tbdoctor WHERE active = 1 ORDER BY id DESC";
+        //MySqlConnection conn;
 
         public FormDoctor(string doctor_username, string doctor_role)
         {
@@ -76,7 +78,7 @@ namespace hospital
             try
             {
                 conn.Open();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM tbdoctor WHERE active = 1 ORDER BY id DESC", conn);
+                MySqlCommand command = new MySqlCommand(sqlquery, conn);
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable table = new DataTable();
@@ -358,7 +360,9 @@ namespace hospital
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-
+            FormReport report = new FormReport(doctor_username, doctor_role, FormReport._ReportType.Doctor, sqlquery);
+            report.Show();
+            this.Hide();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

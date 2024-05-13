@@ -15,7 +15,8 @@ namespace hospital
     {
         private string bed_username;
         private string bed_role;
-        MySqlConnection conn;
+        private string sqlquery = "SELECT * FROM tbbed WHERE active = 1 ORDER BY id DESC";
+        //MySqlConnection conn;
         String MySQLConn = "";
         public FormBed(string bed_username, string bed_role)
         {
@@ -75,7 +76,7 @@ namespace hospital
             try
             {
                 conn.Open();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM tbbed WHERE active = 1 ORDER BY id DESC", conn);
+                MySqlCommand command = new MySqlCommand(sqlquery, conn);
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable table = new DataTable();
@@ -166,7 +167,7 @@ namespace hospital
                 txtID.Enabled = false;
                 int maxId = 0;
                 conn.Open();
-                MySqlCommand command_id = new MySqlCommand("SELECT id FROM tbbed ORDER BY id DESC LIMIT 1", conn);
+                MySqlCommand command_id = new MySqlCommand(sqlquery, conn);
 
                 object result = command_id.ExecuteScalar();
                 maxId = Convert.ToInt32(result);
@@ -335,6 +336,13 @@ namespace hospital
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            FormReport report = new FormReport(bed_username, bed_role, FormReport._ReportType.Bed, sqlquery);
+            report.Show();
+            this.Hide();
         }
     }
 }
