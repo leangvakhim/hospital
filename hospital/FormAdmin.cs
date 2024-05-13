@@ -16,7 +16,7 @@ namespace hospital
         private string admin_username;
         private string admin_role;
         String MySQLConn = "";
-        MySqlConnection conn;
+        //MySqlConnection conn;
         public FormAdmin(string admin_username, string admin_role)
         {
             InitializeComponent();

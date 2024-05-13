@@ -15,7 +15,7 @@ namespace hospital
     {
         private string staff_username;
         private string staff_role;
-        MySqlConnection conn;
+        //MySqlConnection conn;
         String MySQLConn = "";
         public FormStaff(string staff_username, string staff_role)
         {

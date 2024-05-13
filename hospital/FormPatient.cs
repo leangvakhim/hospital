@@ -15,7 +15,8 @@ namespace hospital
     {
         private string patient_username;
         private string patient_role;
-        MySqlConnection conn;
+        private string sqlquery = "SELECT * FROM tbpatient WHERE active = 1 ORDER BY id DESC";
+        //MySqlConnection conn;
         String MySQLConn = "";
         public FormPatient(string patient_username, string patient_role)
         {
@@ -211,7 +212,7 @@ namespace hospital
             try
             {
                 conn.Open();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM tbpatient WHERE active = 1 ORDER BY id DESC", conn);
+                MySqlCommand command = new MySqlCommand(sqlquery, conn);
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable table = new DataTable();
@@ -370,6 +371,13 @@ namespace hospital
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            FormReport report = new FormReport(patient_username, patient_role, FormReport._ReportType.Patient, sqlquery);
+            report.Show();
+            this.Hide();
         }
     }
 }

@@ -90,7 +90,7 @@
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.Location = new System.Drawing.Point(255, 358);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(108, 48);
+            this.btnEdit.Size = new System.Drawing.Size(114, 48);
             this.btnEdit.TabIndex = 118;
             this.btnEdit.TabStop = false;
             this.btnEdit.Text = "Edit";
@@ -104,13 +104,14 @@
             this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReport.Location = new System.Drawing.Point(565, 296);
+            this.btnReport.Location = new System.Drawing.Point(574, 287);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(148, 48);
+            this.btnReport.Size = new System.Drawing.Size(139, 48);
             this.btnReport.TabIndex = 121;
             this.btnReport.Text = "Report";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // btnSearch
             // 
