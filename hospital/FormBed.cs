@@ -60,6 +60,7 @@ namespace hospital
         {
             btnEdit.Enabled = false;
             txtID.Enabled = false;
+            btnRemove.Enabled = false;
             if (bed_role == "View Only")
             {
                 btnEdit.Enabled = false;
@@ -164,7 +165,9 @@ namespace hospital
             {
                 btnSave.Text = "Save";
                 btnEdit.Enabled = false;
+                btnRemove.Enabled = false;
                 txtID.Enabled = false;
+                dateTimeCheckOut.Enabled = false;
                 int maxId = 0;
                 conn.Open();
                 MySqlCommand command_id = new MySqlCommand(sqlquery, conn);
@@ -191,6 +194,7 @@ namespace hospital
                 btnRemove.Enabled = false;
                 btnSave.Enabled = false;
                 btnReport.Enabled = false;
+                dateTimeCheckOut.Enabled=false;
             }
             else if (bed_role == "Create Only")
             {
@@ -313,6 +317,7 @@ namespace hospital
             {
                 btnSave.Text = "New";
                 btnEdit.Enabled = true;
+                btnRemove.Enabled = true;
                 dateTimeCheckOut.Enabled = true;
                 if (bed_role == "View Only")
                 {
@@ -320,6 +325,7 @@ namespace hospital
                     btnRemove.Enabled = false;
                     btnSave.Enabled = false;
                     btnReport.Enabled = false;
+                    dateTimeCheckOut.Enabled = false;
                 }
                 else if (bed_role == "Create Only")
                 {

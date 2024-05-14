@@ -402,6 +402,7 @@ namespace hospital
             txtPassword.Enabled = false;
             try
             {
+                //MessageBox.Show("Hello");
                 btnSave.Text = "New";
                 btnEdit.Enabled = true;
                 int index = dataGridView1.SelectedCells[0].RowIndex;
@@ -429,3 +430,4 @@ namespace hospital
         }
     }
 }
+//test to push code

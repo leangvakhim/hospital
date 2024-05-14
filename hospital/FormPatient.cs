@@ -176,6 +176,7 @@ namespace hospital
                 btnSave.Text = "Save";
                 btnEdit.Enabled = false;
                 txtID.Enabled = false;
+                btnRemove.Enabled = false;
                 int maxId = 0;
                 conn.Open();
                 MySqlCommand command_id = new MySqlCommand("SELECT id FROM tbpatient ORDER BY id DESC LIMIT 1", conn);
@@ -196,6 +197,7 @@ namespace hospital
         {
             btnEdit.Enabled = false;
             txtID.Enabled = false;
+            btnRemove.Enabled = false;
             if (patient_role == "View Only")
             {
                 btnEdit.Enabled = false;
@@ -341,6 +343,7 @@ namespace hospital
             {
                 btnSave.Text = "New";
                 btnEdit.Enabled = true;
+                btnRemove.Enabled = true;
                 if (patient_role == "View Only")
                 {
                     btnEdit.Enabled = false;
