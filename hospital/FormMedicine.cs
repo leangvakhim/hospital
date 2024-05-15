@@ -13,6 +13,7 @@ namespace hospital
 {
     public partial class FormMedicine : Form
     {
+        private string sqlquery = "SELECT * FROM tbmedicine WHERE active = 1 ORDER BY id DESC";
         private string medicine_username;
         private string medicine_role;
         //MySqlConnection conn;
@@ -71,7 +72,7 @@ namespace hospital
             try
             {
                 conn.Open();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM tbmedicine WHERE active = 1 ORDER BY id DESC", conn);
+                MySqlCommand command = new MySqlCommand(sqlquery, conn);
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable table = new DataTable();
@@ -351,6 +352,13 @@ namespace hospital
         private void FormMedicine_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void BtnReport_Click(object sender, EventArgs e)
+        {
+            FormReport report = new FormReport(medicine_username, medicine_role, FormReport._ReportType.Medicine, sqlquery);
+            report.Show();
+            this.Hide();
         }
     }
 }
