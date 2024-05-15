@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -119,8 +119,6 @@ namespace hospital
                     MessageBox.Show("Please enter medicine's price.");
                     return;
                 }
-
-
                 try
                 {
                     BtnEdit.Enabled = false;
@@ -155,9 +153,8 @@ namespace hospital
 
                     txtName.Clear();
                     txtQty.Clear();
-
-
-
+                    txtUnitPrice.Clear();
+                    expiryDate.Value = DateTime.Now;
                     Refresh();
                 }
                 catch (Exception ex)
@@ -185,7 +182,8 @@ namespace hospital
 
                 txtName.Clear();
                 txtQty.Clear();
-
+                txtUnitPrice.Clear();
+                expiryDate.Value = DateTime.Now;
             }
         }
 
@@ -223,6 +221,9 @@ namespace hospital
                 {
                     txtID.Text = table.Rows[0][0].ToString();
                     txtName.Text = table.Rows[0][1].ToString();
+                    txtQty.Text = table.Rows[0][2].ToString();
+                    txtUnitPrice.Text = table.Rows[0][3].ToString();
+                    expiryDate.Value = (DateTime)table.Rows[0][4];
                 }
 
             }
@@ -251,29 +252,30 @@ namespace hospital
                 // check duplicated data
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    if (row.Cells[1].Value.ToString().Equals(txtName.Text))
+                    if (row.Cells[1].Value.ToString().Equals(txtName.Text) && row.Cells[2].Value.ToString().Equals(txtQty.Text) && row.Cells[3].Value.ToString().Equals(txtUnitPrice.Text) && row.Cells[4].Value.Equals(expiryDate.Value))
                     {
-                        MessageBox.Show("This user already assists. Please try again!!!");
+                        MessageBox.Show("This medicine already assists. Please try again!!!");
                         conn.Close();
                         return;
                     }
                 }
                 conn.Open();
                 
-
-                String updateQuery = "UPDATE tbmedicine SET name = @newName, qty = @newQty, unitprice = @newUnitPrice WHERE id = @id";
+                String updateQuery = "UPDATE tbmedicine SET name = @newName, qty = @newQty, unitprice = @newUnitPrice, expirydate = @newExpiryDate WHERE id = @id";
                 MySqlCommand update_command = new MySqlCommand(updateQuery, conn);
 
                 update_command.Parameters.AddWithValue("newName", txtName.Text);
                 update_command.Parameters.AddWithValue("newQty", txtQty.Text);
                 update_command.Parameters.AddWithValue("newUnitPrice", txtUnitPrice.Text);
                 update_command.Parameters.AddWithValue("id", txtID.Text);
+                update_command.Parameters.AddWithValue("newExpiryDate", expiryDate.Value);
 
                 update_command.ExecuteNonQuery();
 
                 txtName.Clear();
                 txtQty.Clear();
                 txtUnitPrice.Clear();
+                expiryDate.Value = DateTime.Now;
                 Refresh();
             }
             catch (Exception ex)
@@ -281,9 +283,6 @@ namespace hospital
                 MessageBox.Show(ex.Message);
             }
             finally { conn.Close(); }
-
-
-
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
