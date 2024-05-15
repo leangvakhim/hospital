@@ -62,12 +62,14 @@ namespace hospital
         {
             btnEdit.Enabled = false;
             txtID.Enabled = false;
+            btnRemove.Enabled = false;
             if (doctor_role == "View Only")
             {
                 btnEdit.Enabled = false;
                 btnRemove.Enabled = false;
                 btnSave.Enabled = false;
                 btnReport.Enabled = false;
+                btnBrowse.Enabled = false;
             }
             else if (doctor_role == "Create Only")
             {
@@ -184,6 +186,7 @@ namespace hospital
             {
                 btnSave.Text = "Save";
                 btnEdit.Enabled = false;
+                btnRemove.Enabled = false;
                 txtID.Enabled = false;
                 int maxId = 0;
                 conn.Open();
@@ -371,6 +374,7 @@ namespace hospital
             {
                 btnSave.Text = "New";
                 btnEdit.Enabled = true;
+                btnRemove.Enabled = true;
                 if (doctor_role == "View Only")
                 {
                     btnEdit.Enabled = false;
