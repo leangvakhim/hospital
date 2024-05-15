@@ -17,7 +17,7 @@ namespace hospital
 {
     public partial class FormReport : Form
     {
-        public enum _ReportType { Doctor, Bed, Patient, Staff, Ambulance };
+        public enum _ReportType { Doctor, Bed, Patient, Staff, Ambulance, Medicine };
 
         private string doctor_username;
         private string doctor_role;
@@ -46,6 +46,9 @@ namespace hospital
                     case _ReportType.Patient:
                         LoadData(sqlquery, "tbpatient", "Reports\\PatientReport.rdlc");
                         break;
+                    case _ReportType.Medicine:
+                        LoadData(sqlquery, "tbmedicine", "Reports\\MedicineReport.rdlc");
+                        break;
                 }
             }
             catch (Exception ex)
@@ -70,7 +73,7 @@ namespace hospital
             try
             {
                 DataSet ds = new DataSet();
-                if (type == _ReportType.Bed && ds.Tables[tablename].Columns.Contains("checkIn") && ds.Tables[tablename].Columns.Contains("checkOut"))
+                /*if (type == _ReportType.Bed && ds.Tables[tablename].Columns.Contains("checkIn") && ds.Tables[tablename].Columns.Contains("checkOut"))
                 {
                     foreach (DataRow row in ds.Tables[tablename].Rows)
                     {
@@ -79,7 +82,7 @@ namespace hospital
                         row.AcceptChanges();
                         
                     }
-                }
+                }*/
 
                 using (MySqlConnection con = new MySqlConnection(MySQLConn))
                 {
@@ -115,16 +118,16 @@ namespace hospital
             switch(type)
             {
                 case _ReportType.Doctor:
-                    form = new FormDoctor(doctor_username, doctor_role);
-                    FormChange(form);
+                    FormChange(new FormDoctor(doctor_username, doctor_role));
                     break;
                 case _ReportType.Bed:
-                    form = new FormBed(doctor_username, doctor_role);
-                    FormChange(form);
+                    FormChange(new FormBed(doctor_username, doctor_role));
                     break;
                 case _ReportType.Patient:
-                    form = new FormPatient(doctor_username, doctor_role);
-                    FormChange(form);
+                    FormChange(new FormPatient(doctor_username, doctor_role));
+                    break;
+                case _ReportType.Medicine:
+                    FormChange(new FormMedicine(doctor_username, doctor_role));
                     break;
             }
         }
