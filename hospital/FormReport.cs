@@ -73,6 +73,16 @@ namespace hospital
             try
             {
                 DataSet ds = new DataSet();
+                /*if (type == _ReportType.Bed && ds.Tables[tablename].Columns.Contains("checkIn") && ds.Tables[tablename].Columns.Contains("checkOut"))
+                {
+                    foreach (DataRow row in ds.Tables[tablename].Rows)
+                    {
+                        DateTime checkIn = row.Field<DateTime>("checkIn");
+                        DateTime checkOut = row.Field<DateTime>("checkOut");
+                        row.AcceptChanges();
+                        
+                    }
+                }*/
 
                 using (MySqlConnection con = new MySqlConnection(MySQLConn))
                 {
