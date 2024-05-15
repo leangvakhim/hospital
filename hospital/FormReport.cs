@@ -92,7 +92,6 @@ namespace hospital
                     da.Fill(ds, tablename);
                     con.Close();
                 }
-
                 string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
                 DirectoryInfo directoryInfo = new DirectoryInfo(baseDirectory);
                 DirectoryInfo targetDirectoryInfo = directoryInfo.Parent.Parent.Parent;
