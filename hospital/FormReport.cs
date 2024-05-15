@@ -38,16 +38,16 @@ namespace hospital
                 switch (type)
                 {
                     case _ReportType.Doctor:
-                        LoadData(sqlquery, "tbdoctor", "Reports\\Report.rdlc");
+                        LoadData(sqlquery, "tbdoctor", "hospital\\Report.rdlc");
                         break;
                     case _ReportType.Bed:
-                        LoadData(sqlquery, "tbbed", "Reports\\BedReport.rdlc");
+                        LoadData(sqlquery, "tbbed", "hospital\\BedReport.rdlc");
                         break;
                     case _ReportType.Patient:
-                        LoadData(sqlquery, "tbpatient", "Reports\\PatientReport.rdlc");
+                        LoadData(sqlquery, "tbpatient", "hospital\\PatientReport.rdlc");
                         break;
                     case _ReportType.Medicine:
-                        LoadData(sqlquery, "tbmedicine", "Reports\\MedicineReport.rdlc");
+                        LoadData(sqlquery, "tbmedicine", "hospital\\MedicineReport.rdlc");
                         break;
                 }
             }
@@ -92,8 +92,10 @@ namespace hospital
                     da.Fill(ds, tablename);
                     con.Close();
                 }
-
-                string exeFolder = Path.GetDirectoryName(Application.ExecutablePath);
+                string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                DirectoryInfo directoryInfo = new DirectoryInfo(baseDirectory);
+                DirectoryInfo targetDirectoryInfo = directoryInfo.Parent.Parent.Parent;
+                string exeFolder = targetDirectoryInfo.FullName;
                 string reportPathFile = Path.Combine(exeFolder, reportPath);
                 reportViewer1.LocalReport.DataSources.Clear();
 
