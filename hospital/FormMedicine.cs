@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -261,7 +261,6 @@ namespace hospital
                 }
                 conn.Open();
                 
-
                 String updateQuery = "UPDATE tbmedicine SET name = @newName, qty = @newQty, unitprice = @newUnitPrice, expirydate = @newExpiryDate WHERE id = @id";
                 MySqlCommand update_command = new MySqlCommand(updateQuery, conn);
 

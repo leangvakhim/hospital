@@ -1,4 +1,4 @@
-﻿namespace hospital
+namespace hospital
 {
     partial class FormMedicine
     {

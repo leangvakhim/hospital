@@ -93,7 +93,6 @@ namespace hospital
                     con.Close();
                 }
 
-
                 string exeFolder = Path.GetDirectoryName(Application.ExecutablePath);
                 string reportPathFile = Path.Combine(exeFolder, reportPath);
                 reportViewer1.LocalReport.DataSources.Clear();

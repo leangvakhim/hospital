@@ -333,6 +333,13 @@
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
+                            <TextRun>
+                              <Value> $</Value>
+                              <Style>
+                                <FontFamily>Khmer OS Siemreap</FontFamily>
+                                <FontSize>12pt</FontSize>
+                              </Style>
+                            </TextRun>
                           </TextRuns>
                           <Style>
                             <TextAlign>Center</TextAlign>
@@ -367,6 +374,7 @@
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <Format>dd/MM/yyyy</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -416,7 +424,7 @@
         <DataSetName>DataSet</DataSetName>
         <Top>0.05556in</Top>
         <Height>1.94444in</Height>
-        <Width>7.51042in</Width>
+        <Width>7.51041in</Width>
         <Style>
           <Border>
             <Style>None</Style>
