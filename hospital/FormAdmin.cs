@@ -64,6 +64,10 @@ namespace hospital
                     MessageBox.Show("Please enter name.");
                     txtName.Focus();
                     return;
+                }else if (txtName.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
+                    return;
                 }
                 else if (txtPassword.Text == "")
                 {
@@ -210,6 +214,11 @@ namespace hospital
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (txtName.ForeColor == System.Drawing.Color.Red)
+            {
+                MessageBox.Show("No Special Character enter.");
+                return;
+            }
             btnSave.Text = "New";
             btnEdit.Enabled = true;
             txtPassword.Enabled = false;
@@ -272,6 +281,11 @@ namespace hospital
             MySqlConnection conn = new MySqlConnection(MySQLConn);
             try
             {
+                if (txtName.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
+                    return;
+                }
                 btnSave.Text = "New";
                 txtPassword.Enabled = false;
                 txtConfirmPassword.Enabled = false;
@@ -428,6 +442,35 @@ namespace hospital
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnLog_Click(object sender, EventArgs e)
+        {
+            FormRecordLog formRecordLog = new FormRecordLog(admin_username, admin_role);
+            formRecordLog.Show();
+            this.Hide();
+        }
+        
+        private bool ContainsSpecialCharacters(string text)
+        {
+            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+            return text.Any(c => !allowedCharacters.Contains(c));
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            if (ContainsSpecialCharacters(txtName.Text))
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.Color.White;
+                txtName.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.SystemColors.Window;
+                txtName.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
+        }
     }
 }
-//test to push code

@@ -57,7 +57,7 @@ namespace hospital
             this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
             this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReturn.Location = new System.Drawing.Point(1444, 4);
-            this.btnReturn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnReturn.Margin = new System.Windows.Forms.Padding(6);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(150, 56);
             this.btnReturn.TabIndex = 112;
@@ -84,9 +84,9 @@ namespace hospital
             this.LbId.Location = new System.Drawing.Point(98, 117);
             this.LbId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LbId.Name = "LbId";
-            this.LbId.Size = new System.Drawing.Size(96, 63);
+            this.LbId.Size = new System.Drawing.Size(81, 63);
             this.LbId.TabIndex = 114;
-            this.LbId.Text = "ID:";
+            this.LbId.Text = "ID";
             // 
             // LbName
             // 
@@ -95,31 +95,31 @@ namespace hospital
             this.LbName.Location = new System.Drawing.Point(98, 198);
             this.LbName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LbName.Name = "LbName";
-            this.LbName.Size = new System.Drawing.Size(186, 63);
+            this.LbName.Size = new System.Drawing.Size(171, 63);
             this.LbName.TabIndex = 115;
-            this.LbName.Text = "Name:";
+            this.LbName.Text = "Name";
             // 
             // LbQty
             // 
             this.LbQty.AutoSize = true;
             this.LbQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbQty.Location = new System.Drawing.Point(98, 281);
+            this.LbQty.Location = new System.Drawing.Point(98, 277);
             this.LbQty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LbQty.Name = "LbQty";
-            this.LbQty.Size = new System.Drawing.Size(126, 63);
+            this.LbQty.Size = new System.Drawing.Size(111, 63);
             this.LbQty.TabIndex = 116;
-            this.LbQty.Text = "Qty:";
+            this.LbQty.Text = "Qty";
             // 
             // LbUnitPrice
             // 
             this.LbUnitPrice.AutoSize = true;
             this.LbUnitPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbUnitPrice.Location = new System.Drawing.Point(98, 354);
+            this.LbUnitPrice.Location = new System.Drawing.Point(98, 362);
             this.LbUnitPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LbUnitPrice.Name = "LbUnitPrice";
-            this.LbUnitPrice.Size = new System.Drawing.Size(277, 63);
+            this.LbUnitPrice.Size = new System.Drawing.Size(262, 63);
             this.LbUnitPrice.TabIndex = 117;
-            this.LbUnitPrice.Text = "Unit Price:";
+            this.LbUnitPrice.Text = "Unit Price";
             // 
             // LbExpiryDate
             // 
@@ -128,15 +128,15 @@ namespace hospital
             this.LbExpiryDate.Location = new System.Drawing.Point(98, 446);
             this.LbExpiryDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LbExpiryDate.Name = "LbExpiryDate";
-            this.LbExpiryDate.Size = new System.Drawing.Size(321, 63);
+            this.LbExpiryDate.Size = new System.Drawing.Size(306, 63);
             this.LbExpiryDate.TabIndex = 118;
-            this.LbExpiryDate.Text = "Expiry Date:";
+            this.LbExpiryDate.Text = "Expiry Date";
             // 
             // txtID
             // 
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.Location = new System.Drawing.Point(572, 106);
-            this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Multiline = true;
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(565, 67);
@@ -146,31 +146,34 @@ namespace hospital
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(572, 188);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(565, 67);
             this.txtName.TabIndex = 120;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtQty
             // 
             this.txtQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQty.Location = new System.Drawing.Point(572, 269);
-            this.txtQty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQty.Margin = new System.Windows.Forms.Padding(4);
             this.txtQty.Multiline = true;
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(565, 67);
             this.txtQty.TabIndex = 121;
+            this.txtQty.TextChanged += new System.EventHandler(this.txtQty_TextChanged);
             // 
             // txtUnitPrice
             // 
             this.txtUnitPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUnitPrice.Location = new System.Drawing.Point(572, 344);
-            this.txtUnitPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUnitPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtUnitPrice.Multiline = true;
             this.txtUnitPrice.Name = "txtUnitPrice";
             this.txtUnitPrice.Size = new System.Drawing.Size(565, 67);
             this.txtUnitPrice.TabIndex = 122;
+            this.txtUnitPrice.TextChanged += new System.EventHandler(this.txtUnitPrice_TextChanged);
             // 
             // expiryDate
             // 
@@ -178,8 +181,8 @@ namespace hospital
             this.expiryDate.CustomFormat = "dd-MM-yyyy";
             this.expiryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expiryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.expiryDate.Location = new System.Drawing.Point(572, 437);
-            this.expiryDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.expiryDate.Location = new System.Drawing.Point(572, 441);
+            this.expiryDate.Margin = new System.Windows.Forms.Padding(4);
             this.expiryDate.Name = "expiryDate";
             this.expiryDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.expiryDate.Size = new System.Drawing.Size(565, 68);
@@ -191,7 +194,7 @@ namespace hospital
             this.BtnSave.Image = ((System.Drawing.Image)(resources.GetObject("BtnSave.Image")));
             this.BtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSave.Location = new System.Drawing.Point(88, 558);
-            this.BtnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnSave.Margin = new System.Windows.Forms.Padding(4);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(239, 94);
             this.BtnSave.TabIndex = 124;
@@ -206,7 +209,7 @@ namespace hospital
             this.BtnSearch.Image = ((System.Drawing.Image)(resources.GetObject("BtnSearch.Image")));
             this.BtnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSearch.Location = new System.Drawing.Point(627, 558);
-            this.BtnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Size = new System.Drawing.Size(265, 94);
             this.BtnSearch.TabIndex = 125;
@@ -221,7 +224,7 @@ namespace hospital
             this.BtnEdit.Image = ((System.Drawing.Image)(resources.GetObject("BtnEdit.Image")));
             this.BtnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnEdit.Location = new System.Drawing.Point(360, 558);
-            this.BtnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.BtnEdit.Name = "BtnEdit";
             this.BtnEdit.Size = new System.Drawing.Size(222, 94);
             this.BtnEdit.TabIndex = 126;
@@ -237,7 +240,7 @@ namespace hospital
             this.BtnRemove.Image = ((System.Drawing.Image)(resources.GetObject("BtnRemove.Image")));
             this.BtnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnRemove.Location = new System.Drawing.Point(933, 558);
-            this.BtnRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnRemove.Margin = new System.Windows.Forms.Padding(4);
             this.BtnRemove.Name = "BtnRemove";
             this.BtnRemove.Size = new System.Drawing.Size(296, 94);
             this.BtnRemove.TabIndex = 127;
@@ -252,7 +255,7 @@ namespace hospital
             this.BtnReport.Image = ((System.Drawing.Image)(resources.GetObject("BtnReport.Image")));
             this.BtnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnReport.Location = new System.Drawing.Point(1256, 558);
-            this.BtnReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnReport.Margin = new System.Windows.Forms.Padding(4);
             this.BtnReport.Name = "BtnReport";
             this.BtnReport.Size = new System.Drawing.Size(262, 94);
             this.BtnReport.TabIndex = 128;
@@ -265,7 +268,7 @@ namespace hospital
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(88, 684);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
@@ -298,7 +301,7 @@ namespace hospital
             this.Controls.Add(this.LbId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReturn);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormMedicine";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMedicine";

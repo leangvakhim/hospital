@@ -55,7 +55,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(173, 651);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.Size = new System.Drawing.Size(1144, 325);
@@ -69,7 +69,7 @@
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.Location = new System.Drawing.Point(1387, 306);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(6);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(267, 92);
             this.btnEdit.TabIndex = 120;
@@ -88,7 +88,7 @@
             this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
             this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReset.Location = new System.Drawing.Point(1387, 742);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(6);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(267, 92);
             this.btnReset.TabIndex = 123;
@@ -108,7 +108,7 @@
             "Create Only",
             "Super Admin"});
             this.cbPosition.Location = new System.Drawing.Point(850, 171);
-            this.cbPosition.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbPosition.Margin = new System.Windows.Forms.Padding(6);
             this.cbPosition.Name = "cbPosition";
             this.cbPosition.Size = new System.Drawing.Size(464, 75);
             this.cbPosition.TabIndex = 106;
@@ -128,7 +128,7 @@
             // 
             this.txtConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirmPassword.Location = new System.Drawing.Point(662, 535);
-            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(6);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(652, 74);
             this.txtConfirmPassword.TabIndex = 109;
@@ -141,7 +141,7 @@
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearch.Location = new System.Drawing.Point(1387, 448);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(6);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(267, 92);
             this.btnSearch.TabIndex = 121;
@@ -159,7 +159,7 @@
             this.btnRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.Image")));
             this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRemove.Location = new System.Drawing.Point(1387, 595);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(6);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(267, 92);
             this.btnRemove.TabIndex = 122;
@@ -175,7 +175,7 @@
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(1387, 165);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(6);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(267, 92);
             this.btnSave.TabIndex = 119;
@@ -188,7 +188,7 @@
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(662, 417);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(6);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(652, 74);
             this.txtPassword.TabIndex = 108;
@@ -220,10 +220,11 @@
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(662, 288);
-            this.txtName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtName.Margin = new System.Windows.Forms.Padding(6);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(652, 74);
             this.txtName.TabIndex = 107;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // labelUsername
             // 
@@ -240,7 +241,7 @@
             // 
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.Location = new System.Drawing.Point(296, 163);
-            this.txtID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtID.Margin = new System.Windows.Forms.Padding(6);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(228, 74);
             this.txtID.TabIndex = 118;
@@ -263,7 +264,7 @@
             this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
             this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReturn.Location = new System.Drawing.Point(1585, 1);
-            this.btnReturn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnReturn.Margin = new System.Windows.Forms.Padding(6);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(150, 56);
             this.btnReturn.TabIndex = 111;
@@ -304,6 +305,7 @@
             this.btnLog.Text = "Record";
             this.btnLog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLog.UseVisualStyleBackColor = false;
+            this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
             // 
             // FormAdmin
             // 
@@ -329,7 +331,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.labelTitle);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormAdmin";
             this.Text = "FormAdmin";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAdmin_FormClosed);

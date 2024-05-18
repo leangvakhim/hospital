@@ -55,8 +55,12 @@ namespace hospital
             MySqlConnection conn = new MySqlConnection(MySQLConn);
             try
             {
+                if (txtName.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
+                    return;
+                }
                 btnSave.Text = "New";
-
                 // check duplicated data
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
@@ -110,6 +114,10 @@ namespace hospital
                 if (txtName.Text == "")
                 {
                     MessageBox.Show("Please enter patient's name.");
+                    return;
+                }else if(txtName.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
                     return;
                 }
                 else if (txtaddress.Text == "")
@@ -248,6 +256,11 @@ namespace hospital
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (txtName.ForeColor == System.Drawing.Color.Red)
+            {
+                MessageBox.Show("No Special Character enter.");
+                return;
+            }
             btnSave.Text = "New";
             btnEdit.Enabled = true;
             if (patient_role == "View Only")
@@ -381,6 +394,29 @@ namespace hospital
             FormReport report = new FormReport(patient_username, patient_role, FormReport._ReportType.Patient, sqlquery);
             report.Show();
             this.Hide();
+        }
+
+        private bool ContainsSpecialCharacters(string text)
+        {
+            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+            return text.Any(c => !allowedCharacters.Contains(c));
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            if (ContainsSpecialCharacters(txtName.Text))
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.Color.White;
+                txtName.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.SystemColors.Window;
+                txtName.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
         }
     }
 }

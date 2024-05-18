@@ -82,7 +82,6 @@ namespace hospital
             Application.Exit();
         }
 
-
         private void linklableChangePassword_MouseClick(object sender, MouseEventArgs e)
         {
             FormChangePassword formChangePassword = new FormChangePassword();

@@ -114,6 +114,10 @@ namespace hospital
                 {
                     MessageBox.Show("Please enter name.");
                     return;
+                }else if(txtName.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
+                    return;
                 }
                 try
                 {
@@ -185,6 +189,11 @@ namespace hospital
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (txtName.ForeColor == System.Drawing.Color.Red)
+            {
+                MessageBox.Show("No Special Character enter.");
+                return;
+            }
             btnSave.Text = "New";
             btnEdit.Enabled = true;
             dateTimeCheckOut.Enabled = true;
@@ -242,8 +251,12 @@ namespace hospital
             MySqlConnection conn = new MySqlConnection(MySQLConn);
             try
             {
+                if (txtName.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
+                    return;
+                }
                 btnSave.Text = "New";
-
                 // check duplicated data
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
@@ -264,9 +277,11 @@ namespace hospital
 
                 update_command.Parameters.AddWithValue("newName", txtName.Text);
                 update_command.Parameters.AddWithValue("newCheckIn", CheckInDate);
-                update_command.Parameters.AddWithValue("newCheckOut", CheckOutDate);
                 update_command.Parameters.AddWithValue("id", txtID.Text);
-
+                if(CheckInDate == CheckOutDate)
+                    update_command.Parameters.AddWithValue("newCheckOut", "0001-01-01");
+                else
+                    update_command.Parameters.AddWithValue("newCheckOut", CheckOutDate);
                 update_command.ExecuteNonQuery();
 
                 txtName.Clear();
@@ -337,6 +352,11 @@ namespace hospital
                 txtID.Text = selectedRow.Cells[0].Value.ToString();
                 txtName.Text = selectedRow.Cells[1].Value.ToString();
                 dateTimeCheckIn.Value = (DateTime)selectedRow.Cells[2].Value;
+                DateTime checkout = (DateTime)selectedRow.Cells[3].Value;
+                if (checkout.ToString().Equals("1/1/0001 12:00:00 AM"))
+                    dateTimeCheckOut.Value = DateTime.Now;
+                else
+                    dateTimeCheckOut.Value = (DateTime)selectedRow.Cells[3].Value;
             }
             catch (Exception ex)
             {
@@ -349,6 +369,29 @@ namespace hospital
             FormReport report = new FormReport(bed_username, bed_role, FormReport._ReportType.Bed, sqlquery);
             report.Show();
             this.Hide();
+        }
+
+        private bool ContainsSpecialCharacters(string text)
+        {
+            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+            return text.Any(c => !allowedCharacters.Contains(c));
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            if (ContainsSpecialCharacters(txtName.Text))
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.Color.White;
+                txtName.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.SystemColors.Window;
+                txtName.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
         }
     }
 }

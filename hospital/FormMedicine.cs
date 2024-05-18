@@ -107,15 +107,27 @@ namespace hospital
                 {
                     MessageBox.Show("Please enter medicine's name.");
                     return;
+                }else if(txtName.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
+                    return;
                 }
                 else if (txtQty.Text == "")
                 {
                     MessageBox.Show("Please enter qty.");
                     return;
+                }else if (txtQty.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character or Character enter.");
+                    return;
                 }
                 else if (txtUnitPrice.Text == "")
                 {
                     MessageBox.Show("Please enter medicine's price.");
+                    return;
+                }else if (txtUnitPrice.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character or Character enter.");
                     return;
                 }
                 try
@@ -189,6 +201,11 @@ namespace hospital
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (txtName.ForeColor == System.Drawing.Color.Red)
+            {
+                MessageBox.Show("No Special Character enter.");
+                return;
+            }
             BtnSave.Text = "New";
             BtnEdit.Enabled = true;
             BtnRemove.Enabled = true;
@@ -248,8 +265,20 @@ namespace hospital
             MySqlConnection conn = new MySqlConnection(MySQLConn);
             try
             {
+                if (txtName.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
+                    return;
+                }else if (txtQty.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character or Character enter.");
+                    return;
+                }else if (txtUnitPrice.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character or Character enter.");
+                    return;
+                }
                 BtnSave.Text = "New";
-
                 // check duplicated data
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
@@ -363,6 +392,75 @@ namespace hospital
             FormReport report = new FormReport(medicine_username, medicine_role, FormReport._ReportType.Medicine, sqlquery);
             report.Show();
             this.Hide();
+        }
+
+        private bool ContainsSpecialCharacters(string text)
+        {
+            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+            return text.Any(c => !allowedCharacters.Contains(c));
+        }
+
+        private bool QtyAllowed(string text)
+        {
+            string allowedCharacters = "0123456789";
+
+            return text.Any(c => !allowedCharacters.Contains(c));
+        }
+
+        private bool PriceAllowed(string text)
+        {
+            string allowedCharacters = ".0123456789";
+
+            return text.Any(c => !allowedCharacters.Contains(c));
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            if (ContainsSpecialCharacters(txtName.Text))
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.Color.White;
+                txtName.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.SystemColors.Window;
+                txtName.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
+        }
+
+        private void txtQty_TextChanged(object sender, EventArgs e)
+        {
+            if (QtyAllowed(txtQty.Text))
+            {
+                txtQty.BorderStyle = BorderStyle.FixedSingle;
+                txtQty.BackColor = System.Drawing.Color.White;
+                txtQty.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                txtQty.BorderStyle = BorderStyle.FixedSingle;
+                txtQty.BackColor = System.Drawing.SystemColors.Window;
+                txtQty.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
+        }
+
+        private void txtUnitPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (PriceAllowed(txtUnitPrice.Text))
+            {
+                txtUnitPrice.BorderStyle = BorderStyle.FixedSingle;
+                txtUnitPrice.BackColor = System.Drawing.Color.White;
+                txtUnitPrice.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                txtUnitPrice.BorderStyle = BorderStyle.FixedSingle;
+                txtUnitPrice.BackColor = System.Drawing.SystemColors.Window;
+                txtUnitPrice.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
         }
     }
 }

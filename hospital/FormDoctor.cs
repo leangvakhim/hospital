@@ -10,6 +10,8 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace hospital
 {
@@ -44,7 +46,7 @@ namespace hospital
 
         private void FormDoctor_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -120,10 +122,23 @@ namespace hospital
                 {
                     MessageBox.Show("Please enter name.");
                     return;
-                }
-                else if (txtspecialization.Text == "")
+                }else if(txtName.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
+                    return;
+                }else if (txtspecialization.Text == "")
                 {
                     MessageBox.Show("Please enter specialization.");
+                    return;
+                }
+                else if (txtphone.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
+                    return;
+                }
+                else if (txtspecialization.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
                     return;
                 }
                 else if (pictureBox1.Image == null)
@@ -207,6 +222,11 @@ namespace hospital
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (txtName.ForeColor == System.Drawing.Color.Red)
+            {
+                MessageBox.Show("No Special Character enter.");
+                return;
+            }
             btnSave.Text = "New";
             btnEdit.Enabled = true;
             if (doctor_role == "View Only")
@@ -244,7 +264,7 @@ namespace hospital
 
                     Byte[] img = (Byte[])table.Rows[0][4];
                     MemoryStream ms = new MemoryStream(img);
-                    pictureBox1.Image = Image.FromStream(ms);
+                    pictureBox1.Image = System.Drawing.Image.FromStream(ms);
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
             }
@@ -300,6 +320,19 @@ namespace hospital
             MySqlConnection conn = new MySqlConnection(MySQLConn);
             try
             {
+                if (txtName.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
+                    return;
+                }else if (txtphone.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
+                    return;
+                }else if (txtspecialization.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
+                    return;
+                }
                 btnSave.Text = "New";
 
                 MemoryStream ms = new MemoryStream();
@@ -352,7 +385,7 @@ namespace hospital
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
+                    pictureBox1.Image = System.Drawing.Image.FromFile(openFileDialog1.FileName);
                 }
             }
             catch (Exception ex)
@@ -396,12 +429,67 @@ namespace hospital
 
                 Byte[] img = (Byte[])dataGridView1.CurrentRow.Cells[4].Value;
                 MemoryStream ms = new MemoryStream(img);
-                pictureBox1.Image = Image.FromStream(ms);
+                pictureBox1.Image = System.Drawing.Image.FromStream(ms);
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private bool ContainsSpecialCharacters(string text)
+        {
+            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+            return text.Any(c => !allowedCharacters.Contains(c));
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            if (ContainsSpecialCharacters(txtName.Text))
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.Color.White;
+                txtName.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.SystemColors.Window;
+                txtName.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
+        }
+
+        private void txtphone_TextChanged(object sender, EventArgs e)
+        {
+            if (ContainsSpecialCharacters(txtphone.Text))
+            {
+                txtphone.BorderStyle = BorderStyle.FixedSingle;
+                txtphone.BackColor = System.Drawing.Color.White;
+                txtphone.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                txtphone.BorderStyle = BorderStyle.FixedSingle;
+                txtphone.BackColor = System.Drawing.SystemColors.Window;
+                txtphone.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
+        }
+
+        private void txtspecialization_TextChanged(object sender, EventArgs e)
+        {
+            if (ContainsSpecialCharacters(txtspecialization.Text))
+            {
+                txtspecialization.BorderStyle = BorderStyle.FixedSingle;
+                txtspecialization.BackColor = System.Drawing.Color.White;
+                txtspecialization.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                txtspecialization.BorderStyle = BorderStyle.FixedSingle;
+                txtspecialization.BackColor = System.Drawing.SystemColors.Window;
+                txtspecialization.ForeColor = System.Drawing.SystemColors.WindowText;
             }
         }
     }
