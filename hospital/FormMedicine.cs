@@ -45,8 +45,6 @@ namespace hospital
             this.Hide();
         }
 
-
-
         private void FormMedicine_Load(object sender, EventArgs e)
         {
             Refresh();
@@ -56,6 +54,7 @@ namespace hospital
         {
             BtnEdit.Enabled = false;
             txtID.Enabled = false;
+            BtnRemove.Enabled = false;
             if (medicine_role == "View Only")
             {
                 BtnEdit.Enabled = false;
@@ -170,6 +169,7 @@ namespace hospital
             {
                 BtnSave.Text = "Save";
                 BtnEdit.Enabled = false;
+                BtnRemove.Enabled = false;
                 txtID.Enabled = false;
                 int maxId = 0;
                 conn.Open();
@@ -191,6 +191,7 @@ namespace hospital
         {
             BtnSave.Text = "New";
             BtnEdit.Enabled = true;
+            BtnRemove.Enabled = true;
             if (medicine_role == "View Only")
             {
                 BtnEdit.Enabled = false;
@@ -305,6 +306,9 @@ namespace hospital
                 txtName.Clear();
                 txtQty.Clear();
                 txtUnitPrice.Clear();
+                expiryDate.Value = DateTime.Now;
+                BtnEdit.Enabled = false;
+                BtnRemove.Enabled = false;
 
                 Refresh();
             }
@@ -321,6 +325,7 @@ namespace hospital
             {
                 BtnSave.Text = "New";
                 BtnEdit.Enabled = true;
+                BtnRemove.Enabled = true;
                 if (medicine_role == "View Only")
                 {
                     BtnEdit.Enabled = false;

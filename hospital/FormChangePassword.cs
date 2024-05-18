@@ -8,8 +8,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace hospital
 {
@@ -18,7 +20,7 @@ namespace hospital
         String MySQLConn = "";
         MySqlConnection conn;
         MySqlCommand command;
-        Boolean correct = false;
+        Boolean correct;
         public FormChangePassword()
         {
             InitializeComponent();
@@ -48,11 +50,19 @@ namespace hospital
             try
             {
                 conn.Open();
-                MySqlCommand command = new MySqlCommand("SELECT name, password FROM tbadmin WHERE active = 1 AND name = @Name AND password = @Password", conn);
-
-                command.Parameters.AddWithValue("@Name", txtusername.Text);
-                command.Parameters.AddWithValue("@Password", txtoldpassoword.Text);
-                correct = true;
+                MySqlCommand command = new MySqlCommand("SELECT name, password FROM tbadmin WHERE active = 1", conn);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string Name = reader.GetString("name");
+                    string Password = reader.GetString("password");
+                    if (txtusername.Text == Name && txtoldpassoword.Text == Password)
+                    {
+                        correct = true;
+                        break;
+                    }
+                    correct = false;
+                } 
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); correct = false; }
             finally { conn.Close(); }
@@ -75,7 +85,7 @@ namespace hospital
                         update_command.Parameters.AddWithValue("name", txtusername.Text);
 
                         update_command.ExecuteNonQuery();
-                        MessageBox.Show("Success");
+                        MessageBox.Show("Your Password has been changed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         txtusername.Clear();
                         txtconfirmpassword.Clear();
@@ -84,12 +94,12 @@ namespace hospital
                     }
                     else
                     {
-                        MessageBox.Show("Incorrect Confirm Password. Please try again.");
+                        MessageBox.Show("Incorrect Confirm Password. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Invalid username or password. Please try again.");
+                    MessageBox.Show("Invalid username or password. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
