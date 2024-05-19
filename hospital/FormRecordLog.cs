@@ -92,8 +92,8 @@ namespace hospital
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            DateTime StartDate = startDate.Value.Date; // Get the date part only
-            DateTime EndDate = endDate.Value.Date.AddDays(1).AddTicks(-1); // Get the end of the end date
+            DateTime StartDate = startDate.Value.Date;
+            DateTime EndDate = endDate.Value.Date.AddDays(1).AddTicks(-1);
 
             string searchQuery = "SELECT * FROM tbrecord WHERE actionDateTime BETWEEN @StartDate AND @EndDate ORDER BY userID DESC";
 
