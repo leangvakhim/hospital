@@ -54,7 +54,7 @@ namespace hospital
 
         private void FormRecordLog_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(MySQLConn);
+            conn = new MySqlConnection(MySQLConn);
             try
             {
                 conn.Open();
@@ -86,9 +86,55 @@ namespace hospital
             }
             finally
             {
-                conn.Close(); // Always close connection after usage
+                conn.Close();
             }
-
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            DateTime StartDate = startDate.Value.Date; // Get the date part only
+            DateTime EndDate = endDate.Value.Date.AddDays(1).AddTicks(-1); // Get the end of the end date
+
+            string searchQuery = "SELECT * FROM tbrecord WHERE actionDateTime BETWEEN @StartDate AND @EndDate ORDER BY userID DESC";
+
+            //MessageBox.Show(StartDate.ToString() + "\n" + EndDate.ToString());
+            using (MySqlConnection conn = new MySqlConnection(MySQLConn))
+            {
+                using (MySqlCommand command = new MySqlCommand(searchQuery, conn))
+                {
+                    command.Parameters.AddWithValue("@StartDate", StartDate);
+                    command.Parameters.AddWithValue("@EndDate", EndDate);
+
+                    try
+                    {
+                        conn.Open();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+
+                        // Setting DataGridView properties
+                        dataGridView1.AutoGenerateColumns = true;
+                        dataGridView1.DataSource = table;
+
+                        dataGridView1.Columns[0].HeaderText = "ID";
+                        dataGridView1.Columns[1].HeaderText = "Name";
+                        dataGridView1.Columns[2].HeaderText = "Position";
+                        dataGridView1.Columns[3].HeaderText = "Action";
+                        dataGridView1.Columns[4].HeaderText = "Form";
+                        dataGridView1.Columns[7].HeaderText = "Date&Time";
+
+                        dataGridView1.RowTemplate.Height = 30;
+                        dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                        dataGridView1.AllowUserToAddRows = false;
+                        dataGridView1.ReadOnly = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+        }
+
     }
 }
