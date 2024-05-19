@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 using System.Windows.Forms;
 
 namespace hospital
@@ -16,6 +17,9 @@ namespace hospital
         private string admin_username;
         private string admin_role;
         String MySQLConn = "";
+        MySqlConnection conn;
+        MySqlCommand command;
+        Boolean buttonSave, buttonEdit, buttonRemove, buttonSearch, buttonReset;
         //MySqlConnection conn;
         public FormAdmin(string admin_username, string admin_role)
         {
@@ -56,7 +60,8 @@ namespace hospital
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(MySQLConn);
+            conn = new MySqlConnection(MySQLConn);
+            buttonSave = true;
             if (btnSave.Text == "Save")
             {
                 if (txtName.Text == "")
@@ -132,6 +137,7 @@ namespace hospital
                     command.Parameters.AddWithValue("position", position);
                     command.Parameters.AddWithValue("password", password);
                     command.ExecuteNonQuery();
+                    TrackUserAction("Save");
 
                     int id = int.Parse(txtID.Text);
                     int nextID = id + 1;
@@ -179,7 +185,13 @@ namespace hospital
         private void Refresh()
         {
             btnEdit.Enabled = false;
+            btnRemove.Enabled = false;
             txtID.Enabled = false;
+            buttonSave = false;
+            buttonEdit = false;
+            buttonRemove = false;
+            buttonSearch = false;
+            buttonReset = false;
             MySqlConnection conn = new MySqlConnection(MySQLConn);
             try
             {
@@ -219,8 +231,10 @@ namespace hospital
                 MessageBox.Show("No Special Character enter.");
                 return;
             }
+            buttonSearch = true;
             btnSave.Text = "New";
             btnEdit.Enabled = true;
+            btnRemove.Enabled = true;
             txtPassword.Enabled = false;
             txtConfirmPassword.Enabled = false;
             MySqlConnection conn = new MySqlConnection(MySQLConn);
@@ -243,6 +257,7 @@ namespace hospital
                     txtID.Text = table.Rows[0][0].ToString();
                     txtName.Text = table.Rows[0][1].ToString();
                     position = table.Rows[0][2].ToString();
+                    
                     if (position.Equals("View Only"))
                     {
                         cbPosition.SelectedIndex = 1;
@@ -255,6 +270,7 @@ namespace hospital
                     {
                         cbPosition.SelectedIndex = 3;
                     }
+                    TrackUserAction("Search");
                 }
             }
             catch (Exception ex)
@@ -286,6 +302,7 @@ namespace hospital
                     MessageBox.Show("No Special Character enter.");
                     return;
                 }
+                buttonEdit = true;
                 btnSave.Text = "New";
                 txtPassword.Enabled = false;
                 txtConfirmPassword.Enabled = false;
@@ -321,7 +338,7 @@ namespace hospital
                 update_command.Parameters.AddWithValue("id", txtID.Text);
 
                 update_command.ExecuteNonQuery();
-
+                TrackUserAction("Edit");
                 txtName.Clear();
                 cbPosition.SelectedIndex = 0;
 
@@ -342,6 +359,7 @@ namespace hospital
                 txtName.Focus();
                 return;
             }
+            buttonRemove = true;
             MySqlConnection conn = new MySqlConnection(MySQLConn);
             try
             {
@@ -354,13 +372,13 @@ namespace hospital
                 command.Parameters.AddWithValue("@name", txtName.Text);
 
                 command.ExecuteNonQuery();
-
+                TrackUserAction("Remove");
                 txtID.Clear();
                 txtName.Clear();
                 txtPassword.Clear();
                 txtConfirmPassword.Clear();
                 cbPosition.SelectedIndex = 0;
-
+                btnSave.Text = "Save";
                 Refresh();
             }
             catch (Exception ex)
@@ -377,7 +395,13 @@ namespace hospital
                 MessageBox.Show("Please enter a name to reset new password");
                 txtName.Focus();
                 return;
+            }else if (ContainsSpecialCharacters(txtName.Text))
+            {
+                MessageBox.Show("No Special Character enter.");
+                txtName.Focus();
+                return;
             }
+            buttonReset = true;
             MySqlConnection conn = new MySqlConnection(MySQLConn);
             try
             {
@@ -391,7 +415,7 @@ namespace hospital
                 command.Parameters.AddWithValue("@name", txtName.Text);
 
                 command.ExecuteNonQuery();
-
+                TrackUserAction("Reset");
                 MessageBox.Show("Your new password is: " + txtName.Text + "_" + newpassword);
 
                 txtID.Clear();
@@ -414,6 +438,7 @@ namespace hospital
             string position = "";
             txtConfirmPassword.Enabled = false;
             txtPassword.Enabled = false;
+            btnRemove.Enabled = true;
             try
             {
                 //MessageBox.Show("Hello");
@@ -471,6 +496,30 @@ namespace hospital
                 txtName.BackColor = System.Drawing.SystemColors.Window;
                 txtName.ForeColor = System.Drawing.SystemColors.WindowText;
             }
+        }
+        private void TrackUserAction(string userAction)
+        {
+            try
+            {
+                using (conn = new MySqlConnection(MySQLConn))
+                {
+                    conn.Open();
+                    string query = "INSERT INTO tbrecord(userID, userName, userRole, userAction, userForm, personID, personName, actionDateTime) VALUES (@uID, @uName, @uRole, @uAction, @uForm, @pID, @pName, @aDateTime)";
+
+                    command = new MySqlCommand(query, conn);
+                    command.Parameters.AddWithValue("uAction", userAction);
+                    command.Parameters.AddWithValue("uForm", "Admin");
+                    command.Parameters.AddWithValue("uID", "");
+                    command.Parameters.AddWithValue("uName", admin_username);
+                    command.Parameters.AddWithValue("uRole", admin_role);
+                    command.Parameters.AddWithValue("pID", txtID.Text);
+                    command.Parameters.AddWithValue("pName", txtName.Text);
+                    command.Parameters.AddWithValue("aDateTime", DateTime.Now);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

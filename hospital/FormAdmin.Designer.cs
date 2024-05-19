@@ -163,7 +163,7 @@
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(267, 92);
             this.btnRemove.TabIndex = 122;
-            this.btnRemove.Text = "Delete";
+            this.btnRemove.Text = "Remove";
             this.btnRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRemove.UseVisualStyleBackColor = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);

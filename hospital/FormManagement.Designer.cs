@@ -237,7 +237,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2362, 992);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(2362, 999);
             this.Controls.Add(this.btnstaff);
             this.Controls.Add(this.btnambulance);
             this.Controls.Add(this.labelWel);
@@ -253,6 +254,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "FormManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormManagement";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormManagement_FormClosed);
             this.Load += new System.EventHandler(this.FormManagement_Load);

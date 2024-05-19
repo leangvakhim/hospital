@@ -19,10 +19,12 @@ namespace hospital
     {
         private string doctor_username;
         private string doctor_role;
+        MySqlConnection conn;
+        MySqlCommand command;
         String MySQLConn = "";
         byte[] ImageData = null;
+        Boolean buttonSave, buttonEdit, buttonRemove, buttonReport, buttonSearch;
         private string sqlquery = "SELECT * FROM tbdoctor WHERE active = 1 ORDER BY id DESC";
-        //MySqlConnection conn;
 
         public FormDoctor(string doctor_username, string doctor_role)
         {
@@ -65,6 +67,11 @@ namespace hospital
             btnEdit.Enabled = false;
             txtID.Enabled = false;
             btnRemove.Enabled = false;
+            buttonSave = false;
+            buttonEdit = false;
+            buttonRemove = false;
+            buttonReport = false;
+            buttonSearch = false;
             if (doctor_role == "View Only")
             {
                 btnEdit.Enabled = false;
@@ -115,7 +122,8 @@ namespace hospital
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(MySQLConn);
+            buttonSave = true;
+            conn = new MySqlConnection(MySQLConn);
             if (btnSave.Text == "Save")
             {
                 if (txtName.Text == "")
@@ -176,16 +184,14 @@ namespace hospital
                     command.Parameters.AddWithValue("specialization", specialization);
                     command.Parameters.AddWithValue("photo", ImageData);
                     command.ExecuteNonQuery();
-
+                    TrackUserAction("Save");
                     int id = int.Parse(txtID.Text);
                     int nextID = id + 1;
                     txtID.Text = nextID.ToString();
-
                     txtName.Clear();
                     txtphone.Clear();
                     txtspecialization.Clear();
                     pictureBox1.Image = null;
-
                     Refresh();
                 }
                 catch (Exception ex)
@@ -227,8 +233,9 @@ namespace hospital
                 MessageBox.Show("No Special Character enter.");
                 return;
             }
-            btnSave.Text = "New";
+            buttonSearch = true;
             btnEdit.Enabled = true;
+            btnRemove .Enabled = true;
             if (doctor_role == "View Only")
             {
                 btnEdit.Enabled = false;
@@ -266,6 +273,8 @@ namespace hospital
                     MemoryStream ms = new MemoryStream(img);
                     pictureBox1.Image = System.Drawing.Image.FromStream(ms);
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                    TrackUserAction("Search");
+                    btnSave.Text = "New";
                 }
             }
             catch (Exception ex)
@@ -286,26 +295,27 @@ namespace hospital
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(MySQLConn);
+            conn = new MySqlConnection(MySQLConn);
+            buttonRemove = true;
             try
             {
                 conn.Open();
                 String updateQuery = "UPDATE tbdoctor SET active = @newValue WHERE id = @id || name = @name";
-                MySqlCommand command = new MySqlCommand(updateQuery, conn);
+                command = new MySqlCommand(updateQuery, conn);
 
                 command.Parameters.AddWithValue("@newValue", 0);
                 command.Parameters.AddWithValue("@id", txtID.Text);
                 command.Parameters.AddWithValue("@name", txtName.Text);
 
                 command.ExecuteNonQuery();
-
+                TrackUserAction("Remove");
                 txtID.Clear();
                 txtName.Clear();
                 txtphone.Clear();
                 txtspecialization.Clear();
                 pictureBox1.Image = null;
                 pictureBox1.BackgroundImage = null;
-
+                btnSave.Text = "Save";
                 Refresh();
             }
             catch (Exception ex)
@@ -317,7 +327,8 @@ namespace hospital
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(MySQLConn);
+            conn = new MySqlConnection(MySQLConn);
+            buttonEdit = true;
             try
             {
                 if (txtName.ForeColor == System.Drawing.Color.Red)
@@ -360,12 +371,11 @@ namespace hospital
                 update_command.Parameters.AddWithValue("id", txtID.Text);
 
                 update_command.ExecuteNonQuery();
-
+                TrackUserAction("Edit");
                 txtName.Clear();
                 txtphone.Clear();
                 txtspecialization.Clear();
                 pictureBox1.Image = null;
-
                 Refresh();
             }
             catch (Exception ex)
@@ -396,6 +406,8 @@ namespace hospital
 
         private void btnReport_Click(object sender, EventArgs e)
         {
+            buttonReport = true;
+            TrackUserAction("Report");
             FormReport report = new FormReport(doctor_username, doctor_role, FormReport._ReportType.Doctor, sqlquery);
             report.Show();
             this.Hide();
@@ -491,6 +503,39 @@ namespace hospital
                 txtspecialization.BackColor = System.Drawing.SystemColors.Window;
                 txtspecialization.ForeColor = System.Drawing.SystemColors.WindowText;
             }
+        }
+
+        private void TrackUserAction(string userAction)
+        {
+            try
+            {
+                using (conn = new MySqlConnection(MySQLConn))
+                {
+                    conn.Open();
+                    string query = "INSERT INTO tbrecord(userID, userName, userRole, userAction, userForm, personID, personName, actionDateTime) VALUES (@uID, @uName, @uRole, @uAction, @uForm, @pID, @pName, @aDateTime)";
+
+                    command = new MySqlCommand(query, conn);
+                    command.Parameters.AddWithValue("uAction", userAction);
+                    command.Parameters.AddWithValue("uForm", "Doctor");
+                    command.Parameters.AddWithValue("uID", "");
+                    command.Parameters.AddWithValue("uName", doctor_username);
+                    command.Parameters.AddWithValue("uRole", doctor_role);
+                    if (userAction.Equals("Report"))
+                    {
+                        command.Parameters.AddWithValue("pID", "");
+                        command.Parameters.AddWithValue("pName", "");
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("pID", txtID.Text);
+                        command.Parameters.AddWithValue("pName", txtName.Text);
+                    }
+                    command.Parameters.AddWithValue("aDateTime", DateTime.Now);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

@@ -69,11 +69,14 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(809, 136);
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(828, 128);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(212, 74);
+            this.btnSearch.Size = new System.Drawing.Size(262, 82);
             this.btnSearch.TabIndex = 114;
             this.btnSearch.Text = "Search";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
@@ -91,39 +94,48 @@
             this.dateTimePicker2.CustomFormat = "dd-MM-yyyy";
             this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(457, 140);
+            this.dateTimePicker2.Location = new System.Drawing.Point(468, 140);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(290, 62);
             this.dateTimePicker2.TabIndex = 116;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(89, 46);
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(101, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(276, 63);
+            this.label1.Size = new System.Drawing.Size(350, 63);
             this.label1.TabIndex = 117;
             this.label1.Text = "Start Time";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(446, 46);
+            this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(469, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(258, 63);
+            this.label2.Size = new System.Drawing.Size(339, 63);
             this.label2.TabIndex = 118;
             this.label2.Text = "End Time";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1077, 140);
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(1158, 128);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(212, 72);
+            this.button1.Size = new System.Drawing.Size(265, 84);
             this.button1.TabIndex = 119;
             this.button1.Text = "Report";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             // 
             // FormRecordLog
@@ -142,9 +154,9 @@
             this.Name = "FormRecordLog";
             this.Text = "FormRecordLog";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormRecordLog_FormClosing);
+            this.Load += new System.EventHandler(this.FormRecordLog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

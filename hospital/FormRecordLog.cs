@@ -16,6 +16,10 @@ namespace hospital
         private string recordlog_username;
         private string recordlog_role;
         String MySQLConn = "";
+        MySqlConnection conn;
+        MySqlCommand command;
+        DataTable table;
+        private string sqlquery = "SELECT * FROM tbrecord ORDER BY userID DESC";
         public FormRecordLog(string recordlog_username, string recordlog_role)
         {
             InitializeComponent();
@@ -46,6 +50,45 @@ namespace hospital
             FormAdmin formAdmin = new FormAdmin(recordlog_username, recordlog_role);
             formAdmin.Show();
             this.Hide();
+        }
+
+        private void FormRecordLog_Load(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new MySqlConnection(MySQLConn);
+            try
+            {
+                conn.Open();
+                command = new MySqlCommand(sqlquery, conn);
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                table = new DataTable();
+                adapter.Fill(table);
+
+                dataGridView1.AutoGenerateColumns = true;
+                dataGridView1.DataSource = table;
+
+                dataGridView1.Columns[0].HeaderText = "ID";
+                dataGridView1.Columns[1].HeaderText = "Name";
+                dataGridView1.Columns[2].HeaderText = "Position";
+                dataGridView1.Columns[3].HeaderText = "Action";
+                dataGridView1.Columns[4].HeaderText = "Form";
+                dataGridView1.Columns[7].HeaderText = "Date&Time";
+
+                dataGridView1.RowTemplate.Height = 30;
+                dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dataGridView1.DataSource = table;
+                dataGridView1.AllowUserToAddRows = false;
+                dataGridView1.ReadOnly = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close(); // Always close connection after usage
+            }
+
         }
     }
 }

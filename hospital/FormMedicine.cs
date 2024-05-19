@@ -16,8 +16,10 @@ namespace hospital
         private string sqlquery = "SELECT * FROM tbmedicine WHERE active = 1 ORDER BY id DESC";
         private string medicine_username;
         private string medicine_role;
-        //MySqlConnection conn;
+        MySqlConnection conn;
+        MySqlCommand command;
         String MySQLConn = "";
+        Boolean buttonSave, buttonEdit, buttonRemove, buttonReport, buttonSearch;
         public FormMedicine(string medicine_username, string medicine_role)
         {
             InitializeComponent();
@@ -133,6 +135,7 @@ namespace hospital
                 try
                 {
                     BtnEdit.Enabled = false;
+                    buttonSave = true;
                     // check duplicated data
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
@@ -157,6 +160,7 @@ namespace hospital
                     command.Parameters.AddWithValue("@unitprice", unitprice);
                     command.Parameters.AddWithValue("@ExpiryDate", ExpiryDate);
                     command.ExecuteNonQuery();
+                    TrackUserAction("Save");
 
                     int id = int.Parse(txtID.Text);
                     int nextID = id + 1;
@@ -207,6 +211,7 @@ namespace hospital
                 return;
             }
             BtnSave.Text = "New";
+            buttonSearch = true;
             BtnEdit.Enabled = true;
             BtnRemove.Enabled = true;
             if (medicine_role == "View Only")
@@ -242,6 +247,7 @@ namespace hospital
                     txtQty.Text = table.Rows[0][2].ToString();
                     txtUnitPrice.Text = table.Rows[0][3].ToString();
                     expiryDate.Value = (DateTime)table.Rows[0][4];
+                    TrackUserAction("Search");
                 }
 
             }
@@ -278,6 +284,7 @@ namespace hospital
                     MessageBox.Show("No Special Character or Character enter.");
                     return;
                 }
+                buttonEdit = true;
                 BtnSave.Text = "New";
                 // check duplicated data
                 foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -301,11 +308,13 @@ namespace hospital
                 update_command.Parameters.AddWithValue("newExpiryDate", expiryDate.Value);
 
                 update_command.ExecuteNonQuery();
+                TrackUserAction("Edit");
 
                 txtName.Clear();
                 txtQty.Clear();
                 txtUnitPrice.Clear();
                 expiryDate.Value = DateTime.Now;
+                BtnSave.Text = "Save";
                 Refresh();
             }
             catch (Exception ex)
@@ -321,15 +330,16 @@ namespace hospital
             try
             {
                 conn.Open();
+                buttonRemove = true;
                 String updateQuery = "UPDATE tbmedicine SET active = @newValue WHERE id = @id || name = @name";
                 MySqlCommand command = new MySqlCommand(updateQuery, conn);
 
                 command.Parameters.AddWithValue("@newValue", 0);
                 command.Parameters.AddWithValue("@id", txtID.Text);
                 command.Parameters.AddWithValue("@name", txtName.Text);
-                
 
                 command.ExecuteNonQuery();
+                TrackUserAction("Remove");
 
                 txtID.Clear();
                 txtName.Clear();
@@ -338,6 +348,7 @@ namespace hospital
                 expiryDate.Value = DateTime.Now;
                 BtnEdit.Enabled = false;
                 BtnRemove.Enabled = false;
+                BtnSave.Text = "Save";
 
                 Refresh();
             }
@@ -390,7 +401,9 @@ namespace hospital
         private void BtnReport_Click(object sender, EventArgs e)
         {
             FormReport report = new FormReport(medicine_username, medicine_role, FormReport._ReportType.Medicine, sqlquery);
+            buttonReport = true;
             report.Show();
+            TrackUserAction("Report");
             this.Hide();
         }
 
@@ -461,6 +474,39 @@ namespace hospital
                 txtUnitPrice.BackColor = System.Drawing.SystemColors.Window;
                 txtUnitPrice.ForeColor = System.Drawing.SystemColors.WindowText;
             }
+        }
+
+        private void TrackUserAction(string userAction)
+        {
+            try
+            {
+                using (conn = new MySqlConnection(MySQLConn))
+                {
+                    conn.Open();
+                    string query = "INSERT INTO tbrecord(userID, userName, userRole, userAction, userForm, personID, personName, actionDateTime) VALUES (@uID, @uName, @uRole, @uAction, @uForm, @pID, @pName, @aDateTime)";
+
+                    command = new MySqlCommand(query, conn);
+                    command.Parameters.AddWithValue("uAction", userAction);
+                    command.Parameters.AddWithValue("uForm", "Medicine");
+                    command.Parameters.AddWithValue("uID", "");
+                    command.Parameters.AddWithValue("uName", medicine_username);
+                    command.Parameters.AddWithValue("uRole", medicine_role);
+                    if (userAction.Equals("Report"))
+                    {
+                        command.Parameters.AddWithValue("pID", "");
+                        command.Parameters.AddWithValue("pName", "");
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("pID", txtID.Text);
+                        command.Parameters.AddWithValue("pName", txtName.Text);
+                    }
+                    command.Parameters.AddWithValue("aDateTime", DateTime.Now);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }
