@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,22 @@ namespace hospital
 {
     public partial class FormAmbulance : Form
     {
+        private const int WIDTH = 180;
+        private const int HEIGHT = 180;
+        private const int cx = WIDTH / 2;
+        private const int cy = HEIGHT / 2;
+        private const int secHAND = 70;
+        private const int minHAND = 60;
+        private const int hrHAND = 45;
+        private Bitmap bmp;
         private string ambulance_username;
         private string ambulance_role;
-        //MySqlConnection conn;
         String MySQLConn = "";
+        MySqlConnection conn;
+        MySqlCommand command;
+        Boolean buttonSave, buttonEdit, buttonRemove, buttonReport, buttonSearch;
+        private string sqlquery = "SELECT * FROM tbambulance WHERE active = 1 ORDER BY id DESC";
+
         public FormAmbulance(string ambulance_username, string ambulance_role)
         {
             InitializeComponent();
@@ -50,19 +63,24 @@ namespace hospital
             formManagement.Show();
             this.Hide();
         }
+        
         private void FormAmbulance_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
 
         }
+        
         private void FormAmbulance_Load(object sender, EventArgs e)
         {
             Refresh();
+            clock();
         }
+        
         private void Refresh()
         {
             btnedit.Enabled = false;
             txtid.Enabled = false;
+            btndelete.Enabled = false;
             if (ambulance_role == "view only")
             {
                 btnedit.Enabled = false;
@@ -79,11 +97,11 @@ namespace hospital
             try
             {
                 conn.Open();
-                MySqlCommand command = new MySqlCommand("Select * From tbambualnce WHERE active = 1 ORDER BY id DECS", conn);
+                MySqlCommand command = new MySqlCommand(sqlquery, conn);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
-                dataGridView1.RowTemplate.Height = 60;
+                dataGridView1.RowTemplate.Height = 30;
                 dataGridView1.DataSource = table;
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.ReadOnly = true;
@@ -107,29 +125,31 @@ namespace hospital
                 conn.Close();
             }
         }
+        
         private void btnsave_Click(object sender, EventArgs e)
         {
-            DateTime dateTime = DateTime.Now;
             MySqlConnection conn = new MySqlConnection(MySQLConn);
+            DateTime Departure, Arrived;
             if (btnsave.Text == "Save")
             {
-                if (btnstaff.Text == "")
+                if (cbStaff.SelectedIndex == 0)
                 {
-                    MessageBox.Show("Please enter Staff's name.");
+                    MessageBox.Show("Please select Staff's name.");
                     return;
                 }
-                else if (btnAm.Text == "")
+                else if (txtAm.Text == "")
                 {
                     MessageBox.Show("Please enter Ambulance NO.");
-                    return
-;
+                    return;
+                }else if(txtAm.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
+                    return;
                 }
                 try
                 {
-
                     btnedit.Enabled = false;
-
-
+                    buttonSave = true;
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         if (row.Cells[1].Value.ToString().Equals(btnstaff.Text))
@@ -140,22 +160,26 @@ namespace hospital
                         }
                     }
                     conn.Open();
-                    string staff = btnstaff.Text;
-                    DateTime Departure = dateTimedeparture.Value;
-                    DateTime Departuretime = Departure.Date;
+                    string ambulanceno = txtAm.Text;
+                    string name = cbStaff.SelectedItem.ToString();
+                    Departure = dateTimedeparture.Value;
+                    Arrived = dateTimedeparture.Value;
 
-                    string query = "INSERT INTO tbambulance(id, name, departure, arrived) VALUES (@id, @name, @departuretime, @arrivedtime)";
+                    string query = "INSERT INTO tbambulance (id, ambulanceNo, staffName, departureTime, arriveTime) VALUES (@id, @ambulanceno, @name, @departuretime, @arrivedtime)";
                     MySqlCommand command = new MySqlCommand(query, conn);
                     command.Parameters.AddWithValue("@id", "");
-                    command.Parameters.AddWithValue("@staff", staff);
-                    command.Parameters.AddWithValue("@departure", Departuretime);
-                    command.Parameters.AddWithValue("@arrived", "0001-01-01");
+                    command.Parameters.AddWithValue("@ambulanceno", ambulanceno);
+                    command.Parameters.AddWithValue("@name", name);
+                    command.Parameters.AddWithValue("@departuretime", Departure);
+                    command.Parameters.AddWithValue("@arrivedtime", Arrived);
                     command.ExecuteNonQuery();
+                    TrackUserAction("Save");
 
                     int id = int.Parse(txtid.Text);
                     int nextID = id + 1;
                     txtid.Text = nextID.ToString();
 
+                    txtAm.Clear();
                     cbStaff.SelectedIndex = 0;
                     dateTimedeparture.Value = DateTime.Now;
                     dateTimearrived.Value = DateTime.Now;
@@ -185,18 +209,19 @@ namespace hospital
                 int nextId = maxId + 1;
                 txtid.Text = nextId.ToString();
 
+                txtAm.Clear();
                 cbStaff.SelectedIndex = 0;
-                dateTimedeparture.ResetText();
-                dateTimearrived.ResetText();
-
-
+                dateTimedeparture.Value = DateTime.Now;
+                dateTimearrived.Value = DateTime.Now;
             }
         }
+        
         private void btnsearch_Click(object sender, EventArgs e)
         {
             btnsave.Text = "New";
             btnedit.Enabled = true;
             dateTimearrived.Enabled = true;
+            btndelete.Enabled = true;
             if (ambulance_role == "View Only")
             {
                 btnedit.Enabled = false;
@@ -210,11 +235,12 @@ namespace hospital
                 btnreport.Enabled = false;
             }
             MySqlConnection conn = new MySqlConnection(MySQLConn);
+            buttonSearch = true;
             try
             {
                 conn.Open();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM tbbed WHERE @name = name && active = 1", conn);
-                command.Parameters.AddWithValue("name", cbStaff.Text);
+                MySqlCommand command = new MySqlCommand("SELECT * FROM tbambulance WHERE @ambulanceNo = ambulanceno && active = 1", conn);
+                command.Parameters.AddWithValue("ambulanceno", txtAm.Text);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
@@ -226,8 +252,13 @@ namespace hospital
                 else
                 {
                     txtid.Text = table.Rows[0][0].ToString();
-                    cbStaff.Text = table.Rows[0][1].ToString();
-                    dateTimedeparture.Value = (DateTime)table.Rows[0][2];
+                    txtAm.Text = table.Rows[0][1].ToString();
+                    string selectedValue = table.Rows[0][2].ToString();
+                    int ind = cbStaff.FindStringExact(selectedValue);
+                    cbStaff.SelectedIndex = ind;
+                    dateTimedeparture.Value = (DateTime)table.Rows[0][3];
+                    dateTimearrived.Value = (DateTime)table.Rows[0][4];
+                    TrackUserAction("Search");
                 }
             }
             catch (Exception ex)
@@ -235,6 +266,7 @@ namespace hospital
                 //MessageBox.Show(ex.Message);
                 btnedit.Enabled = false;
                 btnsave.Text = "Save";
+                btndelete.Enabled = false;
                 txtid.Clear();
                 cbStaff.SelectedIndex = 0;
                 dateTimedeparture.Value = DateTime.Today;
@@ -263,21 +295,24 @@ namespace hospital
                     }
                 }
                 conn.Open();
+                string ambulanceno = txtAm.Text;
+                string name = cbStaff.SelectedItem.ToString();
                 DateTime departure = dateTimedeparture.Value;
-                DateTime departureDate = departure.Date;
                 DateTime arrived = dateTimearrived.Value;
-                DateTime arrivedDate = arrived.Date;
-                String updateQuery = "UPDATE tbambulance SET name = @newName, departure = @newdeparture, arrived = @newarrived WHERE id = @id";
+                String updateQuery = "UPDATE tbambulance SET ambulanceNo = @newambulanceNo, staffName = @newName, departureTime = @newdeparture, arriveTime = @newarrived WHERE id = @id";
                 MySqlCommand update_command = new MySqlCommand(updateQuery, conn);
 
-                update_command.Parameters.AddWithValue("newName", cbStaff.Text);
-                update_command.Parameters.AddWithValue("newdeparture", departureDate);
-                update_command.Parameters.AddWithValue("newarrived", arrivedDate);
+                update_command.Parameters.AddWithValue("newambulanceNo", ambulanceno);
+                update_command.Parameters.AddWithValue("newName", name);
+                update_command.Parameters.AddWithValue("newdeparture", departure);
+                update_command.Parameters.AddWithValue("newarrived", arrived);
                 update_command.Parameters.AddWithValue("id", txtid.Text);
 
                 update_command.ExecuteNonQuery();
+                TrackUserAction("Edit");
 
                 cbStaff.SelectedIndex = 0;
+                txtAm.Clear();
                 dateTimedeparture.Value = DateTime.Now;
                 dateTimearrived.Value = DateTime.Now;
 
@@ -289,25 +324,27 @@ namespace hospital
             }
             finally { conn.Close(); }
         }
+        
         private void btndelete_Click(object sender, EventArgs e)
         {
             MySqlConnection conn = new MySqlConnection(MySQLConn);
             try
             {
                 conn.Open();
-                String updateQuery = "UPDATE tbambulance SET active = @newValue WHERE id = @id || name = @name";
+                String updateQuery = "UPDATE tbambulance SET active = @newValue WHERE id = @id";
                 MySqlCommand command = new MySqlCommand(updateQuery, conn);
 
                 command.Parameters.AddWithValue("@newValue", 0);
                 command.Parameters.AddWithValue("@id", txtid.Text);
-                command.Parameters.AddWithValue("@name", cbStaff.Text);
 
                 command.ExecuteNonQuery();
+                TrackUserAction("Remove");
 
-                txtid.Clear();
+                txtAm.Clear();
                 cbStaff.SelectedIndex = 0;
                 dateTimedeparture.Value = DateTime.Today;
                 dateTimearrived.Value = DateTime.Today;
+                btnsave.Text = "Save";
 
                 Refresh();
             }
@@ -317,14 +354,14 @@ namespace hospital
             }
             finally { conn.Close(); }
         }
-
+        
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 btnsave.Text = "New";
                 btnedit.Enabled = true;
-                dateTimedeparture.Enabled = true;
+                btndelete.Enabled = true;
                 if (ambulance_role == "View Only")
                 {
 
@@ -341,8 +378,12 @@ namespace hospital
                 int index = dataGridView1.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridView1.Rows[index];
                 txtid.Text = selectedRow.Cells[0].Value.ToString();
-                cbStaff.Text = selectedRow.Cells[1].Value.ToString();
-                dateTimedeparture.Value = (DateTime)selectedRow.Cells[2].Value;
+                txtAm.Text = selectedRow.Cells[1].Value.ToString();
+                string selectedValue = selectedRow.Cells[2].Value.ToString();
+                int ind = cbStaff.FindStringExact(selectedValue);
+                cbStaff.SelectedIndex = ind;
+                dateTimedeparture.Value = (DateTime)selectedRow.Cells[3].Value;
+                dateTimearrived.Value = (DateTime)selectedRow.Cells[4].Value;
             }
             catch (Exception ex)
             {
@@ -350,24 +391,67 @@ namespace hospital
             }
         }
 
-        //private Bitmap bmp;
-        //private int WIDTH = 100, HEIGHT = 100, secHAND = 45, minHAND = 30, hrHAND = 18;
-        //private int cx, cy;
-
-        private void FormAmbulance_Load_1(object sender, EventArgs e)
+        private void btnreport_Click(object sender, EventArgs e)
         {
-            clock();
+            buttonReport = true;
+            TrackUserAction("Report");
         }
 
-        private const int WIDTH = 188;
-        private const int HEIGHT = 181;
-        private const int cx = WIDTH / 2;
-        private const int cy = HEIGHT / 2;
-        private const int secHAND = 70;
-        private const int minHAND = 60;
-        private const int hrHAND = 50;
+        private void TrackUserAction(string userAction)
+        {
+            try
+            {
+                using (conn = new MySqlConnection(MySQLConn))
+                {
+                    conn.Open();
+                    string query = "INSERT INTO tbrecord(userID, userName, userRole, userAction, userForm, personID, personName, actionDateTime) VALUES (@uID, @uName, @uRole, @uAction, @uForm, @pID, @pName, @aDateTime)";
 
-        private Bitmap bmp;
+                    command = new MySqlCommand(query, conn);
+                    command.Parameters.AddWithValue("uAction", userAction);
+                    command.Parameters.AddWithValue("uForm", "Ambulance");
+                    command.Parameters.AddWithValue("uID", "");
+                    command.Parameters.AddWithValue("uName", ambulance_username);
+                    command.Parameters.AddWithValue("uRole", ambulance_role);
+                    if (userAction.Equals("Report"))
+                    {
+                        command.Parameters.AddWithValue("pID", "");
+                        command.Parameters.AddWithValue("pName", "");
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("pID", txtid.Text);
+                        command.Parameters.AddWithValue("pName", cbStaff.Text);
+                    }
+                    command.Parameters.AddWithValue("aDateTime", DateTime.Now);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void txtAm_TextChanged(object sender, EventArgs e)
+        {
+            if (ContainsSpecialCharacters(txtAm.Text))
+            {
+                txtAm.BorderStyle = BorderStyle.FixedSingle;
+                txtAm.BackColor = System.Drawing.Color.White;
+                txtAm.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                txtAm.BorderStyle = BorderStyle.FixedSingle;
+                txtAm.BackColor = System.Drawing.SystemColors.Window;
+                txtAm.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
+        }
+
+        private bool ContainsSpecialCharacters(string text)
+        {
+            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+            return text.Any(c => !allowedCharacters.Contains(c));
+        }
 
         private void clock()
         {
@@ -383,48 +467,42 @@ namespace hospital
         {
             using (Graphics g = Graphics.FromImage(bmp))
             {
+                g.SmoothingMode = SmoothingMode.AntiAlias;
                 g.Clear(Color.White);
-                g.DrawEllipse(new Pen(Color.Black), 0, 0, WIDTH - 1, HEIGHT - 1);
-                g.DrawString("12", new Font("Arial", 12), Brushes.Black, new PointF(cx - 10, 0));
-                g.DrawString("3", new Font("Arial", 12), Brushes.Black, new PointF(WIDTH - 20, cy - 10)); ;
-                g.DrawString("6", new Font("Arial", 12), Brushes.Black, new PointF(cx - 10, HEIGHT - 20)); ;
-                g.DrawString("9", new Font("Arial", 12), Brushes.Black, new PointF(0, cy - 10));
+                //g.DrawEllipse(new Pen(Color.Black), 0, 0, WIDTH - 1, HEIGHT - 1);
 
-
+                for (int i = 1; i <= 12; i++)
+                {
+                    double angle = Math.PI / 6 * (i - 3);
+                    int x = (int)(cx + Math.Cos(angle) * (cx - 20));
+                    int y = (int)(cy + Math.Sin(angle) * (cy - 20));
+                    g.DrawString(i.ToString(), new Font("Arial", 8), Brushes.Black, new PointF(x, y));
+                }
 
                 DateTime now = DateTime.Now;
                 int ss = now.Second;
                 int mm = now.Minute;
                 int hh = now.Hour;
 
-                DrawHand(g, Color.Red, ss, secHAND, 6);
-                DrawHand(g, Color.Black, mm, minHAND, 6);
-                DrawHand(g, Color.Gray, (hh % 12) * 30 + mm / 2, hrHAND, 30);
+                double secAngle = Math.PI / 30 * ss;
+                double minAngle = Math.PI / 30 * mm + Math.PI / 1800 * ss; 
+                double hrAngle = Math.PI / 6 * (hh % 12) + Math.PI / 360 * mm; 
+
+                DrawHand(g, Color.Red, secAngle, secHAND, 6);
+                DrawHand(g, Color.Black, minAngle, minHAND, 6);
+                DrawHand(g, Color.Green, hrAngle, hrHAND, 30);
 
                 time.Image = bmp;
-                this.Text = "Analog Clock-" + now.ToString("HH:mm:ss");
+                this.Text = "Analog Clock - " + now.ToString("HH:mm:ss");
             }
         }
-        private void DrawHand(Graphics g, Color color, int val, int length, int angleFactor)
+
+        private void DrawHand(Graphics g, Color color, double angle, int length, int thickness)
         {
-            int[] coord = new int[2];
-            int angle = val * angleFactor;
+            int x = cx + (int)(length * Math.Sin(angle));
+            int y = cy - (int)(length * Math.Cos(angle));
 
-            if (angle >= 0 && angle <= 180)
-            {
-                coord[0] = cx + (int)(length * Math.Sin(Math.PI * angle / 180));
-                coord[1] = cy - (int)(length * Math.Cos(Math.PI * angle / 180));
-            }
-            else
-            {
-                coord[0] = cx - (int)(length * -Math.Sin(Math.PI * angle / 180));
-                coord[1] = cy - (int)(length * Math.Cos(Math.PI * angle / 180));
-            }
-
-            g.DrawLine(new Pen(color, color == Color.Red ? 1f : 2f), new Point(cx, cy), new Point(coord[0], coord[1]));
+            g.DrawLine(new Pen(color, thickness/6), new Point(cx, cy), new Point(x, y));
         }
-
-
-
     }
 }

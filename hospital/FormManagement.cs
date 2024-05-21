@@ -28,7 +28,7 @@ namespace hospital
 
         private void FormManagement_Load(object sender, EventArgs e)
         {
-            labelWelcome.Text = "Welcome" + "\n" + username;
+            labelWel.Text = "Welcome" + "\n" + username;
         }
 
         private void FormManagement_FormClosed(object sender, FormClosedEventArgs e)

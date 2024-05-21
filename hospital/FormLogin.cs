@@ -33,7 +33,7 @@ namespace hospital
             try
             {
                 conn.Open();
-                MySqlCommand command = new MySqlCommand("SELECT name, password, position FROM tbadmin WHERE active = 1 AND name = @Name AND password = @Password", conn);
+                MySqlCommand command = new MySqlCommand("SELECT name, password, position FROM tbadmin WHERE active = 1 AND password = @Password AND name = @Name", conn);
 
                 command.Parameters.AddWithValue("@Name", txtusername.Text);
                 command.Parameters.AddWithValue("@Password", txtpassword.Text);
@@ -81,7 +81,6 @@ namespace hospital
         {
             Application.Exit();
         }
-
 
         private void linklableChangePassword_MouseClick(object sender, MouseEventArgs e)
         {

@@ -16,8 +16,10 @@ namespace hospital
         private string bed_username;
         private string bed_role;
         private string sqlquery = "SELECT * FROM tbbed WHERE active = 1 ORDER BY id DESC";
-        //MySqlConnection conn;
+        MySqlConnection conn;
+        MySqlCommand command;
         String MySQLConn = "";
+        Boolean buttonSave, buttonEdit, buttonRemove, buttonReport, buttonSearch;
         public FormBed(string bed_username, string bed_role)
         {
             InitializeComponent();
@@ -61,6 +63,7 @@ namespace hospital
             btnEdit.Enabled = false;
             txtID.Enabled = false;
             btnRemove.Enabled = false;
+            dateTimeCheckOut.Enabled = false;
             if (bed_role == "View Only")
             {
                 btnEdit.Enabled = false;
@@ -114,7 +117,12 @@ namespace hospital
                 {
                     MessageBox.Show("Please enter name.");
                     return;
+                }else if(txtName.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
+                    return;
                 }
+                buttonSave = true;
                 try
                 {
                     btnEdit.Enabled = false;
@@ -141,6 +149,7 @@ namespace hospital
                     command.Parameters.AddWithValue("@checkIn", CheckInDate);
                     command.Parameters.AddWithValue("@checkOut", "0001-01-01");
                     command.ExecuteNonQuery();
+                    TrackUserAction("Save");
 
                     int id = int.Parse(txtID.Text);
                     int nextID = id + 1;
@@ -185,8 +194,15 @@ namespace hospital
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (txtName.ForeColor == System.Drawing.Color.Red)
+            {
+                MessageBox.Show("No Special Character enter.");
+                return;
+            }
+            buttonSearch = true;
             btnSave.Text = "New";
             btnEdit.Enabled = true;
+            btnRemove.Enabled = true;
             dateTimeCheckOut.Enabled = true;
             if (bed_role == "View Only")
             {
@@ -220,6 +236,12 @@ namespace hospital
                     txtID.Text = table.Rows[0][0].ToString();
                     txtName.Text = table.Rows[0][1].ToString();
                     dateTimeCheckIn.Value = (DateTime)table.Rows[0][2];
+                    DateTime checkout = (DateTime)table.Rows[0][3];
+                    if (checkout.ToString().Equals("1/1/0001 12:00:00 AM"))
+                        dateTimeCheckOut.Value = DateTime.Now;
+                    else
+                        dateTimeCheckOut.Value = (DateTime)table.Rows[0][3];
+                    TrackUserAction("Search");
                 }
             }
             catch (Exception ex)
@@ -242,8 +264,11 @@ namespace hospital
             MySqlConnection conn = new MySqlConnection(MySQLConn);
             try
             {
-                btnSave.Text = "New";
-
+                if (txtName.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("No Special Character enter.");
+                    return;
+                }
                 // check duplicated data
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
@@ -254,6 +279,8 @@ namespace hospital
                         return;
                     }
                 }
+                buttonEdit = true;
+                btnSave.Text = "Save";
                 conn.Open();
                 DateTime CheckIn = dateTimeCheckIn.Value;
                 DateTime CheckInDate = CheckIn.Date;
@@ -264,10 +291,13 @@ namespace hospital
 
                 update_command.Parameters.AddWithValue("newName", txtName.Text);
                 update_command.Parameters.AddWithValue("newCheckIn", CheckInDate);
-                update_command.Parameters.AddWithValue("newCheckOut", CheckOutDate);
                 update_command.Parameters.AddWithValue("id", txtID.Text);
-
+                if(CheckInDate == CheckOutDate)
+                    update_command.Parameters.AddWithValue("newCheckOut", "0001-01-01");
+                else
+                    update_command.Parameters.AddWithValue("newCheckOut", CheckOutDate);
                 update_command.ExecuteNonQuery();
+                TrackUserAction("Edit");
 
                 txtName.Clear();
                 dateTimeCheckIn.Value = DateTime.Now;
@@ -287,6 +317,7 @@ namespace hospital
             MySqlConnection conn = new MySqlConnection(MySQLConn);
             try
             {
+                buttonRemove = true;
                 conn.Open();
                 String updateQuery = "UPDATE tbbed SET active = @newValue WHERE id = @id || name = @name";
                 MySqlCommand command = new MySqlCommand(updateQuery, conn);
@@ -296,11 +327,14 @@ namespace hospital
                 command.Parameters.AddWithValue("@name", txtName.Text);
 
                 command.ExecuteNonQuery();
+                TrackUserAction("Remove");
 
                 txtID.Clear();
                 txtName.Clear();
                 dateTimeCheckIn.Value = DateTime.Today;
                 dateTimeCheckOut.Value = DateTime.Today;
+
+                btnSave.Text = "Save";
 
                 Refresh();
             }
@@ -337,6 +371,11 @@ namespace hospital
                 txtID.Text = selectedRow.Cells[0].Value.ToString();
                 txtName.Text = selectedRow.Cells[1].Value.ToString();
                 dateTimeCheckIn.Value = (DateTime)selectedRow.Cells[2].Value;
+                DateTime checkout = (DateTime)selectedRow.Cells[3].Value;
+                if (checkout.ToString().Equals("1/1/0001 12:00:00 AM"))
+                    dateTimeCheckOut.Value = DateTime.Now;
+                else
+                    dateTimeCheckOut.Value = (DateTime)selectedRow.Cells[3].Value;
             }
             catch (Exception ex)
             {
@@ -347,8 +386,66 @@ namespace hospital
         private void btnReport_Click(object sender, EventArgs e)
         {
             FormReport report = new FormReport(bed_username, bed_role, FormReport._ReportType.Bed, sqlquery);
+            buttonReport = true;
             report.Show();
             this.Hide();
+            TrackUserAction("Report");
+        }
+
+        private bool ContainsSpecialCharacters(string text)
+        {
+            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+            return text.Any(c => !allowedCharacters.Contains(c));
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            if (ContainsSpecialCharacters(txtName.Text))
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.Color.White;
+                txtName.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.SystemColors.Window;
+                txtName.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
+        }
+
+        private void TrackUserAction(string userAction)
+        {
+            try
+            {
+                using (conn = new MySqlConnection(MySQLConn))
+                {
+                    conn.Open();
+                    string query = "INSERT INTO tbrecord(userID, userName, userRole, userAction, userForm, personID, personName, actionDateTime) VALUES (@uID, @uName, @uRole, @uAction, @uForm, @pID, @pName, @aDateTime)";
+
+                    command = new MySqlCommand(query, conn);
+                    command.Parameters.AddWithValue("uAction", userAction);
+                    command.Parameters.AddWithValue("uForm", "Bed");
+                    command.Parameters.AddWithValue("uID", "");
+                    command.Parameters.AddWithValue("uName", bed_username);
+                    command.Parameters.AddWithValue("uRole", bed_role);
+                    if (userAction.Equals("Report"))
+                    {
+                        command.Parameters.AddWithValue("pID", "");
+                        command.Parameters.AddWithValue("pName", "");
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("pID", txtID.Text);
+                        command.Parameters.AddWithValue("pName", txtName.Text);
+                    }
+                    command.Parameters.AddWithValue("aDateTime", DateTime.Now);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }
