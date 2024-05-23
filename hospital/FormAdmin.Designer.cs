@@ -48,6 +48,7 @@
             this.btnReturn = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.btnLog = new System.Windows.Forms.Button();
+            this.btnPosition = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +69,7 @@
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(1387, 306);
+            this.btnEdit.Location = new System.Drawing.Point(1387, 282);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(6);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(267, 92);
@@ -87,7 +88,7 @@
             this.btnReset.ForeColor = System.Drawing.Color.Black;
             this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
             this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReset.Location = new System.Drawing.Point(1387, 742);
+            this.btnReset.Location = new System.Drawing.Point(1387, 651);
             this.btnReset.Margin = new System.Windows.Forms.Padding(6);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(267, 92);
@@ -140,7 +141,7 @@
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(1387, 448);
+            this.btnSearch.Location = new System.Drawing.Point(1387, 403);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(6);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(267, 92);
@@ -158,7 +159,7 @@
             this.btnRemove.ForeColor = System.Drawing.Color.Black;
             this.btnRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.Image")));
             this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemove.Location = new System.Drawing.Point(1387, 595);
+            this.btnRemove.Location = new System.Drawing.Point(1387, 528);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(6);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(267, 92);
@@ -297,7 +298,7 @@
             this.btnLog.ForeColor = System.Drawing.Color.Black;
             this.btnLog.Image = ((System.Drawing.Image)(resources.GetObject("btnLog.Image")));
             this.btnLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLog.Location = new System.Drawing.Point(1387, 884);
+            this.btnLog.Location = new System.Drawing.Point(1387, 770);
             this.btnLog.Margin = new System.Windows.Forms.Padding(6);
             this.btnLog.Name = "btnLog";
             this.btnLog.Size = new System.Drawing.Size(267, 92);
@@ -307,11 +308,30 @@
             this.btnLog.UseVisualStyleBackColor = false;
             this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
             // 
+            // btnPosition
+            // 
+            this.btnPosition.AutoEllipsis = true;
+            this.btnPosition.BackColor = System.Drawing.Color.Transparent;
+            this.btnPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPosition.ForeColor = System.Drawing.Color.Black;
+            this.btnPosition.Image = ((System.Drawing.Image)(resources.GetObject("btnPosition.Image")));
+            this.btnPosition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPosition.Location = new System.Drawing.Point(1387, 884);
+            this.btnPosition.Margin = new System.Windows.Forms.Padding(6);
+            this.btnPosition.Name = "btnPosition";
+            this.btnPosition.Size = new System.Drawing.Size(267, 92);
+            this.btnPosition.TabIndex = 125;
+            this.btnPosition.Text = "Position";
+            this.btnPosition.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPosition.UseVisualStyleBackColor = false;
+            this.btnPosition.Click += new System.EventHandler(this.btnPosition_Click);
+            // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1736, 1125);
+            this.Controls.Add(this.btnPosition);
             this.Controls.Add(this.btnLog);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnEdit);
@@ -363,5 +383,6 @@
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Button btnLog;
+        private System.Windows.Forms.Button btnPosition;
     }
 }

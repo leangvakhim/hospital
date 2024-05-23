@@ -62,6 +62,7 @@ namespace hospital
         {
             Refresh();
         }
+
         private void Refresh()
         {
             btnEdit.Enabled = false;
@@ -94,7 +95,7 @@ namespace hospital
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
-                dataGridView1.RowTemplate.Height = 60;
+                dataGridView1.RowTemplate.Height = 80;
                 dataGridView1.DataSource = table;
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.ReadOnly = true;

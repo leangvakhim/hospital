@@ -201,7 +201,7 @@ namespace hospital
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
-                dataGridView1.RowTemplate.Height = 60;
+                dataGridView1.RowTemplate.Height = 30;
                 dataGridView1.DataSource = table;
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.ReadOnly = true;
@@ -468,6 +468,13 @@ namespace hospital
             }
         }
 
+        private void btnPosition_Click(object sender, EventArgs e)
+        {
+            FormPosition formPosition = new FormPosition(admin_username, admin_role);
+            formPosition.Show();
+            this.Hide();
+        }
+
         private void btnLog_Click(object sender, EventArgs e)
         {
             FormRecordLog formRecordLog = new FormRecordLog(admin_username, admin_role);
@@ -497,6 +504,7 @@ namespace hospital
                 txtName.ForeColor = System.Drawing.SystemColors.WindowText;
             }
         }
+
         private void TrackUserAction(string userAction)
         {
             try
