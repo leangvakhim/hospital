@@ -247,6 +247,7 @@
             this.label5.Size = new System.Drawing.Size(208, 39);
             this.label5.TabIndex = 133;
             this.label5.Text = "Appointment";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // btnReturn
             // 
