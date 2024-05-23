@@ -471,6 +471,7 @@ namespace hospital
                 txtName.BackColor = System.Drawing.SystemColors.Window;
                 txtName.ForeColor = System.Drawing.SystemColors.WindowText;
             }
+
         }
 
         private void txtphone_TextChanged(object sender, EventArgs e)
@@ -487,10 +488,12 @@ namespace hospital
                 txtphone.BackColor = System.Drawing.SystemColors.Window;
                 txtphone.ForeColor = System.Drawing.SystemColors.WindowText;
             }
+
         }
 
         private void txtspecialization_TextChanged(object sender, EventArgs e)
         {
+
             if (ContainsSpecialCharacters(txtspecialization.Text))
             {
                 txtspecialization.BorderStyle = BorderStyle.FixedSingle;
@@ -536,6 +539,7 @@ namespace hospital
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
+
         }
     }
 }

@@ -58,10 +58,12 @@
             this.btnBrowse.BackColor = System.Drawing.Color.Transparent;
             this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
             this.btnBrowse.Location = new System.Drawing.Point(1348, 485);
             this.btnBrowse.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(172, 62);
+
             this.btnBrowse.TabIndex = 110;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = false;
@@ -70,12 +72,15 @@
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+
             this.pictureBox1.Location = new System.Drawing.Point(1262, 179);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(330, 292);
+
             this.pictureBox1.TabIndex = 117;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnEdit
             // 
@@ -83,10 +88,12 @@
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
             this.btnEdit.Location = new System.Drawing.Point(370, 665);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(216, 92);
+
             this.btnEdit.TabIndex = 121;
             this.btnEdit.TabStop = false;
             this.btnEdit.Text = "Edit";
@@ -101,6 +108,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
             this.dataGridView1.Location = new System.Drawing.Point(114, 792);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dataGridView1.MultiSelect = false;
@@ -108,8 +116,10 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.Size = new System.Drawing.Size(1480, 313);
+
             this.dataGridView1.TabIndex = 118;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnReport
             // 
@@ -117,10 +127,12 @@
             this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
             this.btnReport.Location = new System.Drawing.Point(1300, 665);
             this.btnReport.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(294, 92);
+
             this.btnReport.TabIndex = 124;
             this.btnReport.Text = "Report";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -133,10 +145,12 @@
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
             this.btnSearch.Location = new System.Drawing.Point(612, 665);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(292, 92);
+
             this.btnSearch.TabIndex = 122;
             this.btnSearch.Text = "Search";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -151,10 +165,12 @@
             this.btnRemove.ForeColor = System.Drawing.Color.Black;
             this.btnRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.Image")));
             this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
             this.btnRemove.Location = new System.Drawing.Point(936, 665);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(332, 92);
+
             this.btnRemove.TabIndex = 123;
             this.btnRemove.Text = "Remove";
             this.btnRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -167,10 +183,12 @@
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
             this.btnSave.Location = new System.Drawing.Point(114, 665);
             this.btnSave.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(234, 92);
+
             this.btnSave.TabIndex = 120;
             this.btnSave.Text = "Save";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -181,20 +199,25 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.label5.Location = new System.Drawing.Point(976, 169);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(199, 67);
+
             this.label5.TabIndex = 116;
             this.label5.Text = "Photo:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtspecialization
             // 
             this.txtspecialization.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.txtspecialization.Location = new System.Drawing.Point(586, 550);
             this.txtspecialization.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtspecialization.Name = "txtspecialization";
             this.txtspecialization.Size = new System.Drawing.Size(608, 74);
+
             this.txtspecialization.TabIndex = 109;
             this.txtspecialization.TextChanged += new System.EventHandler(this.txtspecialization_TextChanged);
             // 
@@ -202,20 +225,24 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.label4.Location = new System.Drawing.Point(102, 550);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(410, 67);
+
             this.label4.TabIndex = 115;
             this.label4.Text = "Specialization:";
             // 
             // txtphone
             // 
             this.txtphone.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.txtphone.Location = new System.Drawing.Point(586, 425);
             this.txtphone.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtphone.Name = "txtphone";
             this.txtphone.Size = new System.Drawing.Size(608, 74);
+
             this.txtphone.TabIndex = 107;
             this.txtphone.TextChanged += new System.EventHandler(this.txtphone_TextChanged);
             // 
@@ -223,20 +250,24 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.label3.Location = new System.Drawing.Point(102, 425);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(443, 67);
+
             this.label3.TabIndex = 114;
             this.label3.Text = "Phone Number:";
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.txtName.Location = new System.Drawing.Point(586, 294);
             this.txtName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(608, 74);
+
             this.txtName.TabIndex = 106;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
@@ -244,30 +275,37 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.label2.Location = new System.Drawing.Point(102, 304);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(203, 67);
+
             this.label2.TabIndex = 113;
             this.label2.Text = "Name:";
             // 
             // txtID
             // 
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.txtID.Location = new System.Drawing.Point(586, 169);
             this.txtID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(260, 74);
+
             this.txtID.TabIndex = 119;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.label1.Location = new System.Drawing.Point(102, 179);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 67);
+
             this.label1.TabIndex = 112;
             this.label1.Text = "ID:";
             // 
@@ -277,10 +315,12 @@
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
             this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
             this.btnReturn.Location = new System.Drawing.Point(1520, 2);
             this.btnReturn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(150, 56);
+
             this.btnReturn.TabIndex = 111;
             this.btnReturn.Text = "Return";
             this.btnReturn.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -295,19 +335,23 @@
             this.labelTitle.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelTitle.Image = ((System.Drawing.Image)(resources.GetObject("labelTitle.Image")));
             this.labelTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
             this.labelTitle.Location = new System.Drawing.Point(500, 38);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(683, 78);
+
             this.labelTitle.TabIndex = 108;
             this.labelTitle.Text = "    ប្រព័ន្ធគ្រប់គ្រងគ្រូពេទ្យ";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FormDoctor
             // 
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1670, 1136);
+
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnEdit);
@@ -327,7 +371,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.labelTitle);
+
             this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+
             this.Name = "FormDoctor";
             this.Text = "FormDoctor";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormDoctor_FormClosed);
