@@ -39,7 +39,7 @@
             this.btnDoctor = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelWel = new System.Windows.Forms.Label();
             this.btnambulance = new System.Windows.Forms.Button();
             this.btnstaff = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -180,15 +180,15 @@
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 9;
             // 
-            // label2
+            // labelWel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 17);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Welcome";
+            this.labelWel.AutoSize = true;
+            this.labelWel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWel.Location = new System.Drawing.Point(3, 3);
+            this.labelWel.Name = "labelWel";
+            this.labelWel.Size = new System.Drawing.Size(66, 17);
+            this.labelWel.TabIndex = 18;
+            this.labelWel.Text = "Welcome";
             // 
             // btnambulance
             // 
@@ -224,10 +224,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1181, 516);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(1171, 519);
             this.Controls.Add(this.btnstaff);
             this.Controls.Add(this.btnambulance);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelWel);
             this.Controls.Add(this.btnappointment);
             this.Controls.Add(this.btnmedicine);
             this.Controls.Add(this.btnLogout);
@@ -239,6 +240,7 @@
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.label1);
             this.Name = "FormManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormManagement";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormManagement_FormClosed);
             this.Load += new System.EventHandler(this.FormManagement_Load);
@@ -259,7 +261,7 @@
         private System.Windows.Forms.Button btnDoctor;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelWel;
         private System.Windows.Forms.Button btnambulance;
         private System.Windows.Forms.Button btnstaff;
     }

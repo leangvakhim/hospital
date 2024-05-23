@@ -6,22 +6,69 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.15744in</Width>
+              <Width>0.92881in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.24077in</Width>
+              <Width>2.07465in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.6991in</Width>
+              <Width>1.52257in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.90396in</Width>
+              <Width>1.3073in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.35417in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.91729in</Height>
+              <Height>0.81596in</Height>
               <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>លេខសម្គាល់</Value>
+                              <Style>
+                                <FontFamily>Khmer OS Siemreap</FontFamily>
+                                <FontSize>12pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <TopBorder>
+                          <Style>Solid</Style>
+                        </TopBorder>
+                        <LeftBorder>
+                          <Style>Solid</Style>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Style>Solid</Style>
+                        </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Textbox4">
@@ -31,7 +78,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>លេខសម្គាល់</Value>
+                              <Value>ឈ្មោះ</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -51,9 +98,9 @@
                         <TopBorder>
                           <Style>Solid</Style>
                         </TopBorder>
-                        <LeftBorder>
+                        <BottomBorder>
                           <Style>Solid</Style>
-                        </LeftBorder>
+                        </BottomBorder>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -72,7 +119,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ឈ្មោះ</Value>
+                              <Value>លេខទូរស័ព្ទ</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -86,10 +133,13 @@
                       </Paragraphs>
                       <rd:DefaultName>Textbox6</rd:DefaultName>
                       <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
+                        <Border />
+                        <TopBorder>
                           <Style>Solid</Style>
-                        </Border>
+                        </TopBorder>
+                        <LeftBorder>
+                          <Style>Solid</Style>
+                        </LeftBorder>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -101,14 +151,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox8">
+                    <Textbox Name="Textbox12">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ថ្ងៃចូលសម្រាកព្យាបាល</Value>
+                              <Value>ឯកទេស</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -120,7 +170,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox8</rd:DefaultName>
+                      <rd:DefaultName>Textbox12</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -137,14 +187,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox10">
+                    <Textbox Name="Textbox14">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ថ្ងៃចេញពីសម្រាកព្យាបាល</Value>
+                              <Value>រូបភាព</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -156,7 +206,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox10</rd:DefaultName>
+                      <rd:DefaultName>Textbox14</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -174,7 +224,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.91729in</Height>
+              <Height>0.81596in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -187,8 +237,7 @@
                             <TextRun>
                               <Value>=Fields!id.Value</Value>
                               <Style>
-                                <FontFamily>Google Sans</FontFamily>
-                                <FontSize>12pt</FontSize>
+                                <FontFamily>Google Sans Medium</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -223,8 +272,7 @@
                             <TextRun>
                               <Value>=Fields!name.Value</Value>
                               <Style>
-                                <FontFamily>Google Sans</FontFamily>
-                                <FontSize>12pt</FontSize>
+                                <FontFamily>Google Sans Medium</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -236,9 +284,11 @@
                       <rd:DefaultName>name</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -250,18 +300,16 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="checkIn">
+                    <Textbox Name="phone">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!checkIn.Value</Value>
+                              <Value>=Fields!phone.Value</Value>
                               <Style>
-                                <FontFamily>Google Sans</FontFamily>
-                                <FontSize>12pt</FontSize>
-                                <Format>dd/MM/yyyy</Format>
+                                <FontFamily>Google Sans Medium</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -270,7 +318,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>checkIn</rd:DefaultName>
+                      <rd:DefaultName>phone</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -287,19 +335,15 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="checkOut">
+                    <Textbox Name="specialization">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!checkOut.Value</Value>
-                              <Style>
-                                <FontFamily>Google Sans</FontFamily>
-                                <FontSize>12pt</FontSize>
-                                <Format>dd/MM/yyyy</Format>
-                              </Style>
+                              <Value>=Fields!specialization.Value</Value>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -307,7 +351,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>checkOut</rd:DefaultName>
+                      <rd:DefaultName>specialization</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -320,6 +364,21 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Image Name="Image2">
+                      <Source>Database</Source>
+                      <Value>=Fields!photo.Value</Value>
+                      <MIMEType>image/jpeg</MIMEType>
+                      <Sizing>Fit</Sizing>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                      </Style>
+                    </Image>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -328,6 +387,7 @@
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -345,10 +405,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet</DataSetName>
-        <Top>0.16542in</Top>
-        <Left>0.13416in</Left>
-        <Height>1.83458in</Height>
-        <Width>7.00127in</Width>
+        <Top>0.02431in</Top>
+        <Left>0.13542in</Left>
+        <Height>1.63193in</Height>
+        <Width>7.1875in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -356,13 +416,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.02084in</Height>
+    <Height>1.67708in</Height>
     <Style />
   </Body>
-  <Width>7.15625in</Width>
+  <Width>7.34375in</Width>
   <Page>
     <PageHeader>
-      <Height>1in</Height>
+      <Height>0.94792in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -373,9 +433,16 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>របាយការណ៍បន្ទប់អ្នកជំងឺ</Value>
+                  <Value>របាយការណ៍</Value>
                   <Style>
                     <FontFamily>Cascadia Mono Light</FontFamily>
+                    <FontSize>40pt</FontSize>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>គ្រូពេទ្យ</Value>
+                  <Style>
+                    <FontFamily>Cascadia Code Light</FontFamily>
                     <FontSize>40pt</FontSize>
                   </Style>
                 </TextRun>
@@ -386,10 +453,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.23958in</Top>
-          <Left>1.81251in</Left>
-          <Height>0.59375in</Height>
-          <Width>3.54166in</Width>
+          <Top>0.10291in</Top>
+          <Left>1.67708in</Left>
+          <Height>0.6714in</Height>
+          <Width>3.86459in</Width>
           <Style>
             <Border />
             <PaddingLeft>2pt</PaddingLeft>
@@ -405,6 +472,8 @@
         </Border>
       </Style>
     </PageHeader>
+    <PageHeight>11.69in</PageHeight>
+    <PageWidth>8.27in</PageWidth>
     <LeftMargin>0.5in</LeftMargin>
     <TopMargin>0.5in</TopMargin>
     <BottomMargin>0.5in</BottomMargin>
@@ -417,7 +486,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>c461fef7-2b7c-4bb0-b1fa-7f69da1d9855</rd:DataSourceID>
+      <rd:DataSourceID>d5fbf970-3c24-4d8f-b078-9e16423b2ce8</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -433,21 +502,25 @@
         </Field>
         <Field Name="name">
           <DataField>name</DataField>
+          <rd:TypeName>System.UInt64</rd:TypeName>
+        </Field>
+        <Field Name="phone">
+          <DataField>phone</DataField>
+          <rd:TypeName>System.Char</rd:TypeName>
+        </Field>
+        <Field Name="specialization">
+          <DataField>specialization</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="checkIn">
-          <DataField>checkIn</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="checkOut">
-          <DataField>checkOut</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+        <Field Name="photo">
+          <DataField>photo</DataField>
+          <rd:TypeName>System.Object</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet</rd:DataSetName>
         <rd:SchemaPath>D:\Programming\C#\Assigment\hospital\hospital\DataSet.xsd</rd:SchemaPath>
-        <rd:TableName>tbbed</rd:TableName>
+        <rd:TableName>tbdoctor</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
@@ -455,5 +528,5 @@
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>b0843b1b-68e4-48cd-b4ba-5c28a63450a3</rd:ReportID>
+  <rd:ReportID>f3582996-4c85-45f8-8bf7-eade923fd858</rd:ReportID>
 </Report>

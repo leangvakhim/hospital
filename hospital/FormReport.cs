@@ -17,7 +17,7 @@ namespace hospital
 {
     public partial class FormReport : Form
     {
-        public enum _ReportType { Doctor, Bed, Patient, Staff, Ambulance };
+        public enum _ReportType { Doctor, Bed, Patient, Staff, Ambulance, Medicine, Record };
 
         private string doctor_username;
         private string doctor_role;
@@ -38,13 +38,22 @@ namespace hospital
                 switch (type)
                 {
                     case _ReportType.Doctor:
-                        LoadData(sqlquery, "tbdoctor", "Reports\\Report.rdlc");
+                        LoadData(sqlquery, "tbdoctor", "hospital\\Report.rdlc");
                         break;
                     case _ReportType.Bed:
-                        LoadData(sqlquery, "tbbed", "Reports\\BedReport.rdlc");
+                        LoadData(sqlquery, "tbbed", "hospital\\BedReport.rdlc");
                         break;
                     case _ReportType.Patient:
-                        LoadData(sqlquery, "tbpatient", "Reports\\PatientReport.rdlc");
+                        LoadData(sqlquery, "tbpatient", "hospital\\PatientReport.rdlc");
+                        break;
+                    case _ReportType.Medicine:
+                        LoadData(sqlquery, "tbmedicine", "hospital\\MedicineReport.rdlc");
+                        break;
+                    case _ReportType.Record:
+                        LoadData(sqlquery, "tbrecord", "hospital\\RecordReport.rdlc");
+                        break;
+                    case _ReportType.Ambulance:
+                        LoadData(sqlquery, "tbambulance", "hospital\\AmbulanceReport.rdlc");
                         break;
                 }
             }
@@ -70,16 +79,6 @@ namespace hospital
             try
             {
                 DataSet ds = new DataSet();
-                if (type == _ReportType.Bed && ds.Tables[tablename].Columns.Contains("checkIn") && ds.Tables[tablename].Columns.Contains("checkOut"))
-                {
-                    foreach (DataRow row in ds.Tables[tablename].Rows)
-                    {
-                        DateTime checkIn = row.Field<DateTime>("checkIn");
-                        DateTime checkOut = row.Field<DateTime>("checkOut");
-                        row.AcceptChanges();
-                        
-                    }
-                }
 
                 using (MySqlConnection con = new MySqlConnection(MySQLConn))
                 {
@@ -89,9 +88,10 @@ namespace hospital
                     da.Fill(ds, tablename);
                     con.Close();
                 }
-
-
-                string exeFolder = Path.GetDirectoryName(Application.ExecutablePath);
+                string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                DirectoryInfo directoryInfo = new DirectoryInfo(baseDirectory);
+                DirectoryInfo targetDirectoryInfo = directoryInfo.Parent.Parent.Parent;
+                string exeFolder = targetDirectoryInfo.FullName;
                 string reportPathFile = Path.Combine(exeFolder, reportPath);
                 reportViewer1.LocalReport.DataSources.Clear();
 
@@ -115,16 +115,22 @@ namespace hospital
             switch(type)
             {
                 case _ReportType.Doctor:
-                    form = new FormDoctor(doctor_username, doctor_role);
-                    FormChange(form);
+                    FormChange(new FormDoctor(doctor_username, doctor_role));
                     break;
                 case _ReportType.Bed:
-                    form = new FormBed(doctor_username, doctor_role);
-                    FormChange(form);
+                    FormChange(new FormBed(doctor_username, doctor_role));
                     break;
                 case _ReportType.Patient:
-                    form = new FormPatient(doctor_username, doctor_role);
-                    FormChange(form);
+                    FormChange(new FormPatient(doctor_username, doctor_role));
+                    break;
+                case _ReportType.Medicine:
+                    FormChange(new FormMedicine(doctor_username, doctor_role));
+                    break;
+                case _ReportType.Record:
+                    FormChange(new FormRecordLog(doctor_username, doctor_role));
+                    break;
+                case _ReportType.Ambulance:
+                    FormChange(new FormAmbulance(doctor_username, doctor_role));
                     break;
             }
         }
