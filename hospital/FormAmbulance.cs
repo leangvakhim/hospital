@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -73,6 +74,7 @@ namespace hospital
         private void FormAmbulance_Load(object sender, EventArgs e)
         {
             Refresh();
+            DisplayInComboBox();
             clock();
         }
         
@@ -81,6 +83,7 @@ namespace hospital
             btnedit.Enabled = false;
             txtid.Enabled = false;
             btndelete.Enabled = false;
+            cbStaff.SelectedIndex = 0;
             if (ambulance_role == "view only")
             {
                 btnedit.Enabled = false;
@@ -93,7 +96,7 @@ namespace hospital
                 btnedit.Enabled = false;
                 btnreport.Enabled = false;
             }
-            MySqlConnection conn = new MySqlConnection(MySQLConn);
+            conn = new MySqlConnection(MySQLConn);
             try
             {
                 conn.Open();
@@ -132,9 +135,9 @@ namespace hospital
             DateTime Departure, Arrived;
             if (btnsave.Text == "Save")
             {
-                if (cbStaff.SelectedIndex == 0)
+                if(cbStaff.SelectedIndex == 0)
                 {
-                    MessageBox.Show("Please select Staff's name.");
+                    MessageBox.Show("Please select Staff name.");
                     return;
                 }
                 else if (txtAm.Text == "")
@@ -163,7 +166,7 @@ namespace hospital
                     string ambulanceno = txtAm.Text;
                     string name = cbStaff.SelectedItem.ToString();
                     Departure = dateTimedeparture.Value;
-                    Arrived = dateTimedeparture.Value;
+                    Arrived = dateTimearrived.Value;
 
                     string query = "INSERT INTO tbambulance (id, ambulanceNo, staffName, departureTime, arriveTime) VALUES (@id, @ambulanceno, @name, @departuretime, @arrivedtime)";
                     MySqlCommand command = new MySqlCommand(query, conn);
@@ -446,6 +449,32 @@ namespace hospital
                 txtAm.BorderStyle = BorderStyle.FixedSingle;
                 txtAm.BackColor = System.Drawing.SystemColors.Window;
                 txtAm.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
+        }
+
+        private void DisplayInComboBox()
+        {
+            try
+            {
+                using (conn = new MySqlConnection(MySQLConn))
+                {
+                    conn.Open();
+                    string query = "SELECT name FROM tbstaff WHERE position = 'Driver' && active = 1 ORDER BY id DESC";
+                    command = new MySqlCommand(query, conn);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            cbStaff.Items.Add(reader["name"].ToString());
+                        }
+                    }
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
