@@ -404,5 +404,40 @@ namespace hospital
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtphone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtspecialization_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
