@@ -141,18 +141,6 @@
     <Compile Include="FormAmbulance.Designer.cs">
       <DependentUpon>FormAmbulance.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAmountAmbulance.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAmountAmbulance.Designer.cs">
-      <DependentUpon>FormAmountAmbulance.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormAmountBed.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAmountBed.Designer.cs">
-      <DependentUpon>FormAmountBed.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,19 +216,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AmbulanceReport.rdlc" />
-    <EmbeddedResource Include="AppointmentReport.rdlc" />
     <EmbeddedResource Include="BedReport.rdlc" />
     <EmbeddedResource Include="FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAmbulance.resx">
       <DependentUpon>FormAmbulance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAmountAmbulance.resx">
-      <DependentUpon>FormAmountAmbulance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAmountBed.resx">
-      <DependentUpon>FormAmountBed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAppointment.resx">
       <DependentUpon>FormAppointment.cs</DependentUpon>
@@ -291,7 +272,6 @@
     </Compile>
     <EmbeddedResource Include="DoctorReport.rdlc" />
     <EmbeddedResource Include="RecordReport.rdlc" />
-    <EmbeddedResource Include="StaffReport.rdlc" />
     <None Include="DataSet.xsc">
       <DependentUpon>DataSet.xsd</DependentUpon>
     </None>
