@@ -451,7 +451,7 @@
         <DataSetName>DataSet</DataSetName>
         <Top>0.05556in</Top>
         <Height>1.90278in</Height>
-        <Width>7.96875in</Width>
+        <Width>7.96874in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -459,7 +459,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.95833in</Height>
+    <Height>1.95834in</Height>
     <Style />
   </Body>
   <Width>7.96875in</Width>
@@ -476,7 +476,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>របាយការណ៍អ្នកគ្រប់គ្រង</Value>
+                  <Value>របាយការណ៍បុគ្គលិក</Value>
                   <Style>
                     <FontFamily>Cascadia Mono Light</FontFamily>
                     <FontSize>40pt</FontSize>
