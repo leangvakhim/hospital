@@ -261,6 +261,7 @@
     </Compile>
     <EmbeddedResource Include="DoctorReport.rdlc" />
     <EmbeddedResource Include="RecordReport.rdlc" />
+    <EmbeddedResource Include="StaffReport.rdlc" />
     <None Include="DataSet.xsc">
       <DependentUpon>DataSet.xsd</DependentUpon>
     </None>
