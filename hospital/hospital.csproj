@@ -216,6 +216,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AmbulanceReport.rdlc" />
+    <EmbeddedResource Include="AppointmentReport.rdlc" />
     <EmbeddedResource Include="BedReport.rdlc" />
     <EmbeddedResource Include="FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
@@ -272,6 +273,7 @@
     </Compile>
     <EmbeddedResource Include="DoctorReport.rdlc" />
     <EmbeddedResource Include="RecordReport.rdlc" />
+    <EmbeddedResource Include="StaffReport.rdlc" />
     <None Include="DataSet.xsc">
       <DependentUpon>DataSet.xsd</DependentUpon>
     </None>
