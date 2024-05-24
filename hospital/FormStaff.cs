@@ -286,9 +286,6 @@ namespace hospital
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            FormReport report = new FormReport(staff_username, staff_role, FormReport._ReportType.Staff, sqlquery);
-            report.Show();
-            this.Hide();
             buttonReport = true;
             TrackUserAction("Report");
         }
