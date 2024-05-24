@@ -95,7 +95,7 @@
             this.cbStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbStaff.FormattingEnabled = true;
             this.cbStaff.Items.AddRange(new object[] {
-
+            ""});
             this.cbStaff.Location = new System.Drawing.Point(243, 162);
             this.cbStaff.Name = "cbStaff";
             this.cbStaff.Size = new System.Drawing.Size(318, 39);
@@ -105,15 +105,20 @@
             // 
             this.dateTimedeparture.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimedeparture.Checked = false;
+            this.dateTimedeparture.CustomFormat = "dd-MM-yyyy HH:mm:ss";
             this.dateTimedeparture.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimedeparture.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimedeparture.Location = new System.Drawing.Point(243, 212);
             this.dateTimedeparture.Name = "dateTimedeparture";
             this.dateTimedeparture.Size = new System.Drawing.Size(318, 35);
             this.dateTimedeparture.TabIndex = 117;
+            this.dateTimedeparture.Value = new System.DateTime(2024, 5, 22, 9, 35, 40, 0);
             // 
             // dateTimearrived
             // 
+            this.dateTimearrived.CustomFormat = "dd-MM-yyyy HH:mm:ss";
             this.dateTimearrived.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimearrived.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimearrived.Location = new System.Drawing.Point(243, 262);
             this.dateTimearrived.Name = "dateTimearrived";
             this.dateTimearrived.Size = new System.Drawing.Size(318, 35);
@@ -291,6 +296,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 638);
             this.Controls.Add(this.time);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.arrived);
