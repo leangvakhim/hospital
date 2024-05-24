@@ -14,6 +14,7 @@ namespace hospital
 {
     public partial class FormRecordLog : Form
     {
+        Boolean buttonSave, buttonEdit, buttonRemove, buttonReport, buttonSearch;
         private string recordlog_username;
         private string recordlog_role;
         String MySQLConn = "";
@@ -140,6 +141,7 @@ namespace hospital
         private void button1_Click(object sender, EventArgs e)
         {
             FormReport report = new FormReport(recordlog_username, recordlog_role, FormReport._ReportType.Record, sqlquery);
+            buttonReport = true;
             report.Show();
             this.Hide();
             /*TrackUserAction("Report");*/

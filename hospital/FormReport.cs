@@ -55,9 +55,6 @@ namespace hospital
                     case _ReportType.Ambulance:
                         LoadData(sqlquery, "tbambulance", "hospital\\AmbulanceReport.rdlc");
                         break;
-                    case _ReportType.Staff:
-                        LoadData(sqlquery, "tbstaff", "hospital\\StaffReport.rdlc");
-                        break;
                 }
             }
             catch (Exception ex)
@@ -134,9 +131,6 @@ namespace hospital
                     break;
                 case _ReportType.Ambulance:
                     FormChange(new FormAmbulance(doctor_username, doctor_role));
-                    break;
-                case _ReportType.Staff:
-                    FormChange(new FormStaff(doctor_username, doctor_role));
                     break;
             }
         }
