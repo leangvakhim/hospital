@@ -17,9 +17,12 @@ namespace hospital
     {
         private string appointment_username;
         private string appointment_role;
+        MySqlConnection conn;
+        MySqlCommand command;
         //MySqlConnection conn;
         String MySQLConn = "";
-        private string sqlquery = "SELECT * FROM tbAppointment WHERE active = 1 ORDER BY id DESC";
+        Boolean buttonSave, buttonEdit, buttonRemove, buttonReport, buttonSearch;
+        private string sqlquery = "SELECT * FROM tbappointment WHERE active = 1 ORDER BY id DESC";
         public FormAppointment(string appointment_username, string appointment_role)
         {
             InitializeComponent();
@@ -62,6 +65,7 @@ namespace hospital
                 btnReport.Enabled = false;
             }
             MySqlConnection conn = new MySqlConnection(MySQLConn);
+            buttonSearch = true;
             try
             {
                 conn.Open();
@@ -74,15 +78,16 @@ namespace hospital
                 dataGridView1.DataSource = table;
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.ReadOnly = true;
-                dataGridView1.Columns[5].Visible = false;
+                dataGridView1.Columns[4].Visible = false;
+                TrackUserAction("Search");
 
-                DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
-                imgCol = (DataGridViewImageColumn)dataGridView1.Columns[4];
-                imgCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                /*DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
+                imgCol = (DataGridViewImageColumn)dataGridView1.Columns[3];
+                imgCol.ImageLayout = DataGridViewImageCellLayout.Stretch;*/
 
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                MySqlCommand command_id = new MySqlCommand("SELECT id FROM tbdoctor ORDER BY id DESC LIMIT 1", conn);
+                MySqlCommand command_id = new MySqlCommand("SELECT id FROM tbappointment ORDER BY id DESC LIMIT 1", conn);
                 object result = command_id.ExecuteScalar();
                 int maxId = 0;
                 maxId = Convert.ToInt32(result);
@@ -118,6 +123,7 @@ namespace hospital
         private void btnSave_Click(object sender, EventArgs e)
         {
             MySqlConnection conn = new MySqlConnection(MySQLConn);
+            DateTime DOB;
             if (btnSave.Text == "Save")
             {
                 if (txtID.Text == "")
@@ -143,6 +149,7 @@ namespace hospital
                 try
                 {
                     btnEdit.Enabled = false;
+                    buttonSave = true;
                     // check duplicated data
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
@@ -157,17 +164,18 @@ namespace hospital
                     string id = txtID.Text;
                     string name = txtName.Text;
                     string specialization = txtspecialization.Text;
-                    string DOB = BookDate.Text;
+                    DOB = BookDate.Value;
 
                     
 
-                    string query = "INSERT INTO tbappointment(id, name, specialization, bookDate) VALUES (@id, @name, @specialization, @bookDate)";
+                    string query = "INSERT INTO tbappointment(id, name, doctorspecialization, bookdate) VALUES (@id, @name, @doctorspecialization, @bookdate)";
                     MySqlCommand command = new MySqlCommand(query, conn);
                     command.Parameters.AddWithValue("id", "");
                     command.Parameters.AddWithValue("name", name);                   
-                    command.Parameters.AddWithValue("specialization", specialization);
-                    command.Parameters.AddWithValue("BookDate", DOB);
+                    command.Parameters.AddWithValue("doctorspecialization", specialization);
+                    command.Parameters.AddWithValue("Bookdate", DOB);
                     command.ExecuteNonQuery();
+                    TrackUserAction("Save");
 
                     int currenId = int.Parse(txtID.Text);
                     int nextID = currenId + 1;
@@ -197,7 +205,7 @@ namespace hospital
                 txtID.Enabled = false;
                 int maxId = 0;
                 conn.Open();
-                MySqlCommand command_id = new MySqlCommand("SELECT id FROM tbdoctor ORDER BY id DESC LIMIT 1", conn);
+                MySqlCommand command_id = new MySqlCommand("SELECT id FROM tbappointment ORDER BY id DESC LIMIT 1", conn);
 
                 object result = command_id.ExecuteScalar();
                 maxId = Convert.ToInt32(result);
@@ -213,12 +221,46 @@ namespace hospital
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            FormReport report = new FormReport(appointment_username, appointment_role, FormReport._ReportType.Doctor, sqlquery);
+            FormReport report = new FormReport(appointment_username, appointment_role, FormReport._ReportType.Appointment, sqlquery);
             report.Show();
+            buttonReport = true;
             this.Hide();
+            TrackUserAction("Report");
         }
 
-        
+        private void TrackUserAction(string userAction)
+        {
+            try
+            {
+                using (conn = new MySqlConnection(MySQLConn))
+                {
+                    conn.Open();
+                    string query = "INSERT INTO tbrecord(userID, userName, userRole, userAction, userForm, personID, personName, actionDateTime) VALUES (@uID, @uName, @uRole, @uAction, @uForm, @pID, @pName, @aDateTime)";
+
+                    command = new MySqlCommand(query, conn);
+                    command.Parameters.AddWithValue("uAction", userAction);
+                    command.Parameters.AddWithValue("uForm", "Ambulance");
+                    command.Parameters.AddWithValue("uID", "");
+                    command.Parameters.AddWithValue("uName", appointment_username);
+                    command.Parameters.AddWithValue("uRole", appointment_role);
+                    if (userAction.Equals("Report"))
+                    {
+                        command.Parameters.AddWithValue("pID", "");
+                        command.Parameters.AddWithValue("pName", "");
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("pID", txtID.Text);
+                        command.Parameters.AddWithValue("pName", txtName.Text);
+                    }
+                    command.Parameters.AddWithValue("aDateTime", DateTime.Now);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -230,6 +272,7 @@ namespace hospital
             MySqlConnection conn = new MySqlConnection(MySQLConn);
             try
             {
+
                 conn.Open();
                 String updateQuery = "UPDATE tbappointment SET active = @newValue WHERE id = @id || name = @name";
                 MySqlCommand command = new MySqlCommand(updateQuery, conn);
@@ -244,7 +287,7 @@ namespace hospital
                 txtName.Clear();
                 txtspecialization.SelectedIndex = -1;
                 BookDate.Value = DateTime.Now;
-
+                TrackUserAction("Remove");
                 Refresh();
             }
             catch (Exception ex)
@@ -285,13 +328,13 @@ namespace hospital
                     }
                 }
                 conn.Open();
-                String updateQuery = "UPDATE tbdoctor SET name = @newName, phone = @newPhone, specialization = @newSpecialization, photo = @newPhoto WHERE id = @id";
+                String updateQuery = "UPDATE tbappointment SET name = @newName, phone = @newPhone, doctorspecialization = @newSpecialization, bookdate = @newbookdate WHERE id = @id";
                 MySqlCommand update_command = new MySqlCommand(updateQuery, conn);
 
                 update_command.Parameters.AddWithValue("id", txtID.Text);
                 update_command.Parameters.AddWithValue("newName", txtName.Text);                
                 update_command.Parameters.AddWithValue("newSpecialization", txtspecialization.Text);
-                update_command.Parameters.AddWithValue("newBookdate", BookDate);
+                update_command.Parameters.AddWithValue("newbookdate", BookDate);
                
 
                 update_command.ExecuteNonQuery();
@@ -330,7 +373,7 @@ namespace hospital
             try
             {
                 conn.Open();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM tbAppointment WHERE @name = name && active = 1", conn);
+                MySqlCommand command = new MySqlCommand("SELECT * FROM tbappointment WHERE @name = name && active = 1", conn);
                 command.Parameters.AddWithValue("name", txtName.Text);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable table = new DataTable();
@@ -369,7 +412,7 @@ namespace hospital
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            e.Equals(txtID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString());
         }
 
         private void bookdate_ValueChanged(object sender, EventArgs e)
@@ -380,6 +423,14 @@ namespace hospital
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtspecialization.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            BookDate.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
         }
     }
 }

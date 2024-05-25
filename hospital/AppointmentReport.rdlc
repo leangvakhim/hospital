@@ -6,64 +6,22 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.99479in</Width>
+              <Width>1.86458in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.44271in</Width>
+              <Width>1.86458in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.32812in</Width>
+              <Width>1.86458in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.32813in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.32812in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.54687in</Width>
+              <Width>1.86458in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.95139in</Height>
+              <Height>0.61979in</Height>
               <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox8">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>លេខសម្គាល់</Value>
-                              <Style>
-                                <FontFamily>Khmer OS Siemreap</FontFamily>
-                                <FontSize>12pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox8</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Textbox10">
@@ -73,7 +31,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ឈ្មោះ</Value>
+                              <Value>លេខសម្គាល់</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -109,7 +67,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>មុខតំណែង</Value>
+                              <Value>ឈ្មោះ</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -123,7 +81,10 @@
                       </Paragraphs>
                       <rd:DefaultName>Textbox12</rd:DefaultName>
                       <Style>
-                        <Border />
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -142,7 +103,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ភេទ</Value>
+                              <Value>ឯកទេសរបស់វិជ្ចបណ្ឌិត</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -156,7 +117,10 @@
                       </Paragraphs>
                       <rd:DefaultName>Textbox14</rd:DefaultName>
                       <Style>
-                        <Border />
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -175,7 +139,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ប្រាក់បៀរវត្ស</Value>
+                              <Value>ថ្ងៃដែលធ្វើការកក់ការណាត់</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -189,40 +153,10 @@
                       </Paragraphs>
                       <rd:DefaultName>Textbox16</rd:DefaultName>
                       <Style>
-                        <Border />
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox18">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>រូបថត</Value>
-                              <Style>
-                                <FontFamily>Khmer OS Siemreap</FontFamily>
-                                <FontSize>12pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox18</rd:DefaultName>
-                      <Style>
-                        <Border />
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -235,7 +169,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.95139in</Height>
+              <Height>0.61979in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -248,7 +182,7 @@
                             <TextRun>
                               <Value>=Fields!id.Value</Value>
                               <Style>
-                                <FontFamily>google Sans</FontFamily>
+                                <FontFamily>Google Sans</FontFamily>
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
@@ -260,7 +194,10 @@
                       </Paragraphs>
                       <rd:DefaultName>id</rd:DefaultName>
                       <Style>
-                        <Border />
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -293,7 +230,10 @@
                       </Paragraphs>
                       <rd:DefaultName>name</rd:DefaultName>
                       <Style>
-                        <Border />
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -305,14 +245,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="position">
+                    <Textbox Name="doctorspecialization">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!position.Value</Value>
+                              <Value>=Fields!doctorspecialization.Value</Value>
                               <Style>
                                 <FontFamily>Google Sans</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -324,104 +264,55 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>position</rd:DefaultName>
-                      <Style>
-                        <Border />
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="gender">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!gender.Value</Value>
-                              <Style>
-                                <FontFamily>Google Sans</FontFamily>
-                                <FontSize>12pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>gender</rd:DefaultName>
-                      <Style>
-                        <Border />
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="salary">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!salary.Value</Value>
-                              <Style>
-                                <FontFamily>Google Sans</FontFamily>
-                                <FontSize>12pt</FontSize>
-                              </Style>
-                            </TextRun>
-                            <TextRun>
-                              <Value> $</Value>
-                              <Style>
-                                <FontFamily>Google Sans</FontFamily>
-                                <FontSize>12pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>salary</rd:DefaultName>
-                      <Style>
-                        <Border />
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Image Name="Image1">
-                      <Source>Database</Source>
-                      <Value>=Fields!photo.Value</Value>
-                      <MIMEType>image/jpeg</MIMEType>
-                      <Sizing>FitProportional</Sizing>
+                      <rd:DefaultName>doctorspecialization</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
                         </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                    </Image>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="bookdate">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!bookdate.Value</Value>
+                              <Style>
+                                <FontFamily>Google Sans</FontFamily>
+                                <FontSize>12pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>bookdate</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -430,8 +321,6 @@
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
-            <TablixMember />
-            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -449,9 +338,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet</DataSetName>
-        <Top>0.05556in</Top>
-        <Height>1.90278in</Height>
-        <Width>7.96874in</Width>
+        <Top>0.04167in</Top>
+        <Height>1.23958in</Height>
+        <Width>7.45833in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -459,10 +348,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.95834in</Height>
+    <Height>1.28125in</Height>
     <Style />
   </Body>
-  <Width>7.96875in</Width>
+  <Width>7.45833in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>
@@ -476,21 +365,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>របាយការណ៍បុគ្គលិក</Value>
-                  <Style>
-                    <FontFamily>Cascadia Mono Light</FontFamily>
-                    <FontSize>40pt</FontSize>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value />
+                  <Value>របាយការណ៍ណាត់ជួបគ្រូពេទ្យ</Value>
                   <Style>
                     <FontFamily>Cascadia Mono Light</FontFamily>
                     <FontSize>40pt</FontSize>
@@ -504,7 +379,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.1643in</Top>
-          <Left>1.92583in</Left>
+          <Left>1.7552in</Left>
           <Height>0.6714in</Height>
           <Width>3.86459in</Width>
           <Style>
@@ -534,7 +409,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>ad185bac-b100-40fb-81ae-b66ca016a8d4</rd:DataSourceID>
+      <rd:DataSourceID>2d57b927-4de2-43f5-8c6b-8fc63d61cff8</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -552,27 +427,19 @@
           <DataField>name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="position">
-          <DataField>position</DataField>
+        <Field Name="doctorspecialization">
+          <DataField>doctorspecialization</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="gender">
-          <DataField>gender</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="salary">
-          <DataField>salary</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="photo">
-          <DataField>photo</DataField>
-          <rd:TypeName>System.Byte[]</rd:TypeName>
+        <Field Name="bookdate">
+          <DataField>bookdate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet</rd:DataSetName>
         <rd:SchemaPath>D:\Programming\C#\Assigment\hospital\hospital\DataSet.xsd</rd:SchemaPath>
-        <rd:TableName>tbstaff</rd:TableName>
+        <rd:TableName>tbappointment</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
@@ -580,5 +447,5 @@
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>2b8f7017-c2b7-4b7a-b0da-815c22ce13d7</rd:ReportID>
+  <rd:ReportID>f35cb356-91ca-4453-adc2-70ec26bb10b7</rd:ReportID>
 </Report>

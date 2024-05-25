@@ -17,7 +17,7 @@ namespace hospital
 {
     public partial class FormReport : Form
     {
-        public enum _ReportType { Doctor, Bed, Patient, Staff, Ambulance, Medicine, Record };
+        public enum _ReportType { Doctor, Bed, Patient, Staff, Ambulance, Medicine, Record, Appointment };
 
         private string doctor_username;
         private string doctor_role;
@@ -54,6 +54,12 @@ namespace hospital
                         break;
                     case _ReportType.Ambulance:
                         LoadData(sqlquery, "tbambulance", "hospital\\AmbulanceReport.rdlc");
+                        break;
+                    case _ReportType.Staff:
+                        LoadData(sqlquery, "tbstaff", "hospital\\StaffReport.rdlc");
+                        break;
+                    case _ReportType.Appointment:
+                        LoadData(sqlquery, "tbappointment", "hospital\\AppointmentReport.rdlc");
                         break;
                 }
             }
@@ -131,6 +137,12 @@ namespace hospital
                     break;
                 case _ReportType.Ambulance:
                     FormChange(new FormAmbulance(doctor_username, doctor_role));
+                    break;
+                case _ReportType.Staff:
+                    FormChange(new FormStaff(doctor_username, doctor_role));
+                    break;
+                case _ReportType.Appointment:
+                    FormChange(new FormAppointment(doctor_username, doctor_role));
                     break;
             }
         }
