@@ -84,6 +84,11 @@ namespace hospital
             txtid.Enabled = false;
             btndelete.Enabled = false;
             cbStaff.SelectedIndex = 0;
+            buttonSave = false;
+            buttonEdit = false;
+            buttonRemove = false;
+            buttonReport = false;
+            buttonSearch = false;
             if (ambulance_role == "view only")
             {
                 btnedit.Enabled = false;
