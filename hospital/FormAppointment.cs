@@ -391,10 +391,10 @@ namespace hospital
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            //FormReport report = new FormReport(appointment_username, appointment_role, FormReport._ReportType.Appointment, sqlquery);
-            //report.Show();
+            FormReport report = new FormReport(appointment_username, appointment_role, FormReport._ReportType.Appointment, sqlquery);
+            report.Show();
             buttonReport = true;
-            //this.Hide();
+            this.Hide();
             TrackUserAction("Report");
         }
 

@@ -76,7 +76,7 @@
             this.txtName.Location = new System.Drawing.Point(1019, 146);
             this.txtName.Margin = new System.Windows.Forms.Padding(6);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(485, 68);
+            this.txtName.Size = new System.Drawing.Size(506, 68);
             this.txtName.TabIndex = 120;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
@@ -229,7 +229,7 @@
             this.BookDate.Location = new System.Drawing.Point(1019, 271);
             this.BookDate.Margin = new System.Windows.Forms.Padding(4);
             this.BookDate.Name = "BookDate";
-            this.BookDate.Size = new System.Drawing.Size(485, 68);
+            this.BookDate.Size = new System.Drawing.Size(506, 68);
             this.BookDate.TabIndex = 132;
             // 
             // label5
