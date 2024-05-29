@@ -43,7 +43,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>user ID</Value>
+                              <Value>Number</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -76,7 +76,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>user Name</Value>
+                              <Value>Name</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -109,7 +109,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>user Role</Value>
+                              <Value>Position</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -142,7 +142,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>user Action</Value>
+                              <Value>Action</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -175,7 +175,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>user Form</Value>
+                              <Value>Form</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -208,7 +208,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>person ID</Value>
+                              <Value>UserID</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -241,7 +241,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>person Name</Value>
+                              <Value>UserName</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -274,7 +274,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>action Date Time</Value>
+                              <Value>Date &amp; Time</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
                               </Style>
@@ -547,7 +547,7 @@
                             <TextRun>
                               <Value>=Fields!actionDateTime.Value</Value>
                               <Style>
-                                <Format>dd-MM-yyyy</Format>
+                                <Format>dd-MM-yyyy HH-mm-ss</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -569,6 +569,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

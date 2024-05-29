@@ -6,28 +6,28 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.55in</Width>
+              <Width>1.10833in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.55in</Width>
+              <Width>1.65833in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.55in</Width>
+              <Width>1.65833in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.55in</Width>
+              <Width>1.65833in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.55in</Width>
+              <Width>1.65833in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.55208in</Height>
+              <Height>0.60937in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox2">
+                    <Textbox Name="Textbox11">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -36,7 +36,7 @@
                             <TextRun>
                               <Value>លេខសម្គាល់</Value>
                               <Style>
-                                <FontFamily>khmer OS Siemreap</FontFamily>
+                                <FontFamily>Khmer OS Siemreap</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -45,9 +45,12 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <rd:DefaultName>Textbox11</rd:DefaultName>
                       <Style>
-                        <Border />
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -200,7 +203,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.55208in</Height>
+              <Height>0.60937in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -395,9 +398,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet</DataSetName>
-        <Top>0.06944in</Top>
-        <Height>1.10417in</Height>
-        <Width>7.75in</Width>
+        <Top>0.01389in</Top>
+        <Height>1.21874in</Height>
+        <Width>7.74167in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -405,10 +408,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.20833in</Height>
+    <Height>1.23958in</Height>
     <Style />
   </Body>
-  <Width>7.76042in</Width>
+  <Width>7.75in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>

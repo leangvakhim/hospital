@@ -6,28 +6,28 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.92881in</Width>
+              <Width>1in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.07465in</Width>
+              <Width>2.15625in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.52257in</Width>
+              <Width>1.58853in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.3073in</Width>
+              <Width>1.42188in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.35417in</Width>
+              <Width>1.17709in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.81596in</Height>
+              <Height>0.97221in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox2">
+                    <Textbox Name="Textbox7">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -46,20 +46,12 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Style>Solid</Style>
-                        </TopBorder>
-                        <LeftBorder>
-                          <Style>Solid</Style>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Style>Solid</Style>
-                        </RightBorder>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -71,7 +63,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox4">
+                    <Textbox Name="Textbox5">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -90,17 +82,12 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox4</rd:DefaultName>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Style>Solid</Style>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Style>Solid</Style>
-                        </BottomBorder>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -112,7 +99,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox6">
+                    <Textbox Name="Textbox3">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -131,15 +118,12 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
                       <Style>
-                        <Border />
-                        <TopBorder>
+                        <Border>
+                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
-                        </TopBorder>
-                        <LeftBorder>
-                          <Style>Solid</Style>
-                        </LeftBorder>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -187,14 +171,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox14">
+                    <Textbox Name="Textbox9">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>រូបភាព</Value>
+                              <Value>photo</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -206,7 +190,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox14</rd:DefaultName>
+                      <rd:DefaultName>Textbox9</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -224,7 +208,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.81596in</Height>
+              <Height>0.97221in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -236,9 +220,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!id.Value</Value>
-                              <Style>
-                                <FontFamily>Google Sans Medium</FontFamily>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -271,9 +253,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!name.Value</Value>
-                              <Style>
-                                <FontFamily>Google Sans Medium</FontFamily>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -284,11 +264,9 @@
                       <rd:DefaultName>name</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <BottomBorder>
+                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
-                        </BottomBorder>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -308,9 +286,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!phone.Value</Value>
-                              <Style>
-                                <FontFamily>Google Sans Medium</FontFamily>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -368,14 +344,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Image Name="Image2">
+                    <Image Name="Image1">
                       <Source>Database</Source>
                       <Value>=Fields!photo.Value</Value>
                       <MIMEType>image/jpeg</MIMEType>
-                      <Sizing>Fit</Sizing>
+                      <Sizing>FitProportional</Sizing>
                       <Style>
                         <Border>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
                       </Style>
                     </Image>
@@ -406,9 +382,8 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet</DataSetName>
         <Top>0.02431in</Top>
-        <Left>0.13542in</Left>
-        <Height>1.63193in</Height>
-        <Width>7.1875in</Width>
+        <Height>1.94442in</Height>
+        <Width>7.34375in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -416,7 +391,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.67708in</Height>
+    <Height>1.97916in</Height>
     <Style />
   </Body>
   <Width>7.34375in</Width>
