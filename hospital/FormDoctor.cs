@@ -129,25 +129,25 @@ namespace hospital
             {
                 if (txtName.Text == "")
                 {
-                    MessageBox.Show("Please enter name.");
+                    MessageBox.Show("Please enter name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }else if(txtName.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }else if (txtspecialization.Text == "")
                 {
-                    MessageBox.Show("Please enter specialization.");
+                    MessageBox.Show("Please enter specialization.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (txtphone.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (txtspecialization.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (pictureBox1.Image == null)
@@ -231,7 +231,7 @@ namespace hospital
         {
             if (txtName.ForeColor == System.Drawing.Color.Red)
             {
-                MessageBox.Show("No Special Character enter.");
+                MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             buttonSearch = true;
@@ -334,15 +334,15 @@ namespace hospital
             {
                 if (txtName.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }else if (txtphone.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }else if (txtspecialization.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 btnSave.Text = "New";

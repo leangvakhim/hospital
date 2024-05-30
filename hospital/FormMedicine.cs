@@ -107,11 +107,11 @@ namespace hospital
             {
                 if (txtName.Text == "")
                 {
-                    MessageBox.Show("Please enter medicine's name.");
+                    MessageBox.Show("Please enter medicine's name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }else if(txtName.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (txtQty.Text == "")
@@ -120,16 +120,16 @@ namespace hospital
                     return;
                 }else if (txtQty.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character or Character enter.");
+                    MessageBox.Show("No Special Character or Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (txtUnitPrice.Text == "")
                 {
-                    MessageBox.Show("Please enter medicine's price.");
+                    MessageBox.Show("Please enter medicine's price.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }else if (txtUnitPrice.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character or Character enter.");
+                    MessageBox.Show("No Special Character or Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 try
@@ -207,7 +207,7 @@ namespace hospital
         {
             if (txtName.ForeColor == System.Drawing.Color.Red)
             {
-                MessageBox.Show("No Special Character enter.");
+                MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             BtnSave.Text = "New";
@@ -273,15 +273,15 @@ namespace hospital
             {
                 if (txtName.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }else if (txtQty.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character or Character enter.");
+                    MessageBox.Show("No Special Character or Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }else if (txtUnitPrice.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character or Character enter.");
+                    MessageBox.Show("No Special Character or Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 buttonEdit = true;

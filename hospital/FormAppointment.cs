@@ -110,17 +110,17 @@ namespace hospital
             {
                 if (txtID.Text == "")
                 {
-                    MessageBox.Show("Please enter ID.");
+                    MessageBox.Show("Please enter ID.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (txtName.Text == "")
                 {
-                    MessageBox.Show("Please enter name.");
+                    MessageBox.Show("Please enter name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (txtName.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (cbspecilization.SelectedIndex == 0)

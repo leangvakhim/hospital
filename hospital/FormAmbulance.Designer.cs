@@ -59,9 +59,10 @@
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
             this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturn.Location = new System.Drawing.Point(722, 2);
+            this.btnReturn.Location = new System.Drawing.Point(1083, 3);
+            this.btnReturn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(75, 29);
+            this.btnReturn.Size = new System.Drawing.Size(112, 45);
             this.btnReturn.TabIndex = 113;
             this.btnReturn.Text = "Return";
             this.btnReturn.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -73,19 +74,21 @@
             this.txtid.BackColor = System.Drawing.SystemColors.Window;
             this.txtid.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtid.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.txtid.Location = new System.Drawing.Point(243, 53);
+            this.txtid.Location = new System.Drawing.Point(364, 82);
+            this.txtid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtid.Multiline = true;
             this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(47, 40);
+            this.txtid.Size = new System.Drawing.Size(68, 59);
             this.txtid.TabIndex = 114;
             // 
             // txtAm
             // 
             this.txtAm.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAm.Location = new System.Drawing.Point(243, 110);
+            this.txtAm.Location = new System.Drawing.Point(364, 169);
+            this.txtAm.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAm.Multiline = true;
             this.txtAm.Name = "txtAm";
-            this.txtAm.Size = new System.Drawing.Size(318, 36);
+            this.txtAm.Size = new System.Drawing.Size(475, 53);
             this.txtAm.TabIndex = 115;
             this.txtAm.TextChanged += new System.EventHandler(this.txtAm_TextChanged);
             // 
@@ -96,9 +99,10 @@
             this.cbStaff.FormattingEnabled = true;
             this.cbStaff.Items.AddRange(new object[] {
             ""});
-            this.cbStaff.Location = new System.Drawing.Point(243, 162);
+            this.cbStaff.Location = new System.Drawing.Point(364, 249);
+            this.cbStaff.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbStaff.Name = "cbStaff";
-            this.cbStaff.Size = new System.Drawing.Size(318, 39);
+            this.cbStaff.Size = new System.Drawing.Size(475, 54);
             this.cbStaff.TabIndex = 116;
             // 
             // dateTimedeparture
@@ -108,9 +112,10 @@
             this.dateTimedeparture.CustomFormat = "dd-MM-yyyy HH:mm:ss";
             this.dateTimedeparture.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimedeparture.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimedeparture.Location = new System.Drawing.Point(243, 212);
+            this.dateTimedeparture.Location = new System.Drawing.Point(364, 326);
+            this.dateTimedeparture.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimedeparture.Name = "dateTimedeparture";
-            this.dateTimedeparture.Size = new System.Drawing.Size(318, 35);
+            this.dateTimedeparture.Size = new System.Drawing.Size(475, 48);
             this.dateTimedeparture.TabIndex = 117;
             this.dateTimedeparture.Value = new System.DateTime(2024, 5, 22, 9, 35, 40, 0);
             // 
@@ -119,18 +124,20 @@
             this.dateTimearrived.CustomFormat = "dd-MM-yyyy HH:mm:ss";
             this.dateTimearrived.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimearrived.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimearrived.Location = new System.Drawing.Point(243, 262);
+            this.dateTimearrived.Location = new System.Drawing.Point(364, 403);
+            this.dateTimearrived.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimearrived.Name = "dateTimearrived";
-            this.dateTimearrived.Size = new System.Drawing.Size(318, 35);
+            this.dateTimearrived.Size = new System.Drawing.Size(475, 48);
             this.dateTimearrived.TabIndex = 118;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 371);
+            this.dataGridView1.Location = new System.Drawing.Point(51, 571);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.Size = new System.Drawing.Size(719, 241);
+            this.dataGridView1.Size = new System.Drawing.Size(1078, 371);
             this.dataGridView1.TabIndex = 119;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -141,9 +148,10 @@
             this.btnsave.ForeColor = System.Drawing.SystemColors.WindowText;
             this.btnsave.Image = ((System.Drawing.Image)(resources.GetObject("btnsave.Image")));
             this.btnsave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnsave.Location = new System.Drawing.Point(35, 317);
+            this.btnsave.Location = new System.Drawing.Point(52, 488);
+            this.btnsave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnsave.Name = "btnsave";
-            this.btnsave.Size = new System.Drawing.Size(107, 43);
+            this.btnsave.Size = new System.Drawing.Size(160, 66);
             this.btnsave.TabIndex = 120;
             this.btnsave.Text = "Save";
             this.btnsave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -157,9 +165,10 @@
             this.btnsearch.ForeColor = System.Drawing.SystemColors.WindowText;
             this.btnsearch.Image = ((System.Drawing.Image)(resources.GetObject("btnsearch.Image")));
             this.btnsearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnsearch.Location = new System.Drawing.Point(185, 317);
+            this.btnsearch.Location = new System.Drawing.Point(278, 488);
+            this.btnsearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnsearch.Name = "btnsearch";
-            this.btnsearch.Size = new System.Drawing.Size(117, 43);
+            this.btnsearch.Size = new System.Drawing.Size(176, 66);
             this.btnsearch.TabIndex = 121;
             this.btnsearch.Text = "Search";
             this.btnsearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -173,9 +182,10 @@
             this.btnedit.ForeColor = System.Drawing.SystemColors.WindowText;
             this.btnedit.Image = ((System.Drawing.Image)(resources.GetObject("btnedit.Image")));
             this.btnedit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnedit.Location = new System.Drawing.Point(328, 317);
+            this.btnedit.Location = new System.Drawing.Point(492, 488);
+            this.btnedit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnedit.Name = "btnedit";
-            this.btnedit.Size = new System.Drawing.Size(96, 43);
+            this.btnedit.Size = new System.Drawing.Size(144, 66);
             this.btnedit.TabIndex = 122;
             this.btnedit.Text = "Edit";
             this.btnedit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -189,9 +199,10 @@
             this.btndelete.ForeColor = System.Drawing.SystemColors.MenuText;
             this.btndelete.Image = ((System.Drawing.Image)(resources.GetObject("btndelete.Image")));
             this.btndelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btndelete.Location = new System.Drawing.Point(467, 317);
+            this.btndelete.Location = new System.Drawing.Point(700, 488);
+            this.btndelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btndelete.Name = "btndelete";
-            this.btndelete.Size = new System.Drawing.Size(120, 43);
+            this.btndelete.Size = new System.Drawing.Size(180, 66);
             this.btndelete.TabIndex = 123;
             this.btndelete.Text = "Delete";
             this.btndelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -205,9 +216,10 @@
             this.btnreport.ForeColor = System.Drawing.SystemColors.WindowText;
             this.btnreport.Image = ((System.Drawing.Image)(resources.GetObject("btnreport.Image")));
             this.btnreport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnreport.Location = new System.Drawing.Point(625, 317);
+            this.btnreport.Location = new System.Drawing.Point(938, 488);
+            this.btnreport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnreport.Name = "btnreport";
-            this.btnreport.Size = new System.Drawing.Size(129, 43);
+            this.btnreport.Size = new System.Drawing.Size(194, 66);
             this.btnreport.TabIndex = 124;
             this.btnreport.Text = "Report";
             this.btnreport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -218,9 +230,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cascadia Code Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(278, 9);
+            this.label1.Location = new System.Drawing.Point(417, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(283, 35);
+            this.label1.Size = new System.Drawing.Size(474, 55);
             this.label1.TabIndex = 125;
             this.label1.Text = "ប្រព័ន្ធគ្រប់គ្រងឡានពេទ្យ";
             // 
@@ -228,9 +241,10 @@
             // 
             this.btnID.AutoSize = true;
             this.btnID.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnID.Location = new System.Drawing.Point(29, 53);
+            this.btnID.Location = new System.Drawing.Point(44, 82);
+            this.btnID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnID.Name = "btnID";
-            this.btnID.Size = new System.Drawing.Size(42, 31);
+            this.btnID.Size = new System.Drawing.Size(59, 46);
             this.btnID.TabIndex = 126;
             this.btnID.Text = "ID";
             // 
@@ -238,9 +252,10 @@
             // 
             this.btnAm.AutoSize = true;
             this.btnAm.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAm.Location = new System.Drawing.Point(29, 110);
+            this.btnAm.Location = new System.Drawing.Point(44, 169);
+            this.btnAm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnAm.Name = "btnAm";
-            this.btnAm.Size = new System.Drawing.Size(191, 31);
+            this.btnAm.Size = new System.Drawing.Size(283, 46);
             this.btnAm.TabIndex = 127;
             this.btnAm.Text = "Ambulance No";
             // 
@@ -248,9 +263,10 @@
             // 
             this.btnstaff.AutoSize = true;
             this.btnstaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnstaff.Location = new System.Drawing.Point(29, 165);
+            this.btnstaff.Location = new System.Drawing.Point(44, 254);
+            this.btnstaff.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnstaff.Name = "btnstaff";
-            this.btnstaff.Size = new System.Drawing.Size(164, 31);
+            this.btnstaff.Size = new System.Drawing.Size(241, 46);
             this.btnstaff.TabIndex = 128;
             this.btnstaff.Text = "Staff\'s name";
             // 
@@ -258,9 +274,10 @@
             // 
             this.departure.AutoSize = true;
             this.departure.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.departure.Location = new System.Drawing.Point(29, 212);
+            this.departure.Location = new System.Drawing.Point(44, 326);
+            this.departure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.departure.Name = "departure";
-            this.departure.Size = new System.Drawing.Size(193, 31);
+            this.departure.Size = new System.Drawing.Size(282, 46);
             this.departure.TabIndex = 129;
             this.departure.Text = "Departure time";
             // 
@@ -268,9 +285,10 @@
             // 
             this.arrived.AutoSize = true;
             this.arrived.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arrived.Location = new System.Drawing.Point(29, 259);
+            this.arrived.Location = new System.Drawing.Point(44, 398);
+            this.arrived.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.arrived.Name = "arrived";
-            this.arrived.Size = new System.Drawing.Size(158, 31);
+            this.arrived.Size = new System.Drawing.Size(231, 46);
             this.arrived.TabIndex = 130;
             this.arrived.Text = "Arrived time";
             // 
@@ -278,25 +296,28 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(656, 69);
+            this.label2.Location = new System.Drawing.Point(984, 106);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 24);
+            this.label2.Size = new System.Drawing.Size(81, 33);
             this.label2.TabIndex = 131;
             this.label2.Text = "Time";
             // 
             // time
             // 
-            this.time.Location = new System.Drawing.Point(585, 110);
+            this.time.Location = new System.Drawing.Point(878, 169);
+            this.time.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.time.Name = "time";
-            this.time.Size = new System.Drawing.Size(180, 187);
+            this.time.Size = new System.Drawing.Size(270, 288);
             this.time.TabIndex = 132;
             this.time.TabStop = false;
             // 
             // FormAmbulance
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 638);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1200, 982);
             this.Controls.Add(this.time);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.arrived);
@@ -317,6 +338,7 @@
             this.Controls.Add(this.txtAm);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.btnReturn);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormAmbulance";
             this.Text = "FormAmbulance";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAmbulance_FormClosed);

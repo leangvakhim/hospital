@@ -142,16 +142,16 @@ namespace hospital
             {
                 if(cbStaff.SelectedIndex == 0)
                 {
-                    MessageBox.Show("Please select Staff name.");
+                    MessageBox.Show("Please select Staff name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (txtAm.Text == "")
                 {
-                    MessageBox.Show("Please enter Ambulance NO.");
+                    MessageBox.Show("Please enter Ambulance NO.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }else if(txtAm.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 try
