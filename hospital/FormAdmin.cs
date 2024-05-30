@@ -66,23 +66,23 @@ namespace hospital
             {
                 if (txtName.Text == "")
                 {
-                    MessageBox.Show("Please enter name.");
+                    MessageBox.Show("Please enter name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtName.Focus();
                     return;
                 }else if (txtName.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (txtPassword.Text == "")
                 {
-                    MessageBox.Show("Please enter password.");
+                    MessageBox.Show("Please enter password.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPassword.Focus();
                     return;
                 }
                 else if (txtConfirmPassword.Text == "")
                 {
-                    MessageBox.Show("Please enter confirm password.");
+                    MessageBox.Show("Please enter confirm password.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtConfirmPassword.Focus();
                     return;
                 }
@@ -228,7 +228,7 @@ namespace hospital
         {
             if (txtName.ForeColor == System.Drawing.Color.Red)
             {
-                MessageBox.Show("No Special Character enter.");
+                MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             buttonSearch = true;
@@ -299,7 +299,7 @@ namespace hospital
             {
                 if (txtName.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 buttonEdit = true;

@@ -59,7 +59,7 @@ namespace hospital
             {
                 if (txtName.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 buttonEdit = true;
@@ -117,17 +117,17 @@ namespace hospital
             {
                 if (txtName.Text == "")
                 {
-                    MessageBox.Show("Please enter patient's name.");
+                    MessageBox.Show("Please enter patient's name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtName.Focus();
                     return;
                 }else if(txtName.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (txtaddress.Text == "")
                 {
-                    MessageBox.Show("Please enter patient's address.");
+                    MessageBox.Show("Please enter patient's address.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtaddress.Focus();
                     return;
                 }
@@ -266,7 +266,7 @@ namespace hospital
         {
             if (txtName.ForeColor == System.Drawing.Color.Red)
             {
-                MessageBox.Show("No Special Character enter.");
+                MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             btnSave.Text = "New";

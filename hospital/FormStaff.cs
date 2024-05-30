@@ -79,7 +79,7 @@ namespace hospital
         {
             if (txtName.ForeColor == System.Drawing.Color.Red)
             {
-                MessageBox.Show("No Special Character enter.");
+                MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             btnSave.Text = "New";
@@ -204,27 +204,27 @@ namespace hospital
             {
                 if (txtName.Text == "")
                 {
-                    MessageBox.Show("Please enter name.");
+                    MessageBox.Show("Please enter name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (txtName.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (!rbMale.Checked && !rbFemale.Checked)
                 {
-                    MessageBox.Show("Please select user gender.");
+                    MessageBox.Show("Please select user gender.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (txtSalary.Text == "")
                 {
-                    MessageBox.Show("Please enter salary.");
+                    MessageBox.Show("Please enter salary.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (txtSalary.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character and Character enter.");
+                    MessageBox.Show("No Special Character and Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (pictureBox1.Image == null)
@@ -468,32 +468,32 @@ namespace hospital
             {
                 if (txtName.Text == "")
                 {
-                    MessageBox.Show("Please enter name.");
+                    MessageBox.Show("Please enter name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (txtName.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character enter.");
+                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (cbPosition.SelectedIndex == 0)
                 {
-                    MessageBox.Show("Please select Staff position.");
+                    MessageBox.Show("Please select Staff position.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (!rbMale.Checked && !rbFemale.Checked)
                 {
-                    MessageBox.Show("Please select staff gender.");
+                    MessageBox.Show("Please select staff gender.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (txtSalary.Text == "")
                 {
-                    MessageBox.Show("Please enter staff salary.");
+                    MessageBox.Show("Please enter staff salary.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (txtSalary.ForeColor == System.Drawing.Color.Red)
                 {
-                    MessageBox.Show("No Special Character and Character enter.");
+                    MessageBox.Show("No Special Character and Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (pictureBox1.Image == null)
