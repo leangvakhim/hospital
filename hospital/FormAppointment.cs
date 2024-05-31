@@ -38,7 +38,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
         }
@@ -97,7 +97,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
         }
@@ -125,7 +125,7 @@ namespace hospital
                 }
                 else if (cbspecilization.SelectedIndex == 0)
                 {
-                    MessageBox.Show("Please select Specialization of the docctor.");
+                    MessageBox.Show("Please select Specialization of the docctor.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 try
@@ -140,7 +140,7 @@ namespace hospital
                         {
                             if (cellDate.Date == BookDate.Value.Date)
                             {
-                                MessageBox.Show("This time is not available. Please try again!!!");
+                                MessageBox.Show("This time is not available. Please try again!!!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 conn.Close();
                                 return;
                             }
@@ -174,7 +174,7 @@ namespace hospital
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -225,7 +225,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -252,7 +252,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
         }
@@ -276,7 +276,7 @@ namespace hospital
                 {
                     if (row.Cells[1].Value.ToString().Equals(txtName.Text) && row.Cells[2].Value.ToString().Equals(cbspecilization.Text) && row.Cells[3].Value.ToString().Equals(BookDate))
                     {
-                        MessageBox.Show("This user already assists. Please try again!!!");
+                        MessageBox.Show("This user already assists. Please try again!!!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         conn.Close();
                         return;
                     }
@@ -305,7 +305,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
         }
@@ -340,7 +340,7 @@ namespace hospital
 
                 if (table.Rows.Count < 0)
                 {
-                    MessageBox.Show("No data Found!");
+                    MessageBox.Show("No data Found!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -363,7 +363,7 @@ namespace hospital
                 cbspecilization.SelectedIndex = 0;
                 BookDate.Value = DateTime.Today;
                 Refresh();
-                MessageBox.Show("Name not found in the list. Please try again.");
+                MessageBox.Show("Name not found in the list. Please try again.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
         }
@@ -429,7 +429,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -463,7 +463,7 @@ namespace hospital
                     command.ExecuteNonQuery();
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private bool ContainsSpecialCharacters(string text)

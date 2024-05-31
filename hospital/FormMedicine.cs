@@ -35,7 +35,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
         }
@@ -95,7 +95,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
         }
@@ -116,7 +116,7 @@ namespace hospital
                 }
                 else if (txtQty.Text == "")
                 {
-                    MessageBox.Show("Please enter qty.");
+                    MessageBox.Show("Please enter qty.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }else if (txtQty.ForeColor == System.Drawing.Color.Red)
                 {
@@ -141,7 +141,7 @@ namespace hospital
                     {
                         if (row.Cells[1].Value.ToString().Equals(txtName.Text))
                         {
-                            MessageBox.Show("Duplicate Medicine's Name. Please try again!!!");
+                            MessageBox.Show("Duplicate Medicine's Name. Please try again!!!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             conn.Close();
                             return;
                         }
@@ -174,7 +174,7 @@ namespace hospital
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -238,7 +238,7 @@ namespace hospital
 
                 if (table.Rows.Count < 0)
                 {
-                    MessageBox.Show("No data Found!");
+                    MessageBox.Show("No data Found!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -261,7 +261,7 @@ namespace hospital
                 txtQty.Clear();
                 txtUnitPrice.Clear();
                 Refresh();
-                MessageBox.Show("Name not found in the list. Please try again.");
+                MessageBox.Show("Name not found in the list. Please try again.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
         }
@@ -291,7 +291,7 @@ namespace hospital
                 {
                     if (row.Cells[1].Value.ToString().Equals(txtName.Text) && row.Cells[2].Value.ToString().Equals(txtQty.Text) && row.Cells[3].Value.ToString().Equals(txtUnitPrice.Text) && row.Cells[4].Value.Equals(expiryDate.Value))
                     {
-                        MessageBox.Show("This medicine already assists. Please try again!!!");
+                        MessageBox.Show("This medicine already assists. Please try again!!!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         conn.Close();
                         return;
                     }
@@ -319,7 +319,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
         }
@@ -354,7 +354,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
         }
@@ -389,7 +389,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -506,7 +506,7 @@ namespace hospital
                     command.ExecuteNonQuery();
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
     }
 }

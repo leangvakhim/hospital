@@ -65,7 +65,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -112,7 +112,7 @@ namespace hospital
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show(e.ToString(), "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
