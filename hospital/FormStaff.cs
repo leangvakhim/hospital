@@ -77,79 +77,41 @@ namespace hospital
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            string searchQuery = "SELECT * FROM tbstaff WHERE name LIKE @name && active = 1 ORDER BY id DESC";
+            buttonSearch = true;
             if (txtName.ForeColor == System.Drawing.Color.Red)
             {
                 MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            btnSave.Text = "New";
-            buttonSearch = true;
-            btnEdit.Enabled = true;
-            btnRemove.Enabled = true;
-            if (staff_role == "View Only")
+            using (MySqlConnection conn = new MySqlConnection(MySQLConn))
             {
-                btnEdit.Enabled = false;
-                btnRemove.Enabled = false;
-                btnSave.Enabled = false;
-                btnReport.Enabled = false;
-            }
-            else if (staff_role == "Create Only")
-            {
-                btnRemove.Enabled = false;
-                btnReport.Enabled = false;
-            }
-            MySqlConnection conn = new MySqlConnection(MySQLConn);
-            try
-            {
-                conn.Open();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM tbstaff WHERE @name = name && active = 1", conn);
-                command.Parameters.AddWithValue("name", txtName.Text);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
+                using (MySqlCommand command = new MySqlCommand(searchQuery, conn))
+                {
+                    command.Parameters.AddWithValue("@name", "%" + txtName.Text + "%");
 
-                if (table.Rows.Count < 0)
-                {
-                    MessageBox.Show("No data Found!");
-                }
-                else
-                {
-                    txtID.Text = table.Rows[0][0].ToString();
-                    txtName.Text = table.Rows[0][1].ToString();
-                    string selectedValue = table.Rows[0][2].ToString();
-                    int ind = cbPosition.FindStringExact(selectedValue);
-                    cbPosition.SelectedIndex = ind;
-                    if (table.Rows[0][3].Equals("Male"))
+                    try
                     {
-                        rbMale.Checked = true;
+                        conn.Open();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+                        dataGridView1.AutoGenerateColumns = true;
+                        dataGridView1.DataSource = table;
+                        dataGridView1.RowTemplate.Height = 90;
+                        dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                        dataGridView1.AllowUserToAddRows = false;
+                        dataGridView1.ReadOnly = true;
+                        dataGridView1.Columns[6].Visible = false;
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        rbFemale.Checked = true;
+                        MessageBox.Show("Error: " + ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    txtSalary.Text = table.Rows[0][4].ToString();
-                    Byte[] img = (Byte[])table.Rows[0][5];
-                    MemoryStream ms = new MemoryStream(img);
-                    pictureBox1.Image = System.Drawing.Image.FromStream(ms);
-                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    TrackUserAction("Search");
                 }
             }
-            catch (Exception ex)
-            {
-                btnEdit.Enabled = false;
-                btnSave.Text = "Save";
-                txtID.Clear();
-                txtName.Clear();
-                cbPosition.SelectedIndex = 0;
-                rbMale.Checked = false;
-                rbFemale.Checked = false;
-                txtSalary.Clear();
-                pictureBox1.Image = null;
-                Refresh();
-                MessageBox.Show("Name not found in the list. Please try again.");
-            }
-            finally { conn.Close(); }
+            btnSave.Text = "New";
+            TrackUserAction("Search");
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

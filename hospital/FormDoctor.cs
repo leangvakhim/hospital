@@ -127,7 +127,7 @@ namespace hospital
             conn = new MySqlConnection(MySQLConn);
             if (btnSave.Text == "Save")
             {
-                if (txtName.Text == "")
+                if (txtName.Text.Equals(""))
                 {
                     MessageBox.Show("Please enter name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -229,69 +229,40 @@ namespace hospital
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            string searchQuery = "SELECT * FROM tbdoctor WHERE name LIKE @name && active = 1 ORDER BY id DESC";
             if (txtName.ForeColor == System.Drawing.Color.Red)
             {
                 MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             buttonSearch = true;
-            btnEdit.Enabled = true;
-            btnRemove .Enabled = true;
-            if (doctor_role == "View Only")
+            using (MySqlConnection conn = new MySqlConnection(MySQLConn))
             {
-                btnEdit.Enabled = false;
-                btnRemove.Enabled = false;
-                btnSave.Enabled = false;
-                btnReport.Enabled = false;
-            }
-            else if (doctor_role == "Create Only")
-            {
-                btnRemove.Enabled = false;
-                btnReport.Enabled = false;
-            }
-            MySqlConnection conn = new MySqlConnection(MySQLConn);
-            try
-            {
-                conn.Open();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM tbdoctor WHERE @name = name && active = 1", conn);
-                command.Parameters.AddWithValue("name", txtName.Text);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-
-                if (table.Rows.Count < 0)
+                using (MySqlCommand command = new MySqlCommand(searchQuery, conn))
                 {
-                    MessageBox.Show("No data Found!");
-                }
-                else
-                {
-                    txtID.Text = table.Rows[0][0].ToString();
-                    txtName.Text = table.Rows[0][1].ToString();
-                    txtphone.Text = table.Rows[0][2].ToString();
-                    txtspecialization.Text = table.Rows[0][3].ToString();
-
-                    Byte[] img = (Byte[])table.Rows[0][4];
-                    MemoryStream ms = new MemoryStream(img);
-                    pictureBox1.Image = System.Drawing.Image.FromStream(ms);
-                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    TrackUserAction("Search");
-                    btnSave.Text = "New";
+                    command.Parameters.AddWithValue("@name", "%" + txtName.Text + "%");
+                    try
+                    {
+                        conn.Open();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+                        dataGridView1.AutoGenerateColumns = true;
+                        dataGridView1.DataSource = table;
+                        dataGridView1.RowTemplate.Height = 90;
+                        dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                        dataGridView1.AllowUserToAddRows = false;
+                        dataGridView1.ReadOnly = true;
+                        dataGridView1.Columns[5].Visible = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-                btnEdit.Enabled = false;
-                btnSave.Text = "Save";
-                txtID.Clear();
-                txtName.Clear();
-                txtphone.Clear();
-                txtspecialization.Clear();
-                pictureBox1.Image = null;
-                Refresh();
-                MessageBox.Show("Name not found in the list. Please try again.");
-            }
-            finally { conn.Close(); }
+            btnSave.Text = "New";
+            TrackUserAction("Search");
         }
 
         private void btnRemove_Click(object sender, EventArgs e)

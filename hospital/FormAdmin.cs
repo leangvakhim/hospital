@@ -67,7 +67,6 @@ namespace hospital
                 if (txtName.Text == "")
                 {
                     MessageBox.Show("Please enter name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtName.Focus();
                     return;
                 }else if (txtName.ForeColor == System.Drawing.Color.Red)
                 {
@@ -226,70 +225,41 @@ namespace hospital
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            string searchQuery = "SELECT * FROM tbadmin WHERE name LIKE @name && active = 1 ORDER BY id DESC";
+            buttonSearch = true;
             if (txtName.ForeColor == System.Drawing.Color.Red)
             {
                 MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            buttonSearch = true;
-            btnSave.Text = "New";
-            btnEdit.Enabled = true;
-            btnRemove.Enabled = true;
-            txtPassword.Enabled = false;
-            txtConfirmPassword.Enabled = false;
-            MySqlConnection conn = new MySqlConnection(MySQLConn);
-            try
+            using (MySqlConnection conn = new MySqlConnection(MySQLConn))
             {
-                conn.Open();
-                String position;
-                MySqlCommand command = new MySqlCommand("SELECT * FROM tbadmin WHERE @name = name && active = 1", conn);
-                command.Parameters.AddWithValue("name", txtName.Text);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
+                using (MySqlCommand command = new MySqlCommand(searchQuery, conn))
+                {
+                    command.Parameters.AddWithValue("@name", "%" + txtName.Text + "%");
 
-                if (table.Rows.Count < 0)
-                {
-                    MessageBox.Show("No data Found!");
-                }
-                else
-                {
-                    txtID.Text = table.Rows[0][0].ToString();
-                    txtName.Text = table.Rows[0][1].ToString();
-                    position = table.Rows[0][2].ToString();
-                    
-                    if (position.Equals("View Only"))
+                    try
                     {
-                        cbPosition.SelectedIndex = 1;
+                        conn.Open();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+                        dataGridView1.AutoGenerateColumns = true;
+                        dataGridView1.DataSource = table;
+                        dataGridView1.RowTemplate.Height = 30;
+                        dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                        dataGridView1.AllowUserToAddRows = false;
+                        dataGridView1.ReadOnly = true;
+                        dataGridView1.Columns[4].Visible = false;
                     }
-                    else if (position.Equals("Create Only"))
+                    catch (Exception ex)
                     {
-                        cbPosition.SelectedIndex = 2;
+                        MessageBox.Show("Error: " + ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else if (position.Equals("Super Admin"))
-                    {
-                        cbPosition.SelectedIndex = 3;
-                    }
-                    TrackUserAction("Search");
                 }
             }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-                btnEdit.Enabled = false;
-                btnSave.Text = "New";
-                txtID.Clear();
-                txtName.Clear();
-                txtPassword.Clear();
-                txtConfirmPassword.Clear();
-                cbPosition.SelectedIndex = 0;
-                Refresh();
-                txtPassword.Enabled = true;
-                txtConfirmPassword.Enabled = true;
-                btnSave.Text = "Save";
-                MessageBox.Show("Name not found in the list. Please try again.");
-            }
-            finally { conn.Close(); }
+            btnSave.Text = "New";
+            TrackUserAction("Search");
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -472,6 +442,20 @@ namespace hospital
         {
             FormPosition formPosition = new FormPosition(admin_username, admin_role);
             formPosition.Show();
+            this.Hide();
+        }
+
+        private void btnaddbed_Click(object sender, EventArgs e)
+        {
+            FormAmountBed formAmountBed = new FormAmountBed(admin_username, admin_role);
+            formAmountBed.Show();
+            this.Hide();
+        }
+
+        private void btnAmountAmbulance_Click(object sender, EventArgs e)
+        {
+            FormAmountAmbulance formAmountAmbulance = new FormAmountAmbulance(admin_username, admin_role);
+            formAmountAmbulance.Show();
             this.Hide();
         }
 

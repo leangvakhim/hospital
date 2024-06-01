@@ -75,6 +75,7 @@ namespace hospital
         {
             Refresh();
             DisplayInComboBox();
+            DisplayInComboBoxAmbulance();
             clock();
         }
         
@@ -145,13 +146,9 @@ namespace hospital
                     MessageBox.Show("Please select Staff name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                else if (txtAm.Text == "")
+                else if (cbAmbulanceNo.SelectedIndex == 0)
                 {
                     MessageBox.Show("Please enter Ambulance NO.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }else if(txtAm.ForeColor == System.Drawing.Color.Red)
-                {
-                    MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 try
@@ -168,7 +165,7 @@ namespace hospital
                         }
                     }
                     conn.Open();
-                    string ambulanceno = txtAm.Text;
+                    string ambulanceno = cbAmbulanceNo.SelectedItem.ToString();
                     string name = cbStaff.SelectedItem.ToString();
                     Departure = dateTimedeparture.Value;
                     Arrived = dateTimearrived.Value;
@@ -187,7 +184,7 @@ namespace hospital
                     int nextID = id + 1;
                     txtid.Text = nextID.ToString();
 
-                    txtAm.Clear();
+                    cbAmbulanceNo.SelectedIndex = 0;
                     cbStaff.SelectedIndex = 0;
                     dateTimedeparture.Value = DateTime.Now;
                     dateTimearrived.Value = DateTime.Now;
@@ -217,7 +214,7 @@ namespace hospital
                 int nextId = maxId + 1;
                 txtid.Text = nextId.ToString();
 
-                txtAm.Clear();
+                cbAmbulanceNo.SelectedIndex = 0; ;
                 cbStaff.SelectedIndex = 0;
                 dateTimedeparture.Value = DateTime.Now;
                 dateTimearrived.Value = DateTime.Now;
@@ -226,63 +223,41 @@ namespace hospital
         
         private void btnsearch_Click(object sender, EventArgs e)
         {
-            btnsave.Text = "New";
-            btnedit.Enabled = true;
-            dateTimearrived.Enabled = true;
-            btndelete.Enabled = true;
-            if (ambulance_role == "View Only")
-            {
-                btnedit.Enabled = false;
-                btndelete.Enabled = false;
-                btnsave.Enabled = false;
-                btnreport.Enabled = false;
-            }
-            else if (ambulance_role == "Create Only")
-            {
-                btndelete.Enabled = false;
-                btnreport.Enabled = false;
-            }
-            MySqlConnection conn = new MySqlConnection(MySQLConn);
+            string searchQuery = "SELECT * FROM tbambulance WHERE staffName LIKE @name && active = 1 ORDER BY id DESC";
             buttonSearch = true;
-            try
+            if (cbStaff.SelectedIndex == 0)
             {
-                conn.Open();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM tbambulance WHERE @ambulanceNo = ambulanceno && active = 1", conn);
-                command.Parameters.AddWithValue("ambulanceno", txtAm.Text);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
+                MessageBox.Show("Please select staff's name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            using (MySqlConnection conn = new MySqlConnection(MySQLConn))
+            {
+                using (MySqlCommand command = new MySqlCommand(searchQuery, conn))
+                {
+                    command.Parameters.AddWithValue("@name", "%" + cbStaff.SelectedItem.ToString() + "%");
 
-                if (table.Rows.Count < 0)
-                {
-                    MessageBox.Show("No data Found!");
-                }
-                else
-                {
-                    txtid.Text = table.Rows[0][0].ToString();
-                    txtAm.Text = table.Rows[0][1].ToString();
-                    string selectedValue = table.Rows[0][2].ToString();
-                    int ind = cbStaff.FindStringExact(selectedValue);
-                    cbStaff.SelectedIndex = ind;
-                    dateTimedeparture.Value = (DateTime)table.Rows[0][3];
-                    dateTimearrived.Value = (DateTime)table.Rows[0][4];
-                    TrackUserAction("Search");
+                    try
+                    {
+                        conn.Open();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+                        dataGridView1.AutoGenerateColumns = true;
+                        dataGridView1.DataSource = table;
+                        dataGridView1.RowTemplate.Height = 30;
+                        dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                        dataGridView1.AllowUserToAddRows = false;
+                        dataGridView1.ReadOnly = true;
+                        dataGridView1.Columns[5].Visible = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-                btnedit.Enabled = false;
-                btnsave.Text = "Save";
-                btndelete.Enabled = false;
-                txtid.Clear();
-                cbStaff.SelectedIndex = 0;
-                dateTimedeparture.Value = DateTime.Today;
-                dateTimearrived.Value = DateTime.Today;
-                Refresh();
-                MessageBox.Show("Name not found in the list. Please try again.");
-            }
-            finally { conn.Close(); }
+            btnsave.Text = "New";
+            TrackUserAction("Search");
         }
 
         private void btnedit_Click(object sender, EventArgs e)
@@ -303,7 +278,7 @@ namespace hospital
                     }
                 }
                 conn.Open();
-                string ambulanceno = txtAm.Text;
+                string ambulanceno = cbAmbulanceNo.SelectedItem.ToString();
                 string name = cbStaff.SelectedItem.ToString();
                 DateTime departure = dateTimedeparture.Value;
                 DateTime arrived = dateTimearrived.Value;
@@ -320,7 +295,7 @@ namespace hospital
                 TrackUserAction("Edit");
 
                 cbStaff.SelectedIndex = 0;
-                txtAm.Clear();
+                cbAmbulanceNo.SelectedIndex = 0;
                 dateTimedeparture.Value = DateTime.Now;
                 dateTimearrived.Value = DateTime.Now;
 
@@ -348,7 +323,7 @@ namespace hospital
                 command.ExecuteNonQuery();
                 TrackUserAction("Remove");
 
-                txtAm.Clear();
+                cbAmbulanceNo.SelectedIndex = 0;
                 cbStaff.SelectedIndex = 0;
                 dateTimedeparture.Value = DateTime.Today;
                 dateTimearrived.Value = DateTime.Today;
@@ -386,10 +361,15 @@ namespace hospital
                 int index = dataGridView1.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridView1.Rows[index];
                 txtid.Text = selectedRow.Cells[0].Value.ToString();
-                txtAm.Text = selectedRow.Cells[1].Value.ToString();
+
+                string selectedValueAmbulance = selectedRow.Cells[1].Value.ToString();
+                int indAmbulance = cbAmbulanceNo.FindStringExact(selectedValueAmbulance);
+                cbAmbulanceNo.SelectedIndex = indAmbulance;
+
                 string selectedValue = selectedRow.Cells[2].Value.ToString();
                 int ind = cbStaff.FindStringExact(selectedValue);
                 cbStaff.SelectedIndex = ind;
+
                 dateTimedeparture.Value = (DateTime)selectedRow.Cells[3].Value;
                 dateTimearrived.Value = (DateTime)selectedRow.Cells[4].Value;
             }
@@ -441,22 +421,6 @@ namespace hospital
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        private void txtAm_TextChanged(object sender, EventArgs e)
-        {
-            if (ContainsSpecialCharacters(txtAm.Text))
-            {
-                txtAm.BorderStyle = BorderStyle.FixedSingle;
-                txtAm.BackColor = System.Drawing.Color.White;
-                txtAm.ForeColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                txtAm.BorderStyle = BorderStyle.FixedSingle;
-                txtAm.BackColor = System.Drawing.SystemColors.Window;
-                txtAm.ForeColor = System.Drawing.SystemColors.WindowText;
-            }
-        }
-
         private void DisplayInComboBox()
         {
             try
@@ -483,11 +447,30 @@ namespace hospital
             }
         }
 
-        private bool ContainsSpecialCharacters(string text)
+        private void DisplayInComboBoxAmbulance()
         {
-            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            try
+            {
+                using (conn = new MySqlConnection(MySQLConn))
+                {
+                    conn.Open();
+                    string query = "SELECT name FROM tbamountambulance WHERE active = 1 ORDER BY id DESC";
+                    command = new MySqlCommand(query, conn);
 
-            return text.Any(c => !allowedCharacters.Contains(c));
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            cbAmbulanceNo.Items.Add(reader["name"].ToString());
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void clock()
