@@ -15,12 +15,15 @@
               <Width>1.6991in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.90396in</Width>
+              <Width>1.88313in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.30081in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.91729in</Height>
+              <Height>0.69854in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -171,10 +174,46 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>រយៈពេល</Value>
+                              <Style>
+                                <FontFamily>Khmer OS Siemreap</FontFamily>
+                                <FontSize>12pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.91729in</Height>
+              <Height>0.69854in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -322,12 +361,49 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="duration">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!duration.Value</Value>
+                              <Style>
+                                <FontFamily>Google Sans</FontFamily>
+                                <FontSize>12pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>duration</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -345,10 +421,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet</DataSetName>
-        <Top>0.16542in</Top>
-        <Left>0.13416in</Left>
-        <Height>1.83458in</Height>
-        <Width>7.00127in</Width>
+        <Top>0.02778in</Top>
+        <Height>1.39708in</Height>
+        <Width>8.28125in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -356,10 +431,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.02084in</Height>
+    <Height>1.43751in</Height>
     <Style />
   </Body>
-  <Width>7.15625in</Width>
+  <Width>8.28125in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>
@@ -405,7 +480,6 @@
         </Border>
       </Style>
     </PageHeader>
-    <LeftMargin>0.5in</LeftMargin>
     <TopMargin>0.5in</TopMargin>
     <BottomMargin>0.5in</BottomMargin>
     <Style />
@@ -442,6 +516,10 @@
         <Field Name="checkOut">
           <DataField>checkOut</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="duration">
+          <DataField>duration</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

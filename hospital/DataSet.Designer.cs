@@ -835,6 +835,8 @@ namespace hospital {
             
             private global::System.Data.DataColumn columncheckOut;
             
+            private global::System.Data.DataColumn columnduration;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public tbbedDataTable() {
@@ -902,6 +904,14 @@ namespace hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn durationColumn {
+                get {
+                    return this.columnduration;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -937,13 +947,14 @@ namespace hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbbedRow AddtbbedRow(short id, string name, System.DateTime checkIn, System.DateTime checkOut) {
+            public tbbedRow AddtbbedRow(short id, string name, System.DateTime checkIn, System.DateTime checkOut, short duration) {
                 tbbedRow rowtbbedRow = ((tbbedRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
                         name,
                         checkIn,
-                        checkOut};
+                        checkOut,
+                        duration};
                 rowtbbedRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbbedRow);
                 return rowtbbedRow;
@@ -970,6 +981,7 @@ namespace hospital {
                 this.columnname = base.Columns["name"];
                 this.columncheckIn = base.Columns["checkIn"];
                 this.columncheckOut = base.Columns["checkOut"];
+                this.columnduration = base.Columns["duration"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -983,6 +995,8 @@ namespace hospital {
                 base.Columns.Add(this.columncheckIn);
                 this.columncheckOut = new global::System.Data.DataColumn("checkOut", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncheckOut);
+                this.columnduration = new global::System.Data.DataColumn("duration", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnduration);
                 this.columncheckIn.DateTimeMode = global::System.Data.DataSetDateTime.Utc;
                 this.columncheckOut.DateTimeMode = global::System.Data.DataSetDateTime.Utc;
             }
@@ -1126,6 +1140,16 @@ namespace hospital {
             
             private global::System.Data.DataColumn columnaddress;
             
+            private global::System.Data.DataColumn columnnssf;
+            
+            private global::System.Data.DataColumn columndob;
+            
+            private global::System.Data.DataColumn columnphone;
+            
+            private global::System.Data.DataColumn columnage;
+            
+            private global::System.Data.DataColumn columnbloodtype;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public tbpatientDataTable() {
@@ -1193,6 +1217,46 @@ namespace hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn nssfColumn {
+                get {
+                    return this.columnnssf;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn dobColumn {
+                get {
+                    return this.columndob;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn phoneColumn {
+                get {
+                    return this.columnphone;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ageColumn {
+                get {
+                    return this.columnage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn bloodtypeColumn {
+                get {
+                    return this.columnbloodtype;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1228,13 +1292,18 @@ namespace hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbpatientRow AddtbpatientRow(short id, string name, string gender, string address) {
+            public tbpatientRow AddtbpatientRow(short id, string name, string gender, string address, string nssf, System.DateTime dob, string phone, short age, string bloodtype) {
                 tbpatientRow rowtbpatientRow = ((tbpatientRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
                         name,
                         gender,
-                        address};
+                        address,
+                        nssf,
+                        dob,
+                        phone,
+                        age,
+                        bloodtype};
                 rowtbpatientRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbpatientRow);
                 return rowtbpatientRow;
@@ -1261,6 +1330,11 @@ namespace hospital {
                 this.columnname = base.Columns["name"];
                 this.columngender = base.Columns["gender"];
                 this.columnaddress = base.Columns["address"];
+                this.columnnssf = base.Columns["nssf"];
+                this.columndob = base.Columns["dob"];
+                this.columnphone = base.Columns["phone"];
+                this.columnage = base.Columns["age"];
+                this.columnbloodtype = base.Columns["bloodtype"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1274,6 +1348,16 @@ namespace hospital {
                 base.Columns.Add(this.columngender);
                 this.columnaddress = new global::System.Data.DataColumn("address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnaddress);
+                this.columnnssf = new global::System.Data.DataColumn("nssf", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnssf);
+                this.columndob = new global::System.Data.DataColumn("dob", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndob);
+                this.columnphone = new global::System.Data.DataColumn("phone", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnphone);
+                this.columnage = new global::System.Data.DataColumn("age", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnage);
+                this.columnbloodtype = new global::System.Data.DataColumn("bloodtype", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbloodtype);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3192,6 +3276,22 @@ namespace hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public short duration {
+                get {
+                    try {
+                        return ((short)(this[this.tabletbbed.durationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'duration\' in table \'tbbed\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbbed.durationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tabletbbed.idColumn);
             }
@@ -3236,6 +3336,18 @@ namespace hospital {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetcheckOutNull() {
                 this[this.tabletbbed.checkOutColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsdurationNull() {
+                return this.IsNull(this.tabletbbed.durationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetdurationNull() {
+                this[this.tabletbbed.durationColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3319,6 +3431,86 @@ namespace hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string nssf {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbpatient.nssfColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nssf\' in table \'tbpatient\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbpatient.nssfColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime dob {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tabletbpatient.dobColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'dob\' in table \'tbpatient\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbpatient.dobColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string phone {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbpatient.phoneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'phone\' in table \'tbpatient\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbpatient.phoneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public short age {
+                get {
+                    try {
+                        return ((short)(this[this.tabletbpatient.ageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'age\' in table \'tbpatient\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbpatient.ageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string bloodtype {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbpatient.bloodtypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bloodtype\' in table \'tbpatient\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbpatient.bloodtypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidNull() {
                 return this.IsNull(this.tabletbpatient.idColumn);
             }
@@ -3363,6 +3555,66 @@ namespace hospital {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetaddressNull() {
                 this[this.tabletbpatient.addressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsnssfNull() {
+                return this.IsNull(this.tabletbpatient.nssfColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetnssfNull() {
+                this[this.tabletbpatient.nssfColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsdobNull() {
+                return this.IsNull(this.tabletbpatient.dobColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetdobNull() {
+                this[this.tabletbpatient.dobColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsphoneNull() {
+                return this.IsNull(this.tabletbpatient.phoneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetphoneNull() {
+                this[this.tabletbpatient.phoneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsageNull() {
+                return this.IsNull(this.tabletbpatient.ageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetageNull() {
+                this[this.tabletbpatient.ageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsbloodtypeNull() {
+                return this.IsNull(this.tabletbpatient.bloodtypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetbloodtypeNull() {
+                this[this.tabletbpatient.bloodtypeColumn] = global::System.Convert.DBNull;
             }
         }
         
