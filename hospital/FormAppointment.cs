@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace hospital
 {
@@ -17,12 +15,8 @@ namespace hospital
     {
         private string appointment_username;
         private string appointment_role;
-        MySqlConnection conn;
-        MySqlCommand command;
         //MySqlConnection conn;
         String MySQLConn = "";
-        Boolean buttonSave, buttonEdit, buttonRemove, buttonReport, buttonSearch;
-        private string sqlquery = "SELECT * FROM tbappointment WHERE active = 1 ORDER BY id DESC";
         public FormAppointment(string appointment_username, string appointment_role)
         {
             InitializeComponent();
@@ -263,6 +257,7 @@ namespace hospital
             formManagement.Show();
             this.Hide();
         }
+
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
