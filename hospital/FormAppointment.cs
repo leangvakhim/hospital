@@ -312,60 +312,41 @@ namespace hospital
 
         private void btnSearch_Click_1(object sender, EventArgs e)
         {
-            btnSave.Text = "New";
-            btnEdit.Enabled = true;
-            btnRemove.Enabled = true;
-            if (appointment_role == "View Only")
-            {
-                btnEdit.Enabled = false;
-                btnRemove.Enabled = false;
-                btnSave.Enabled = false;
-                btnReport.Enabled = false;
-            }
-            else if (appointment_role == "Create Only")
-            {
-                btnRemove.Enabled = false;
-                btnReport.Enabled = false;
-            }
-            MySqlConnection conn = new MySqlConnection(MySQLConn);
+            string searchQuery = "SELECT * FROM tbappointment WHERE name LIKE @name && active = 1 ORDER BY id DESC";
             buttonSearch = true;
-            try
+            if (txtName.ForeColor == System.Drawing.Color.Red)
             {
-                conn.Open();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM tbappointment WHERE @name = name && active = 1", conn);
-                command.Parameters.AddWithValue("name", txtName.Text);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
+                MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            using (MySqlConnection conn = new MySqlConnection(MySQLConn))
+            {
+                using (MySqlCommand command = new MySqlCommand(searchQuery, conn))
+                {
+                    command.Parameters.AddWithValue("@name", "%" + txtName.Text + "%");
 
-                if (table.Rows.Count < 0)
-                {
-                    MessageBox.Show("No data Found!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    txtID.Text = table.Rows[0][0].ToString();
-                    txtName.Text = table.Rows[0][1].ToString();
-                    string selectedValue = table.Rows[0][2].ToString();
-                    int ind = cbspecilization.FindStringExact(selectedValue);
-                    cbspecilization.SelectedIndex = ind;
-                    BookDate.Value = (DateTime)table.Rows[0][3];
-                    TrackUserAction("Search");
+                    try
+                    {
+                        conn.Open();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+                        dataGridView1.AutoGenerateColumns = true;
+                        dataGridView1.DataSource = table;
+                        dataGridView1.RowTemplate.Height = 30;
+                        dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                        dataGridView1.AllowUserToAddRows = false;
+                        dataGridView1.ReadOnly = true;
+                        dataGridView1.Columns[4].Visible = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-                btnEdit.Enabled = false;
-                btnSave.Text = "Save";
-                btnRemove.Enabled = false;
-                txtID.Clear();
-                cbspecilization.SelectedIndex = 0;
-                BookDate.Value = DateTime.Today;
-                Refresh();
-                MessageBox.Show("Name not found in the list. Please try again.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally { conn.Close(); }
+            btnSave.Text = "New";
+            TrackUserAction("Search");
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)

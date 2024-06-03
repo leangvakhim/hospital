@@ -76,21 +76,25 @@ namespace hospital
                 }
                 conn.Open();
                 string gender = "";
-                if (buttonMale.Checked)
-                {
-                    gender = "Male";
-                }
-                else if (buttonFemale.Checked)
-                {
-                    gender = "Female";
-                }
+                if (buttonMale.Checked) gender = "Male";
+                else if (buttonFemale.Checked) gender = "Female";
+                string nssfcard = cbNssf.SelectedItem.ToString();
+                DateTime dob = dateofbirth.Value;
+                string phone = txtphone.Text;
+                string age = txtage.Text;
+                string bloodType = cbBloodType.SelectedItem.ToString();
 
-                String updateQuery = "UPDATE tbpatient SET name = @newName, gender = @newGender, address = @newAddress WHERE id = @id";
+                String updateQuery = "UPDATE tbpatient SET name = @newName, gender = @newGender, address = @newAddress, nssf = @newNssf, dob = @newDob, phone = @newPhone, age = @newAge, bloodType = @newbloodType WHERE id = @id";
                 MySqlCommand update_command = new MySqlCommand(updateQuery, conn);
 
                 update_command.Parameters.AddWithValue("newName", txtName.Text);
                 update_command.Parameters.AddWithValue("newGender", gender);
                 update_command.Parameters.AddWithValue("newAddress", txtaddress.Text);
+                update_command.Parameters.AddWithValue("newNssf", nssfcard);
+                update_command.Parameters.AddWithValue("newDob", dob);
+                update_command.Parameters.AddWithValue("newPhone", phone);
+                update_command.Parameters.AddWithValue("newAge", age);
+                update_command.Parameters.AddWithValue("newbloodType", bloodType);
                 update_command.Parameters.AddWithValue("id", txtID.Text);
 
                 update_command.ExecuteNonQuery();
@@ -100,6 +104,11 @@ namespace hospital
                 txtaddress.Clear();
                 buttonMale.Checked = false;
                 buttonFemale.Checked = false;
+                cbNssf.SelectedIndex = 0;
+                dateofbirth.Value = DateTime.Now;
+                txtphone.Clear();
+                txtage.Clear();
+                cbBloodType.SelectedIndex = 0;
 
                 Refresh();
             }
@@ -120,7 +129,8 @@ namespace hospital
                     MessageBox.Show("Please enter patient's name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtName.Focus();
                     return;
-                }else if(txtName.ForeColor == System.Drawing.Color.Red)
+                }
+                else if(txtName.ForeColor == System.Drawing.Color.Red)
                 {
                     MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -129,6 +139,41 @@ namespace hospital
                 {
                     MessageBox.Show("Please enter patient's address.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtaddress.Focus();
+                    return;
+                }
+                else if (cbNssf.SelectedIndex == 0)
+                {
+                    MessageBox.Show("Please select patient NSSF Card option.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (dateofbirth.Value == DateTime.Now)
+                {
+                    MessageBox.Show("Please enter patient Date of birth.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (txtphone.Text == "")
+                {
+                    MessageBox.Show("Please enter patient Phone number.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (txtphone.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("Please enter number only.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (txtage.Text == "")
+                {
+                    MessageBox.Show("Please enter patient age.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (txtage.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("Please enter number only.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (cbBloodType.SelectedIndex == 0)
+                {
+                    MessageBox.Show("Please select blood type.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 try
@@ -148,22 +193,26 @@ namespace hospital
                     conn.Open();
                     string name = txtName.Text;
                     string gender = "";
-                    if (buttonMale.Checked)
-                    {
-                        gender = "Male";
-                    }
-                    else if (buttonFemale.Checked)
-                    {
-                        gender = "Female";
-                    }
+                    if (buttonMale.Checked) gender = "Male";
+                    else if (buttonFemale.Checked) gender = "Female";
                     string address = txtaddress.Text;
+                    string nssfcard = cbNssf.SelectedItem.ToString();
+                    DateTime dob = dateofbirth.Value;
+                    string phone = txtphone.Text;
+                    string age = txtage.Text;
+                    string bloodType = cbBloodType.SelectedItem.ToString();
 
-                    string query = "INSERT INTO tbpatient(id, name, gender, address) VALUES (@id, @name, @gender, @address)";
+                    string query = "INSERT INTO tbpatient(id, name, gender, address, nssf, dob, phone, age, bloodType) VALUES (@id, @name, @gender, @address, @nssf, @dob, @phone, @age, @bloodType)";
                     MySqlCommand command = new MySqlCommand(query, conn);
                     command.Parameters.AddWithValue("@id", "");
                     command.Parameters.AddWithValue("@name", name);
                     command.Parameters.AddWithValue("@gender", gender);
                     command.Parameters.AddWithValue("@address", address);
+                    command.Parameters.AddWithValue("@nssf", nssfcard);
+                    command.Parameters.AddWithValue("@dob", dob);
+                    command.Parameters.AddWithValue("@phone", phone);
+                    command.Parameters.AddWithValue("@age", age);
+                    command.Parameters.AddWithValue("@bloodType", bloodType);
                     command.ExecuteNonQuery();
                     TrackUserAction("Save");
 
@@ -175,6 +224,11 @@ namespace hospital
                     txtaddress.Clear();
                     buttonMale.Checked = false;
                     buttonFemale.Checked = false;
+                    cbNssf.SelectedIndex = 0;
+                    dateofbirth.Value = DateTime.Now;
+                    txtphone.Clear();
+                    txtage.Clear();
+                    cbBloodType.SelectedIndex = 0;
 
                     Refresh();
                 }
@@ -206,6 +260,11 @@ namespace hospital
                 txtaddress.Clear();
                 buttonMale.Checked = false;
                 buttonFemale.Checked = false;
+                cbNssf.SelectedIndex = 0;
+                dateofbirth.Value = DateTime.Now;
+                txtphone.Clear();
+                txtage.Clear();
+                cbBloodType.SelectedIndex = 0;
             }
         }
 
@@ -235,13 +294,13 @@ namespace hospital
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
-                dataGridView1.RowTemplate.Height = 60;
+                dataGridView1.RowTemplate.Height = 30;
                 dataGridView1.DataSource = table;
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.ReadOnly = true;
-                dataGridView1.Columns[4].Visible = false;
+                dataGridView1.Columns[9].Visible = false;
 
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
                 MySqlCommand command_id = new MySqlCommand("SELECT id FROM tbpatient ORDER BY id DESC LIMIT 1", conn);
                 object result = command_id.ExecuteScalar();
@@ -264,71 +323,41 @@ namespace hospital
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            string searchQuery = "SELECT * FROM tbpatient WHERE name LIKE @name && active = 1 ORDER BY id DESC";
+            buttonSearch = true;
             if (txtName.ForeColor == System.Drawing.Color.Red)
             {
                 MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            btnSave.Text = "New";
-            buttonSearch = true;
-            btnEdit.Enabled = true;
-            btnRemove.Enabled = true;
-            if (patient_role == "View Only")
+            using (MySqlConnection conn = new MySqlConnection(MySQLConn))
             {
-                btnEdit.Enabled = false;
-                btnRemove.Enabled = false;
-                btnSave.Enabled = false;
-                btnReport.Enabled = false;
-            }
-            else if (patient_role == "Create Only")
-            {
-                btnRemove.Enabled = false;
-                btnReport.Enabled = false;
-            }
-            MySqlConnection conn = new MySqlConnection(MySQLConn);
-            try
-            {
-                conn.Open();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM tbpatient WHERE @name = name && active = 1", conn);
-                command.Parameters.AddWithValue("name", txtName.Text);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
+                using (MySqlCommand command = new MySqlCommand(searchQuery, conn))
+                {
+                    command.Parameters.AddWithValue("@name", "%" + txtName.Text + "%");
 
-                if (table.Rows.Count < 0)
-                {
-                    MessageBox.Show("No data Found!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    txtID.Text = table.Rows[0][0].ToString();
-                    txtName.Text = table.Rows[0][1].ToString();
-                    if (table.Rows[0][2].Equals("Male"))
+                    try
                     {
-                        buttonMale.Checked = true;
+                        conn.Open();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+                        dataGridView1.AutoGenerateColumns = true;
+                        dataGridView1.DataSource = table;
+                        dataGridView1.RowTemplate.Height = 30;
+                        dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                        dataGridView1.AllowUserToAddRows = false;
+                        dataGridView1.ReadOnly = true;
+                        dataGridView1.Columns[4].Visible = false;
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        buttonFemale.Checked = true;
+                        MessageBox.Show("Error: " + ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    txtaddress.Text = table.Rows[0][3].ToString();
-                    TrackUserAction("Search");
                 }
             }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-                btnEdit.Enabled = false;
-                btnSave.Text = "Save";
-                txtID.Clear();
-                txtName.Clear();
-                txtaddress.Clear();
-                buttonMale.Checked = false;
-                buttonFemale.Checked = false;
-                Refresh();
-                MessageBox.Show("Name not found in the list. Please try again.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally { conn.Close(); }
+            btnSave.Text = "New";
+            TrackUserAction("Search");
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -353,6 +382,11 @@ namespace hospital
                 txtaddress.Clear();
                 buttonMale.Checked = false;
                 buttonFemale.Checked = false;
+                cbNssf.SelectedIndex = 0;
+                txtage.Clear();
+                txtphone.Clear();
+                dateofbirth.Value = DateTime.Now;
+                cbBloodType.SelectedIndex = 0;
                 btnSave.Text = "Save";
 
                 Refresh();
@@ -387,15 +421,21 @@ namespace hospital
                 DataGridViewRow selectedRow = dataGridView1.Rows[index];
                 txtID.Text = selectedRow.Cells[0].Value.ToString();
                 txtName.Text = selectedRow.Cells[1].Value.ToString();
-                if (selectedRow.Cells[2].Value.Equals("Male"))
-                {
-                    buttonMale.Checked = true;
-                }
-                else
-                {
-                    buttonFemale.Checked = true;
-                }
+                if (selectedRow.Cells[2].Value.Equals("Male")) buttonMale.Checked = true;
+                else buttonFemale.Checked = true;
                 txtaddress.Text = selectedRow.Cells[3].Value.ToString();
+
+                string selectedNSSF = selectedRow.Cells[4].Value.ToString();
+                int indNSSF = cbNssf.FindStringExact(selectedNSSF);
+                cbNssf.SelectedIndex = indNSSF;
+
+                dateofbirth.Value = (DateTime)selectedRow.Cells[5].Value;
+                txtphone.Text = selectedRow.Cells[6].Value.ToString();
+                txtage.Text = selectedRow.Cells[7].Value.ToString();
+
+                string selectedValue = selectedRow.Cells[8].Value.ToString();
+                int ind = cbBloodType.FindStringExact(selectedValue);
+                cbBloodType.SelectedIndex = ind;
             }
             catch (Exception ex)
             {
@@ -412,9 +452,48 @@ namespace hospital
             TrackUserAction("Report");
         }
 
+        private void txtphone_TextChanged(object sender, EventArgs e)
+        {
+            if (ContainsNumberOnly(txtphone.Text))
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.Color.White;
+                txtName.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.SystemColors.Window;
+                txtName.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
+        }
+
+        private void txtage_TextChanged(object sender, EventArgs e)
+        {
+            if (ContainsNumberOnly(txtage.Text))
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.Color.White;
+                txtName.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                txtName.BorderStyle = BorderStyle.FixedSingle;
+                txtName.BackColor = System.Drawing.SystemColors.Window;
+                txtName.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
+        }
+
         private bool ContainsSpecialCharacters(string text)
         {
             string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+            return text.Any(c => !allowedCharacters.Contains(c));
+        }
+
+        private bool ContainsNumberOnly(string text)
+        {
+            string allowedCharacters = "0123456789";
 
             return text.Any(c => !allowedCharacters.Contains(c));
         }

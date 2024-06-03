@@ -205,65 +205,41 @@ namespace hospital
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            string searchQuery = "SELECT * FROM tbmedicine WHERE name LIKE @name && active = 1 ORDER BY id DESC";
+            buttonSearch = true;
             if (txtName.ForeColor == System.Drawing.Color.Red)
             {
                 MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            using (MySqlConnection conn = new MySqlConnection(MySQLConn))
+            {
+                using (MySqlCommand command = new MySqlCommand(searchQuery, conn))
+                {
+                    command.Parameters.AddWithValue("@name", "%" + txtName.Text + "%");
+
+                    try
+                    {
+                        conn.Open();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+                        dataGridView1.AutoGenerateColumns = true;
+                        dataGridView1.DataSource = table;
+                        dataGridView1.RowTemplate.Height = 30;
+                        dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                        dataGridView1.AllowUserToAddRows = false;
+                        dataGridView1.ReadOnly = true;
+                        dataGridView1.Columns[5].Visible = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
             BtnSave.Text = "New";
-            buttonSearch = true;
-            BtnEdit.Enabled = true;
-            BtnRemove.Enabled = true;
-            if (medicine_role == "View Only")
-            {
-                BtnEdit.Enabled = false;
-                BtnRemove.Enabled = false;
-                BtnSave.Enabled = false;
-                BtnReport.Enabled = false;
-            }
-            else if (medicine_role == "Create Only")
-            {
-                BtnRemove.Enabled = false;
-                BtnReport.Enabled = false;
-            }
-            MySqlConnection conn = new MySqlConnection(MySQLConn);
-            try
-            {
-                conn.Open();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM tbmedicine WHERE @name = name && active = 1", conn);
-                command.Parameters.AddWithValue("name", txtName.Text);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-
-                if (table.Rows.Count < 0)
-                {
-                    MessageBox.Show("No data Found!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    txtID.Text = table.Rows[0][0].ToString();
-                    txtName.Text = table.Rows[0][1].ToString();
-                    txtQty.Text = table.Rows[0][2].ToString();
-                    txtUnitPrice.Text = table.Rows[0][3].ToString();
-                    expiryDate.Value = (DateTime)table.Rows[0][4];
-                    TrackUserAction("Search");
-                }
-
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-                BtnEdit.Enabled = false;
-                BtnSave.Text = "Save";
-                txtID.Clear();
-                txtName.Clear();
-                txtQty.Clear();
-                txtUnitPrice.Clear();
-                Refresh();
-                MessageBox.Show("Name not found in the list. Please try again.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally { conn.Close(); }
+            TrackUserAction("Search");
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
