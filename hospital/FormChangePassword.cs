@@ -34,7 +34,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
         }
@@ -64,7 +64,7 @@ namespace hospital
                     correct = false;
                 } 
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); correct = false; }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error); correct = false; }
             finally { conn.Close(); }
         }
 
@@ -102,7 +102,7 @@ namespace hospital
                     MessageBox.Show("Invalid username or password. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             finally { conn.Close(); }
         }
 

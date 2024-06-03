@@ -53,7 +53,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
         }
@@ -127,7 +127,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -159,7 +159,7 @@ namespace hospital
                     {
                         if (row.Cells[1].Value.ToString().Equals(btnstaff.Text))
                         {
-                            MessageBox.Show("Duplicate Staff's name. Please try again!!!");
+                            MessageBox.Show("Duplicate Staff's name. Please try again!!!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             conn.Close();
                             return;
                         }
@@ -193,7 +193,7 @@ namespace hospital
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -272,7 +272,7 @@ namespace hospital
                 {
                     if (row.Cells[1].Value.ToString().Equals(cbStaff.Text) && row.Cells[2].Value.ToString().Equals(dateTimedeparture.Value) && row.Cells[3].Value.ToString().Equals(dateTimearrived.Value))
                     {
-                        MessageBox.Show("This user already assists. Please try again!!!");
+                        MessageBox.Show("This user already assists. Please try again!!!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         conn.Close();
                         return;
                     }
@@ -303,7 +303,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
         }
@@ -333,7 +333,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
         }
@@ -375,7 +375,7 @@ namespace hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -418,7 +418,7 @@ namespace hospital
                     command.ExecuteNonQuery();
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void DisplayInComboBox()
@@ -443,7 +443,7 @@ namespace hospital
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error );
             }
         }
 

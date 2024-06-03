@@ -179,7 +179,7 @@
             this.label4.Location = new System.Drawing.Point(124, 688);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(325, 67);
+            this.label4.Size = new System.Drawing.Size(240, 52);
             this.label4.TabIndex = 113;
             this.label4.Text = "Check Out:";
             // 
@@ -190,13 +190,14 @@
             this.label3.Location = new System.Drawing.Point(124, 563);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(279, 67);
+            this.label3.Size = new System.Drawing.Size(206, 52);
             this.label3.TabIndex = 112;
             this.label3.Text = "Check In:";
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.txtName.Location = new System.Drawing.Point(500, 319);
             this.txtName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtName.Name = "txtName";
@@ -208,10 +209,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.label2.Location = new System.Drawing.Point(124, 329);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(203, 67);
+            this.label2.Size = new System.Drawing.Size(151, 52);
             this.label2.TabIndex = 111;
             this.label2.Text = "Name:";
             // 
@@ -221,17 +223,19 @@
             this.txtID.Location = new System.Drawing.Point(500, 194);
             this.txtID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(260, 74);
+            this.txtID.Size = new System.Drawing.Size(196, 57);
             this.txtID.TabIndex = 116;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.label1.Location = new System.Drawing.Point(124, 204);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 67);
+            this.label1.Size = new System.Drawing.Size(78, 52);
             this.label1.TabIndex = 110;
             this.label1.Text = "ID:";
             // 
@@ -241,10 +245,12 @@
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
             this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
             this.btnReturn.Location = new System.Drawing.Point(1397, 8);
             this.btnReturn.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(149, 56);
+
             this.btnReturn.TabIndex = 109;
             this.btnReturn.Text = "Return";
             this.btnReturn.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -259,10 +265,12 @@
             this.labelTitle.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelTitle.Image = ((System.Drawing.Image)(resources.GetObject("labelTitle.Image")));
             this.labelTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
             this.labelTitle.Location = new System.Drawing.Point(423, 62);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(835, 78);
+            this.labelTitle.Size = new System.Drawing.Size(570, 58);
             this.labelTitle.TabIndex = 108;
             this.labelTitle.Text = "    ប្រព័ន្ធគ្រប់គ្រងបន្ទប់អ្នកជំងឺ";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -293,7 +301,7 @@
             // 
             // FormBed
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1555, 1165);
@@ -315,6 +323,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.labelTitle);
+
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "FormBed";
             this.Text = "FormBed";
