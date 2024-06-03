@@ -63,13 +63,13 @@ namespace hospital
                 }
                 else
                 {
-                    MessageBox.Show("Invalid username or password. Please try again.");
+                    MessageBox.Show("Invalid username or password. Please try again.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
