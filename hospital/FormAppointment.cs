@@ -15,8 +15,11 @@ namespace hospital
     {
         private string appointment_username;
         private string appointment_role;
-        //MySqlConnection conn;
+        MySqlConnection conn;
         String MySQLConn = "";
+        MySqlCommand command;
+        Boolean buttonSave, buttonEdit, buttonRemove, buttonReport, buttonSearch;
+        String sqlquery = "SELECT * FROM tbappointment WHERE active = 1 ORDER BY id DESC";
         public FormAppointment(string appointment_username, string appointment_role)
         {
             InitializeComponent();
@@ -149,7 +152,7 @@ namespace hospital
                     string query = "INSERT INTO tbappointment(id, name, doctorspecialization, bookdate) VALUES (@id, @name, @doctorspecialization, @bookdate)";
                     MySqlCommand command = new MySqlCommand(query, conn);
                     command.Parameters.AddWithValue("id", "");
-                    command.Parameters.AddWithValue("name", name);                   
+                    command.Parameters.AddWithValue("name", name);
                     command.Parameters.AddWithValue("doctorspecialization", specialization);
                     command.Parameters.AddWithValue("Bookdate", DOB);
                     command.ExecuteNonQuery();
@@ -162,7 +165,7 @@ namespace hospital
                     txtName.Clear();
 
                     cbspecilization.SelectedIndex = 0;
-                    BookDate.Value =DateTime.Now;
+                    BookDate.Value = DateTime.Now;
 
                     Refresh();
                 }
@@ -191,7 +194,7 @@ namespace hospital
                 txtID.Text = nextId.ToString();
 
                 txtName.Clear();
-                
+
                 cbspecilization.SelectedIndex = 0;
                 BookDate.Value = DateTime.Now;
             }
@@ -258,7 +261,6 @@ namespace hospital
             this.Hide();
         }
 
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
             MySqlConnection conn = new MySqlConnection(MySQLConn);
@@ -284,10 +286,10 @@ namespace hospital
                 MySqlCommand update_command = new MySqlCommand(updateQuery, conn);
 
                 update_command.Parameters.AddWithValue("id", txtID.Text);
-                update_command.Parameters.AddWithValue("newName", name);                
+                update_command.Parameters.AddWithValue("newName", name);
                 update_command.Parameters.AddWithValue("newSpecialization", specilization);
                 update_command.Parameters.AddWithValue("newbookdate", bookdate);
-               
+
                 update_command.ExecuteNonQuery();
                 buttonEdit = true;
                 TrackUserAction("Edit");

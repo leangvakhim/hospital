@@ -59,7 +59,7 @@
             this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBrowse.Location = new System.Drawing.Point(1348, 485);
-            this.btnBrowse.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnBrowse.Margin = new System.Windows.Forms.Padding(6);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(172, 62);
             this.btnBrowse.TabIndex = 110;
@@ -71,7 +71,7 @@
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(1262, 179);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(330, 292);
             this.pictureBox1.TabIndex = 117;
@@ -84,7 +84,7 @@
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.Location = new System.Drawing.Point(370, 665);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(6);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(216, 92);
             this.btnEdit.TabIndex = 121;
@@ -102,7 +102,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(114, 792);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -118,7 +118,7 @@
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReport.Location = new System.Drawing.Point(1300, 665);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(6);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(294, 92);
             this.btnReport.TabIndex = 124;
@@ -134,7 +134,7 @@
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearch.Location = new System.Drawing.Point(612, 665);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(6);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(292, 92);
             this.btnSearch.TabIndex = 122;
@@ -152,7 +152,7 @@
             this.btnRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.Image")));
             this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRemove.Location = new System.Drawing.Point(936, 665);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(6);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(332, 92);
             this.btnRemove.TabIndex = 123;
@@ -168,7 +168,7 @@
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(114, 665);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(6);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(234, 92);
             this.btnSave.TabIndex = 120;
@@ -192,7 +192,7 @@
             // 
             this.txtspecialization.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtspecialization.Location = new System.Drawing.Point(586, 550);
-            this.txtspecialization.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtspecialization.Margin = new System.Windows.Forms.Padding(6);
             this.txtspecialization.Name = "txtspecialization";
             this.txtspecialization.Size = new System.Drawing.Size(608, 74);
             this.txtspecialization.TabIndex = 109;
@@ -213,7 +213,7 @@
             // 
             this.txtphone.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtphone.Location = new System.Drawing.Point(586, 425);
-            this.txtphone.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtphone.Margin = new System.Windows.Forms.Padding(6);
             this.txtphone.Name = "txtphone";
             this.txtphone.Size = new System.Drawing.Size(608, 74);
             this.txtphone.TabIndex = 107;
@@ -234,7 +234,7 @@
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(586, 294);
-            this.txtName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtName.Margin = new System.Windows.Forms.Padding(6);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(608, 74);
             this.txtName.TabIndex = 106;
@@ -255,7 +255,7 @@
             // 
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.Location = new System.Drawing.Point(586, 169);
-            this.txtID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtID.Margin = new System.Windows.Forms.Padding(6);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(260, 74);
             this.txtID.TabIndex = 119;
@@ -278,7 +278,7 @@
             this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
             this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReturn.Location = new System.Drawing.Point(1520, 2);
-            this.btnReturn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnReturn.Margin = new System.Windows.Forms.Padding(6);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(150, 56);
             this.btnReturn.TabIndex = 111;
@@ -307,6 +307,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1670, 1136);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.pictureBox1);
@@ -327,7 +328,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.labelTitle);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormDoctor";
             this.Text = "FormDoctor";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormDoctor_FormClosed);
