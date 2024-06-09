@@ -62,7 +62,6 @@
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
             this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
             this.btnReturn.Location = new System.Drawing.Point(1461, 6);
             this.btnReturn.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnReturn.Name = "btnReturn";
@@ -208,7 +207,6 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.label4.Location = new System.Drawing.Point(44, 540);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
@@ -220,24 +218,20 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.label3.Location = new System.Drawing.Point(52, 419);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(255, 67);
-
             this.label3.TabIndex = 130;
             this.label3.Text = "Position:";
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.txtName.Location = new System.Drawing.Point(400, 285);
             this.txtName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(608, 74);
-
             this.txtName.TabIndex = 125;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
@@ -245,7 +239,6 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.label2.Location = new System.Drawing.Point(52, 292);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
@@ -256,7 +249,6 @@
             // txtID
             // 
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.txtID.Location = new System.Drawing.Point(400, 160);
             this.txtID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtID.Name = "txtID";
@@ -267,12 +259,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.label1.Location = new System.Drawing.Point(52, 168);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 67);
-
             this.label1.TabIndex = 128;
             this.label1.Text = "ID:";
             // 
@@ -280,15 +270,14 @@
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitle.Font = new System.Drawing.Font("Cascadia Code Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Font = new System.Drawing.Font("Khmer OS Muol Light", 22.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelTitle.Image = ((System.Drawing.Image)(resources.GetObject("labelTitle.Image")));
             this.labelTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
             this.labelTitle.Location = new System.Drawing.Point(424, 29);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(694, 78);
+            this.labelTitle.Size = new System.Drawing.Size(772, 107);
             this.labelTitle.TabIndex = 126;
             this.labelTitle.Text = "    ប្រព័ន្ធគ្រប់គ្រងបុគ្គលិក";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -297,24 +286,20 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.label6.Location = new System.Drawing.Point(43, 668);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(213, 67);
-
             this.label6.TabIndex = 141;
             this.label6.Text = "Salary:";
             // 
             // txtSalary
             // 
             this.txtSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.txtSalary.Location = new System.Drawing.Point(400, 660);
             this.txtSalary.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.Size = new System.Drawing.Size(608, 74);
-
             this.txtSalary.TabIndex = 142;
             this.txtSalary.TextChanged += new System.EventHandler(this.txtSalary_TextChanged);
             // 
@@ -322,12 +307,10 @@
             // 
             this.rbFemale.AutoSize = true;
             this.rbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.rbFemale.Location = new System.Drawing.Point(752, 536);
             this.rbFemale.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(257, 71);
-
             this.rbFemale.TabIndex = 144;
             this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Female";
@@ -337,12 +320,10 @@
             // 
             this.rbMale.AutoSize = true;
             this.rbMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.rbMale.Location = new System.Drawing.Point(400, 536);
             this.rbMale.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(188, 71);
-
             this.rbMale.TabIndex = 143;
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
@@ -355,7 +336,6 @@
             this.cbPosition.FormattingEnabled = true;
             this.cbPosition.Items.AddRange(new object[] {
             ""});
-
             this.cbPosition.Location = new System.Drawing.Point(400, 418);
             this.cbPosition.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cbPosition.Name = "cbPosition";
@@ -368,7 +348,6 @@
             // 
             // FormStaff
             // 
-
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;

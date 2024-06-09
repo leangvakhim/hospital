@@ -407,7 +407,7 @@
         <DataSetName>DataSet</DataSetName>
         <Top>0.02431in</Top>
         <Left>0.13542in</Left>
-        <Height>1.63193in</Height>
+        <Height>1.63192in</Height>
         <Width>7.1875in</Width>
         <Style>
           <Border>
@@ -433,17 +433,10 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>របាយការណ៍</Value>
+                  <Value>របាយការណ៍គ្រូពេទ្យ</Value>
                   <Style>
-                    <FontFamily>Cascadia Mono Light</FontFamily>
-                    <FontSize>40pt</FontSize>
-                  </Style>
-                </TextRun>
-                <TextRun>
-                  <Value>គ្រូពេទ្យ</Value>
-                  <Style>
-                    <FontFamily>Cascadia Code Light</FontFamily>
-                    <FontSize>40pt</FontSize>
+                    <FontFamily>Khmer OS Muol</FontFamily>
+                    <FontSize>20pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>

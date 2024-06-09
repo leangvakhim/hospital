@@ -340,7 +340,7 @@
         <DataSetName>DataSet</DataSetName>
         <Top>0.04167in</Top>
         <Height>1.23958in</Height>
-        <Width>7.45833in</Width>
+        <Width>7.45832in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -367,8 +367,8 @@
                 <TextRun>
                   <Value>របាយការណ៍ណាត់ជួបគ្រូពេទ្យ</Value>
                   <Style>
-                    <FontFamily>Cascadia Mono Light</FontFamily>
-                    <FontSize>40pt</FontSize>
+                    <FontFamily>Khmer OS Muol</FontFamily>
+                    <FontSize>20pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -379,9 +379,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.1643in</Top>
-          <Left>1.7552in</Left>
+          <Left>1.60937in</Left>
           <Height>0.6714in</Height>
-          <Width>3.86459in</Width>
+          <Width>4.38022in</Width>
           <Style>
             <Border />
             <PaddingLeft>2pt</PaddingLeft>

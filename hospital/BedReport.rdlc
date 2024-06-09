@@ -333,7 +333,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!checkOut.Value</Value>
+                              <Value>=IIf(Fields!checkOut.Value = #01/01/0001#, "", Fields!checkOut.Value)</Value>
                               <Style>
                                 <FontFamily>Google Sans</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -450,8 +450,8 @@
                 <TextRun>
                   <Value>របាយការណ៍បន្ទប់អ្នកជំងឺ</Value>
                   <Style>
-                    <FontFamily>Cascadia Mono Light</FontFamily>
-                    <FontSize>40pt</FontSize>
+                    <FontFamily>Khmer OS Muol</FontFamily>
+                    <FontSize>20pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -462,7 +462,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.23958in</Top>
-          <Left>1.81251in</Left>
+          <Left>2.39064in</Left>
           <Height>0.59375in</Height>
           <Width>3.54166in</Width>
           <Style>

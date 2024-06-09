@@ -18,10 +18,10 @@
               <Width>1.08901in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.71007in</Width>
+              <Width>0.91007in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.80382in</Width>
+              <Width>0.90382in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.78125in</Width>
@@ -182,7 +182,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>nssf</Value>
+                              <Value>ប័ណ្ណ ប.ស.ស</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                               </Style>
@@ -216,7 +216,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>phone</Value>
+                              <Value>លេខទូរស័ព្ទ</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                               </Style>
@@ -250,7 +250,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>age</Value>
+                              <Value>អាយុ</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                               </Style>
@@ -284,7 +284,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>dob</Value>
+                              <Value>ថ្ងៃខែឆ្នាំកំណើត</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                               </Style>
@@ -318,7 +318,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>bloodtype</Value>
+                              <Value>ប្រភេទឈាម</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                               </Style>
@@ -684,7 +684,7 @@
         <DataSetName>DataSet</DataSetName>
         <Top>0.02778in</Top>
         <Height>0.98958in</Height>
-        <Width>8.49084in</Width>
+        <Width>8.79084in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -699,7 +699,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>8.49084in</Width>
+  <Width>8.93355in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>
@@ -715,8 +715,8 @@
                 <TextRun>
                   <Value>របាយការណ៍អ្នកជំងឺ</Value>
                   <Style>
-                    <FontFamily>Cascadia Mono Light</FontFamily>
-                    <FontSize>40pt</FontSize>
+                    <FontFamily>Khmer OS Muol</FontFamily>
+                    <FontSize>20pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -727,7 +727,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.21354in</Top>
-          <Left>2.41794in</Left>
+          <Left>2.63669in</Left>
           <Height>0.59375in</Height>
           <Width>3.54166in</Width>
           <Style>

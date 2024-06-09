@@ -291,14 +291,14 @@
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitle.Font = new System.Drawing.Font("Cascadia Code Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Font = new System.Drawing.Font("Khmer OS Muol Light", 22.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelTitle.Image = ((System.Drawing.Image)(resources.GetObject("labelTitle.Image")));
             this.labelTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelTitle.Location = new System.Drawing.Point(500, 38);
+            this.labelTitle.Location = new System.Drawing.Point(456, 39);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(683, 78);
+            this.labelTitle.Size = new System.Drawing.Size(779, 107);
             this.labelTitle.TabIndex = 108;
             this.labelTitle.Text = "    ប្រព័ន្ធគ្រប់គ្រងគ្រូពេទ្យ";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

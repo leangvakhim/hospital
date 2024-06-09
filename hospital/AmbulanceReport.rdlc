@@ -396,7 +396,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet</DataSetName>
         <Top>0.06944in</Top>
-        <Height>1.10417in</Height>
+        <Height>1.10416in</Height>
         <Width>7.75in</Width>
         <Style>
           <Border>
@@ -424,8 +424,8 @@
                 <TextRun>
                   <Value>របាយការណ៍រថយន្តសង្គ្រោះបន្ទាន់</Value>
                   <Style>
-                    <FontFamily>Cascadia Mono Light</FontFamily>
-                    <FontSize>40pt</FontSize>
+                    <FontFamily>Khmer OS Muol</FontFamily>
+                    <FontSize>20pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -450,9 +450,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.1643in</Top>
-          <Left>1.96354in</Left>
+          <Left>1.55in</Left>
           <Height>0.6714in</Height>
-          <Width>3.86459in</Width>
+          <Width>4.87501in</Width>
           <Style>
             <Border />
             <PaddingLeft>2pt</PaddingLeft>

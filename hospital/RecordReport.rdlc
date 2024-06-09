@@ -43,7 +43,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>user ID</Value>
+                              <Value>ID</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -76,7 +76,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>user Name</Value>
+                              <Value>Name</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -109,7 +109,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>user Role</Value>
+                              <Value>Position</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -142,7 +142,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>user Action</Value>
+                              <Value>Action</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -175,7 +175,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>user Form</Value>
+                              <Value>Action Form</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -208,7 +208,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>person ID</Value>
+                              <Value>UserID</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -241,7 +241,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>person Name</Value>
+                              <Value>Username</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -479,7 +479,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!personID.Value</Value>
+                              <Value>=IIf(Fields!personID.Value = 0, "", Fields!personID.Value)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -627,8 +627,8 @@
                 <TextRun>
                   <Value>របាយការណ៍ទិន្នន័យ</Value>
                   <Style>
-                    <FontFamily>Cascadia Mono Light</FontFamily>
-                    <FontSize>40pt</FontSize>
+                    <FontFamily>Khmer OS Muol</FontFamily>
+                    <FontSize>20pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -641,8 +641,8 @@
                 <TextRun>
                   <Value />
                   <Style>
-                    <FontFamily>Cascadia Mono Light</FontFamily>
-                    <FontSize>40pt</FontSize>
+                    <FontFamily>Khmer OS Muol</FontFamily>
+                    <FontSize>20pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -652,7 +652,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.1643in</Top>
+          <Top>0.27305in</Top>
           <Left>2.13541in</Left>
           <Height>0.6714in</Height>
           <Width>3.86459in</Width>

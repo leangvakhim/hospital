@@ -65,6 +65,14 @@ namespace hospital
                 table = new DataTable();
                 adapter.Fill(table);
 
+                foreach (DataRow row in table.Rows)
+                {
+                    if (row["PersonID"].ToString() == "0")
+                    {
+                        row["PersonID"] = DBNull.Value;
+                    }
+                }
+
                 dataGridView1.AutoGenerateColumns = true;
                 dataGridView1.DataSource = table;
 
@@ -113,7 +121,14 @@ namespace hospital
                         DataTable table = new DataTable();
                         adapter.Fill(table);
 
-                        // Setting DataGridView properties
+                        foreach (DataRow row in table.Rows)
+                        {
+                            if (row["PersonID"].ToString() == "0")
+                            {
+                                row["PersonID"] = DBNull.Value;
+                            }
+                        }
+
                         dataGridView1.AutoGenerateColumns = true;
                         dataGridView1.DataSource = table;
 
@@ -142,40 +157,6 @@ namespace hospital
             FormReport report = new FormReport(recordlog_username, recordlog_role, FormReport._ReportType.Record, sqlquery);
             report.Show();
             this.Hide();
-            /*TrackUserAction("Report");*/
         }
-
-        /*private void TrackUserAction(string userAction)
-        {
-            try
-            {
-                using (conn = new MySqlConnection(MySQLConn))
-                {
-                    conn.Open();
-                    string query = "INSERT INTO tbrecord(userID, userName, userRole, userAction, userForm, personID, personName, actionDateTime) VALUES (@uID, @uName, @uRole, @uAction, @uForm, @pID, @pName, @aDateTime)";
-
-                    command = new MySqlCommand(query, conn);
-                    command.Parameters.AddWithValue("uAction", userAction);
-                    command.Parameters.AddWithValue("uForm", "Bed");
-                    command.Parameters.AddWithValue("uID", "");
-                    command.Parameters.AddWithValue("uName", bed_username);
-                    command.Parameters.AddWithValue("uRole", bed_role);
-                    if (userAction.Equals("Report"))
-                    {
-                        command.Parameters.AddWithValue("pID", "");
-                        command.Parameters.AddWithValue("pName", "");
-                    }
-                    else
-                    {
-                        command.Parameters.AddWithValue("pID", txtID.Text);
-                        command.Parameters.AddWithValue("pName", txtName.Text);
-                    }
-                    command.Parameters.AddWithValue("aDateTime", DateTime.Now);
-
-                    command.ExecuteNonQuery();
-                }
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }*/
     }
 }

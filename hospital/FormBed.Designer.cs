@@ -57,10 +57,10 @@
             this.dateTimeCheckOut.Enabled = false;
             this.dateTimeCheckOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeCheckOut.Location = new System.Drawing.Point(500, 675);
-            this.dateTimeCheckOut.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.dateTimeCheckOut.Location = new System.Drawing.Point(667, 844);
+            this.dateTimeCheckOut.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.dateTimeCheckOut.Name = "dateTimeCheckOut";
-            this.dateTimeCheckOut.Size = new System.Drawing.Size(594, 74);
+            this.dateTimeCheckOut.Size = new System.Drawing.Size(791, 74);
             this.dateTimeCheckOut.TabIndex = 115;
             this.dateTimeCheckOut.Value = new System.DateTime(2024, 6, 1, 0, 0, 0, 0);
             // 
@@ -70,10 +70,10 @@
             this.dateTimeCheckIn.CustomFormat = "dd-MM-yyyy";
             this.dateTimeCheckIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeCheckIn.Location = new System.Drawing.Point(500, 551);
-            this.dateTimeCheckIn.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.dateTimeCheckIn.Location = new System.Drawing.Point(667, 689);
+            this.dateTimeCheckIn.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.dateTimeCheckIn.Name = "dateTimeCheckIn";
-            this.dateTimeCheckIn.Size = new System.Drawing.Size(594, 74);
+            this.dateTimeCheckIn.Size = new System.Drawing.Size(791, 74);
             this.dateTimeCheckIn.TabIndex = 107;
             this.dateTimeCheckIn.TabStop = false;
             this.dateTimeCheckIn.Value = new System.DateTime(2024, 6, 1, 0, 0, 0, 0);
@@ -81,11 +81,11 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(136, 777);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.dataGridView1.Location = new System.Drawing.Point(181, 971);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.Size = new System.Drawing.Size(1303, 346);
+            this.dataGridView1.Size = new System.Drawing.Size(1737, 432);
             this.dataGridView1.TabIndex = 114;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -95,10 +95,10 @@
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(1146, 280);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnEdit.Location = new System.Drawing.Point(1528, 350);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(293, 92);
+            this.btnEdit.Size = new System.Drawing.Size(391, 115);
             this.btnEdit.TabIndex = 118;
             this.btnEdit.TabStop = false;
             this.btnEdit.Text = "Edit";
@@ -112,10 +112,10 @@
             this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReport.Location = new System.Drawing.Point(1142, 673);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnReport.Location = new System.Drawing.Point(1523, 841);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(297, 92);
+            this.btnReport.Size = new System.Drawing.Size(396, 115);
             this.btnReport.TabIndex = 121;
             this.btnReport.Text = "Report";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -128,10 +128,10 @@
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(1146, 401);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnSearch.Location = new System.Drawing.Point(1528, 501);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(293, 92);
+            this.btnSearch.Size = new System.Drawing.Size(391, 115);
             this.btnSearch.TabIndex = 119;
             this.btnSearch.Text = "Search";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -146,10 +146,10 @@
             this.btnRemove.ForeColor = System.Drawing.Color.Black;
             this.btnRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.Image")));
             this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemove.Location = new System.Drawing.Point(1146, 544);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnRemove.Location = new System.Drawing.Point(1528, 680);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(293, 92);
+            this.btnRemove.Size = new System.Drawing.Size(391, 115);
             this.btnRemove.TabIndex = 120;
             this.btnRemove.Text = "Delete";
             this.btnRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -162,10 +162,10 @@
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(1146, 163);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnSave.Location = new System.Drawing.Point(1528, 204);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(293, 92);
+            this.btnSave.Size = new System.Drawing.Size(391, 115);
             this.btnSave.TabIndex = 117;
             this.btnSave.Text = "Save";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -176,10 +176,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(124, 688);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label4.Location = new System.Drawing.Point(165, 860);
+            this.label4.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(240, 52);
+            this.label4.Size = new System.Drawing.Size(325, 67);
             this.label4.TabIndex = 113;
             this.label4.Text = "Check Out:";
             // 
@@ -187,21 +187,20 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(124, 563);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label3.Location = new System.Drawing.Point(165, 704);
+            this.label3.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(206, 52);
+            this.label3.Size = new System.Drawing.Size(279, 67);
             this.label3.TabIndex = 112;
             this.label3.Text = "Check In:";
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-            this.txtName.Location = new System.Drawing.Point(500, 319);
-            this.txtName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtName.Location = new System.Drawing.Point(667, 399);
+            this.txtName.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(594, 74);
+            this.txtName.Size = new System.Drawing.Size(791, 74);
             this.txtName.TabIndex = 106;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
@@ -209,33 +208,30 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-            this.label2.Location = new System.Drawing.Point(124, 329);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Location = new System.Drawing.Point(165, 411);
+            this.label2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 52);
+            this.label2.Size = new System.Drawing.Size(203, 67);
             this.label2.TabIndex = 111;
             this.label2.Text = "Name:";
             // 
             // txtID
             // 
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(500, 194);
-            this.txtID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtID.Location = new System.Drawing.Point(667, 242);
+            this.txtID.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(196, 57);
+            this.txtID.Size = new System.Drawing.Size(260, 74);
             this.txtID.TabIndex = 116;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-            this.label1.Location = new System.Drawing.Point(124, 204);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-
+            this.label1.Location = new System.Drawing.Point(165, 255);
+            this.label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 52);
+            this.label1.Size = new System.Drawing.Size(104, 67);
             this.label1.TabIndex = 110;
             this.label1.Text = "ID:";
             // 
@@ -245,12 +241,10 @@
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
             this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-            this.btnReturn.Location = new System.Drawing.Point(1397, 8);
-            this.btnReturn.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnReturn.Location = new System.Drawing.Point(1863, 10);
+            this.btnReturn.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(149, 56);
-
+            this.btnReturn.Size = new System.Drawing.Size(199, 70);
             this.btnReturn.TabIndex = 109;
             this.btnReturn.Text = "Return";
             this.btnReturn.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -261,16 +255,14 @@
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitle.Font = new System.Drawing.Font("Cascadia Code Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Font = new System.Drawing.Font("Khmer OS Muol", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelTitle.Image = ((System.Drawing.Image)(resources.GetObject("labelTitle.Image")));
             this.labelTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-            this.labelTitle.Location = new System.Drawing.Point(423, 62);
-            this.labelTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-
+            this.labelTitle.Location = new System.Drawing.Point(528, 78);
+            this.labelTitle.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(570, 58);
+            this.labelTitle.Size = new System.Drawing.Size(917, 121);
             this.labelTitle.TabIndex = 108;
             this.labelTitle.Text = "    ប្រព័ន្ធគ្រប់គ្រងបន្ទប់អ្នកជំងឺ";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -279,8 +271,8 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(124, 443);
-            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label5.Location = new System.Drawing.Point(165, 554);
+            this.label5.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(225, 67);
             this.label5.TabIndex = 123;
@@ -293,18 +285,18 @@
             this.cbBedID.FormattingEnabled = true;
             this.cbBedID.Items.AddRange(new object[] {
             " "});
-            this.cbBedID.Location = new System.Drawing.Point(500, 435);
-            this.cbBedID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.cbBedID.Location = new System.Drawing.Point(667, 544);
+            this.cbBedID.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.cbBedID.Name = "cbBedID";
-            this.cbBedID.Size = new System.Drawing.Size(594, 75);
+            this.cbBedID.Size = new System.Drawing.Size(791, 75);
             this.cbBedID.TabIndex = 146;
             // 
             // FormBed
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1555, 1165);
+            this.ClientSize = new System.Drawing.Size(2073, 1456);
             this.Controls.Add(this.cbBedID);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateTimeCheckOut);
@@ -323,8 +315,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.labelTitle);
-
-            this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.Name = "FormBed";
             this.Text = "FormBed";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormBed_FormClosed);

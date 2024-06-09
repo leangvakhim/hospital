@@ -45,10 +45,10 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(198, 250);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtName.Location = new System.Drawing.Point(264, 312);
+            this.txtName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(377, 57);
+            this.txtName.Size = new System.Drawing.Size(501, 74);
             this.txtName.TabIndex = 119;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
@@ -56,30 +56,30 @@
             // 
             this.labelUsername.AutoSize = true;
             this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsername.Location = new System.Drawing.Point(54, 250);
-            this.labelUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelUsername.Location = new System.Drawing.Point(72, 312);
+            this.labelUsername.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(126, 46);
+            this.labelUsername.Size = new System.Drawing.Size(171, 63);
             this.labelUsername.TabIndex = 121;
             this.labelUsername.Text = "Name";
             // 
             // txtID
             // 
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(198, 150);
-            this.txtID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtID.Location = new System.Drawing.Point(264, 188);
+            this.txtID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(172, 57);
+            this.txtID.Size = new System.Drawing.Size(228, 74);
             this.txtID.TabIndex = 122;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(53, 157);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(71, 196);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 46);
+            this.label1.Size = new System.Drawing.Size(81, 63);
             this.label1.TabIndex = 120;
             this.label1.Text = "ID";
             // 
@@ -87,14 +87,14 @@
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitle.Font = new System.Drawing.Font("Cascadia Code Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Font = new System.Drawing.Font("Khmer OS Muol Light", 22.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelTitle.Image = ((System.Drawing.Image)(resources.GetObject("labelTitle.Image")));
             this.labelTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelTitle.Location = new System.Drawing.Point(292, 35);
-            this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTitle.Location = new System.Drawing.Point(389, 44);
+            this.labelTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(360, 58);
+            this.labelTitle.Size = new System.Drawing.Size(601, 107);
             this.labelTitle.TabIndex = 123;
             this.labelTitle.Text = "    តំណែង ឬ តួនាទី";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -105,10 +105,10 @@
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(733, 290);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEdit.Location = new System.Drawing.Point(977, 362);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(200, 74);
+            this.btnEdit.Size = new System.Drawing.Size(267, 92);
             this.btnEdit.TabIndex = 126;
             this.btnEdit.TabStop = false;
             this.btnEdit.Text = "Update";
@@ -124,10 +124,10 @@
             this.btnRemove.ForeColor = System.Drawing.Color.Black;
             this.btnRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.Image")));
             this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemove.Location = new System.Drawing.Point(733, 395);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRemove.Location = new System.Drawing.Point(977, 494);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(200, 74);
+            this.btnRemove.Size = new System.Drawing.Size(267, 92);
             this.btnRemove.TabIndex = 127;
             this.btnRemove.Text = "Remove";
             this.btnRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -140,10 +140,10 @@
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(733, 181);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSave.Location = new System.Drawing.Point(977, 226);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(200, 74);
+            this.btnSave.Size = new System.Drawing.Size(267, 92);
             this.btnSave.TabIndex = 125;
             this.btnSave.Text = "Save";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -156,10 +156,10 @@
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
             this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturn.Location = new System.Drawing.Point(842, 5);
-            this.btnReturn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnReturn.Location = new System.Drawing.Point(1123, 6);
+            this.btnReturn.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(112, 45);
+            this.btnReturn.Size = new System.Drawing.Size(149, 56);
             this.btnReturn.TabIndex = 124;
             this.btnReturn.Text = "Return";
             this.btnReturn.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -169,20 +169,21 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(41, 344);
+            this.dataGridView1.Location = new System.Drawing.Point(55, 430);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(646, 250);
+            this.dataGridView1.Size = new System.Drawing.Size(861, 312);
             this.dataGridView1.TabIndex = 128;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // FormPosition
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(958, 614);
+            this.ClientSize = new System.Drawing.Size(1277, 768);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnRemove);
@@ -193,7 +194,7 @@
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormPosition";
             this.Text = "FormPosition";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormPosition_FormClosed);
