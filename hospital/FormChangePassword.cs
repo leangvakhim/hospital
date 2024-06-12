@@ -46,6 +46,8 @@ namespace hospital
 
         private void checkUser()
         {
+            var key = "sw9zbIu5mZ1AouhBGKikQWyhUhFdGftx";
+
             conn = new MySqlConnection(MySQLConn);
             try
             {
@@ -56,7 +58,8 @@ namespace hospital
                 {
                     string Name = reader.GetString("name");
                     string Password = reader.GetString("password");
-                    if (txtusername.Text == Name && txtoldpassoword.Text == Password)
+                    var decryptedPassword = EncryptionDecryption.DecryptString(key, Password);
+                    if (txtusername.Text == Name && txtoldpassoword.Text == decryptedPassword)
                     {
                         correct = true;
                         break;
@@ -70,6 +73,7 @@ namespace hospital
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            var key = "sw9zbIu5mZ1AouhBGKikQWyhUhFdGftx";
             checkUser();
             try
             {
@@ -77,12 +81,16 @@ namespace hospital
                 {
                     if(txtnewpassword.Text == txtconfirmpassword.Text)
                     {
+                        String newConfirmPassword = txtconfirmpassword.Text;
+                        String username = txtusername.Text;
+                        var encryptedNewConfirmPassword = EncryptionDecryption.EncryptString(key, newConfirmPassword);
+
                         conn.Open();
                         String updateQuery = "UPDATE tbadmin SET password = @newPassword WHERE name = @name";
                         MySqlCommand update_command = new MySqlCommand(updateQuery, conn);
 
-                        update_command.Parameters.AddWithValue("newPassword", txtconfirmpassword.Text);
-                        update_command.Parameters.AddWithValue("name", txtusername.Text);
+                        update_command.Parameters.AddWithValue("newPassword", encryptedNewConfirmPassword);
+                        update_command.Parameters.AddWithValue("name", username);
 
                         update_command.ExecuteNonQuery();
                         MessageBox.Show("Your Password has been changed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -111,6 +119,29 @@ namespace hospital
             FormLogin formLogin = new FormLogin();
             formLogin.Show();
             this.Hide();
+        }
+
+        private bool ContainsSpecialCharacters(string text)
+        {
+            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.";
+
+            return text.Any(c => !allowedCharacters.Contains(c));
+        }
+
+        private void txtusername_TextChanged(object sender, EventArgs e)
+        {
+            if (ContainsSpecialCharacters(txtusername.Text))
+            {
+                txtusername.BorderStyle = BorderStyle.FixedSingle;
+                txtusername.BackColor = System.Drawing.Color.White;
+                txtusername.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                txtusername.BorderStyle = BorderStyle.FixedSingle;
+                txtusername.BackColor = System.Drawing.SystemColors.Window;
+                txtusername.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
         }
     }
 }

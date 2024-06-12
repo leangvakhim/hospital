@@ -262,16 +262,7 @@ namespace hospital
                 }
                 buttonEdit = true;
                 BtnSave.Text = "New";
-                // check duplicated data
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.Cells[1].Value.ToString().Equals(txtName.Text) && row.Cells[2].Value.ToString().Equals(txtQty.Text) && row.Cells[3].Value.ToString().Equals(txtUnitPrice.Text) && row.Cells[4].Value.Equals(expiryDate.Value))
-                    {
-                        MessageBox.Show("This medicine already assists. Please try again!!!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        conn.Close();
-                        return;
-                    }
-                }
+
                 conn.Open();
                 
                 String updateQuery = "UPDATE tbmedicine SET name = @newName, qty = @newQty, unitprice = @newUnitPrice, expirydate = @newExpiryDate WHERE id = @id";
@@ -376,7 +367,8 @@ namespace hospital
 
         private void BtnReport_Click(object sender, EventArgs e)
         {
-            FormReport report = new FormReport(medicine_username, medicine_role, FormReport._ReportType.Medicine, sqlquery);
+            string reportQuery = "SELECT * FROM tbmedicine WHERE name LIKE '%"+txtName.Text+"%' && active = 1 ORDER BY id DESC";
+            FormReport report = new FormReport(medicine_username, medicine_role, FormReport._ReportType.Medicine, reportQuery);
             buttonReport = true;
             report.Show();
             TrackUserAction("Report");

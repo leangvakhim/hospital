@@ -267,16 +267,6 @@ namespace hospital
             {
                 btnsave.Text = "New";
 
-                // check duplicated data
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.Cells[1].Value.ToString().Equals(cbStaff.Text) && row.Cells[2].Value.ToString().Equals(dateTimedeparture.Value) && row.Cells[3].Value.ToString().Equals(dateTimearrived.Value))
-                    {
-                        MessageBox.Show("This user already assists. Please try again!!!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        conn.Close();
-                        return;
-                    }
-                }
                 conn.Open();
                 string ambulanceno = cbAmbulanceNo.SelectedItem.ToString();
                 string name = cbStaff.SelectedItem.ToString();
@@ -381,7 +371,8 @@ namespace hospital
 
         private void btnreport_Click(object sender, EventArgs e)
         {
-            FormReport report = new FormReport(ambulance_username, ambulance_role, FormReport._ReportType.Ambulance, sqlquery);
+            string reportQuery = "SELECT * FROM tbambulance WHERE staffName LIKE '%"+cbStaff.SelectedItem.ToString()+"%' && active = 1 ORDER BY id DESC";
+            FormReport report = new FormReport(ambulance_username, ambulance_role, FormReport._ReportType.Ambulance, reportQuery);
             buttonReport = true;
             report.Show();
             this.Hide();
@@ -513,7 +504,7 @@ namespace hospital
                 DrawHand(g, Color.Green, hrAngle, hrHAND, 30);
 
                 time.Image = bmp;
-                this.Text = "Analog Clock - " + now.ToString("HH:mm:ss");
+                //this.Text = "Analog Clock - " + now.ToString("HH:mm:ss");
             }
         }
 

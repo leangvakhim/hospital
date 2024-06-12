@@ -95,7 +95,7 @@ namespace hospital
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
-                dataGridView1.RowTemplate.Height = 80;
+                dataGridView1.RowTemplate.Height = 90;
                 dataGridView1.DataSource = table;
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.ReadOnly = true;
@@ -127,7 +127,7 @@ namespace hospital
             conn = new MySqlConnection(MySQLConn);
             if (btnSave.Text == "Save")
             {
-                if (txtName.Text.Equals(""))
+                if (txtName.Text == "")
                 {
                     MessageBox.Show("Please enter name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -323,16 +323,6 @@ namespace hospital
                 pictureBox1.Image.Save(ms, pictureBox1.Image.RawFormat);
                 ImageData = ms.ToArray();
 
-                // check duplicated data
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.Cells[1].Value.ToString().Equals(txtName.Text) && row.Cells[2].Value.ToString().Equals(txtphone.Text) && row.Cells[3].Value.ToString().Equals(txtspecialization.Text) && row.Cells[4].Value.ToString().Equals(ImageData))
-                    {
-                        MessageBox.Show("This user already assists. Please try again!!!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        conn.Close();
-                        return;
-                    }
-                }
                 conn.Open();
                 String updateQuery = "UPDATE tbdoctor SET name = @newName, phone = @newPhone, specialization = @newSpecialization, photo = @newPhoto WHERE id = @id";
                 MySqlCommand update_command = new MySqlCommand(updateQuery, conn);
@@ -379,9 +369,10 @@ namespace hospital
 
         private void btnReport_Click(object sender, EventArgs e)
         {
+            string reportQuery = "SELECT * FROM tbdoctor WHERE active = 1 AND name LIKE '%" + txtName.Text + "%' ORDER BY id DESC";
             buttonReport = true;
             TrackUserAction("Report");
-            FormReport report = new FormReport(doctor_username, doctor_role, FormReport._ReportType.Doctor, sqlquery);
+            FormReport report = new FormReport(doctor_username, doctor_role, FormReport._ReportType.Doctor, reportQuery);
             report.Show();
             this.Hide();
         }
@@ -425,7 +416,7 @@ namespace hospital
 
         private bool ContainsSpecialCharacters(string text)
         {
-            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ";
 
             return text.Any(c => !allowedCharacters.Contains(c));
         }

@@ -75,6 +75,7 @@
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(529, 74);
             this.txtusername.TabIndex = 115;
+            this.txtusername.TextChanged += new System.EventHandler(this.txtusername_TextChanged);
             // 
             // txtoldpassoword
             // 

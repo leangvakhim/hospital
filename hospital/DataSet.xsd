@@ -30,7 +30,7 @@
               <xs:element name="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnVarNameInTable="columnname" type="xs:string" minOccurs="0" />
               <xs:element name="checkIn" msdata:DateTimeMode="Utc" msprop:Generator_ColumnPropNameInTable="checkInColumn" msprop:Generator_ColumnPropNameInRow="checkIn" msprop:Generator_UserColumnName="checkIn" msprop:Generator_ColumnVarNameInTable="columncheckIn" type="xs:dateTime" minOccurs="0" />
               <xs:element name="checkOut" msdata:DateTimeMode="Utc" msprop:Generator_ColumnPropNameInTable="checkOutColumn" msprop:Generator_ColumnPropNameInRow="checkOut" msprop:Generator_UserColumnName="checkOut" msprop:Generator_ColumnVarNameInTable="columncheckOut" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="duration" msprop:Generator_ColumnPropNameInRow="duration" msprop:Generator_ColumnPropNameInTable="durationColumn" msprop:Generator_ColumnVarNameInTable="columnduration" msprop:Generator_UserColumnName="duration" type="xs:short" minOccurs="0" />
+              <xs:element name="duration" msprop:Generator_UserColumnName="duration" msprop:Generator_ColumnPropNameInTable="durationColumn" msprop:Generator_ColumnPropNameInRow="duration" msprop:Generator_ColumnVarNameInTable="columnduration" type="xs:short" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -41,11 +41,11 @@
               <xs:element name="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnVarNameInTable="columnname" type="xs:string" minOccurs="0" />
               <xs:element name="gender" msprop:Generator_ColumnPropNameInTable="genderColumn" msprop:Generator_ColumnPropNameInRow="gender" msprop:Generator_UserColumnName="gender" msprop:Generator_ColumnVarNameInTable="columngender" type="xs:string" minOccurs="0" />
               <xs:element name="address" msprop:Generator_ColumnPropNameInTable="addressColumn" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_UserColumnName="address" msprop:Generator_ColumnVarNameInTable="columnaddress" type="xs:string" minOccurs="0" />
-              <xs:element name="nssf" msprop:Generator_ColumnPropNameInRow="nssf" msprop:Generator_ColumnPropNameInTable="nssfColumn" msprop:Generator_ColumnVarNameInTable="columnnssf" msprop:Generator_UserColumnName="nssf" type="xs:string" minOccurs="0" />
-              <xs:element name="dob" msprop:Generator_ColumnPropNameInRow="dob" msprop:Generator_ColumnPropNameInTable="dobColumn" msprop:Generator_ColumnVarNameInTable="columndob" msprop:Generator_UserColumnName="dob" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="phone" msprop:Generator_ColumnPropNameInRow="phone" msprop:Generator_ColumnPropNameInTable="phoneColumn" msprop:Generator_ColumnVarNameInTable="columnphone" msprop:Generator_UserColumnName="phone" type="xs:string" minOccurs="0" />
-              <xs:element name="age" msprop:Generator_ColumnPropNameInRow="age" msprop:Generator_ColumnPropNameInTable="ageColumn" msprop:Generator_ColumnVarNameInTable="columnage" msprop:Generator_UserColumnName="age" type="xs:short" minOccurs="0" />
-              <xs:element name="bloodtype" msprop:Generator_ColumnPropNameInRow="bloodtype" msprop:Generator_ColumnPropNameInTable="bloodtypeColumn" msprop:Generator_ColumnVarNameInTable="columnbloodtype" msprop:Generator_UserColumnName="bloodtype" type="xs:string" minOccurs="0" />
+              <xs:element name="disease" msprop:Generator_UserColumnName="disease" msprop:Generator_ColumnPropNameInTable="diseaseColumn" msprop:Generator_ColumnPropNameInRow="disease" msprop:Generator_ColumnVarNameInTable="columndisease" type="xs:string" minOccurs="0" />
+              <xs:element name="dob" msprop:Generator_UserColumnName="dob" msprop:Generator_ColumnPropNameInTable="dobColumn" msprop:Generator_ColumnPropNameInRow="dob" msprop:Generator_ColumnVarNameInTable="columndob" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="phone" msprop:Generator_UserColumnName="phone" msprop:Generator_ColumnPropNameInTable="phoneColumn" msprop:Generator_ColumnPropNameInRow="phone" msprop:Generator_ColumnVarNameInTable="columnphone" type="xs:string" minOccurs="0" />
+              <xs:element name="age" msprop:Generator_UserColumnName="age" msprop:Generator_ColumnPropNameInTable="ageColumn" msprop:Generator_ColumnPropNameInRow="age" msprop:Generator_ColumnVarNameInTable="columnage" type="xs:short" minOccurs="0" />
+              <xs:element name="bloodtype" msprop:Generator_UserColumnName="bloodtype" msprop:Generator_ColumnPropNameInTable="bloodtypeColumn" msprop:Generator_ColumnPropNameInRow="bloodtype" msprop:Generator_ColumnVarNameInTable="columnbloodtype" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -9,7 +9,7 @@
               <Width>0.8125in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.41919in</Width>
+              <Width>1.01919in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.83334in</Width>
@@ -24,7 +24,7 @@
               <Width>0.90382in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.78125in</Width>
+              <Width>0.58125in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.10416in</Width>
@@ -182,7 +182,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ប័ណ្ណ ប.ស.ស</Value>
+                              <Value>ប្រភេទជំងឺ</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                               </Style>
@@ -486,14 +486,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="nssf">
+                    <Textbox Name="disease">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!nssf.Value</Value>
+                              <Value>=Fields!disease.Value</Value>
                               <Style>
                                 <FontFamily>Khmer OS Siemreap</FontFamily>
                               </Style>
@@ -504,7 +504,6 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>nssf</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -684,7 +683,7 @@
         <DataSetName>DataSet</DataSetName>
         <Top>0.02778in</Top>
         <Height>0.98958in</Height>
-        <Width>8.79084in</Width>
+        <Width>8.19084in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -699,7 +698,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>8.93355in</Width>
+  <Width>9.41792in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>
@@ -782,8 +781,8 @@
           <DataField>address</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="nssf">
-          <DataField>nssf</DataField>
+        <Field Name="disease">
+          <DataField>disease</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="dob">
@@ -805,7 +804,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>D:\Programming\C#\Assigment\hospital\hospital\DataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\User\source\repos\hospital\hospital\DataSet.xsd</rd:SchemaPath>
         <rd:TableName>tbpatient</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

@@ -200,20 +200,6 @@ namespace hospital
                 pictureBox1.Image.Save(ms, pictureBox1.Image.RawFormat);
                 ImageData = ms.ToArray();
 
-                // check duplicated data
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.Cells[1].Value.ToString().Equals(txtName.Text) && 
-                        row.Cells[2].Value.ToString().Equals(cbPosition.SelectedItem) && 
-                        row.Cells[3].Value.ToString().Equals(!rbMale.Checked && !rbFemale.Checked) &&
-                        row.Cells[4].Value.ToString().Equals(txtSalary.Text) &&
-                        row.Cells[5].Value.ToString().Equals(ImageData))
-                    {
-                        MessageBox.Show("This user already assists. Please try again!!!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        conn.Close();
-                        return;
-                    }
-                }
                 conn.Open();
 
                 if (rbMale.Checked) gender = "Male";
@@ -248,7 +234,8 @@ namespace hospital
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            FormReport report = new FormReport(staff_username, staff_role, FormReport._ReportType.Staff, sqlquery);
+            string reportQuery = "SELECT * FROM tbstaff WHERE name LIKE '%"+txtName.Text+"%' AND active = 1 ORDER BY id DESC";
+            FormReport report = new FormReport(staff_username, staff_role, FormReport._ReportType.Staff, reportQuery);
             report.Show();
             this.Hide();
             buttonReport = true;
@@ -264,7 +251,7 @@ namespace hospital
 
         private bool ContainsSpecialCharacters(string text)
         {
-            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            string allowedCharacters = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
             return text.Any(c => !allowedCharacters.Contains(c));
         }

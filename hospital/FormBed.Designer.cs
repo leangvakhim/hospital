@@ -241,10 +241,10 @@
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
             this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturn.Location = new System.Drawing.Point(1863, 10);
+            this.btnReturn.Location = new System.Drawing.Point(1911, 10);
             this.btnReturn.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(199, 70);
+            this.btnReturn.Size = new System.Drawing.Size(151, 54);
             this.btnReturn.TabIndex = 109;
             this.btnReturn.Text = "Return";
             this.btnReturn.TextAlign = System.Drawing.ContentAlignment.TopRight;

@@ -268,16 +268,6 @@ namespace hospital
             {
                 btnSave.Text = "New";
 
-                // check duplicated data
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.Cells[1].Value.ToString().Equals(txtName.Text) && row.Cells[2].Value.ToString().Equals(cbspecilization.Text) && row.Cells[3].Value.ToString().Equals(BookDate))
-                    {
-                        MessageBox.Show("This user already assists. Please try again!!!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        conn.Close();
-                        return;
-                    }
-                }
                 conn.Open();
                 string name = txtName.Text;
                 string specilization = cbspecilization.SelectedItem.ToString();
@@ -369,7 +359,8 @@ namespace hospital
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            FormReport report = new FormReport(appointment_username, appointment_role, FormReport._ReportType.Appointment, sqlquery);
+            string reportQuery = "SELECT * FROM tbappointment WHERE name LIKE '%"+txtName.Text+"%' && active = 1 ORDER BY id DESC";
+            FormReport report = new FormReport(appointment_username, appointment_role, FormReport._ReportType.Appointment, reportQuery);
             report.Show();
             buttonReport = true;
             this.Hide();
@@ -446,7 +437,7 @@ namespace hospital
 
         private bool ContainsSpecialCharacters(string text)
         {
-            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            string allowedCharacters = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
             return text.Any(c => !allowedCharacters.Contains(c));
         }

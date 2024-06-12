@@ -547,7 +547,7 @@
                             <TextRun>
                               <Value>=Fields!actionDateTime.Value</Value>
                               <Style>
-                                <Format>dd-MM-yyyy</Format>
+                                <Format>dd-MM-yyyy hh:mm:ss tt</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -569,6 +569,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

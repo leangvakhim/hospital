@@ -1140,7 +1140,7 @@ namespace hospital {
             
             private global::System.Data.DataColumn columnaddress;
             
-            private global::System.Data.DataColumn columnnssf;
+            private global::System.Data.DataColumn columndisease;
             
             private global::System.Data.DataColumn columndob;
             
@@ -1217,9 +1217,9 @@ namespace hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn nssfColumn {
+            public global::System.Data.DataColumn diseaseColumn {
                 get {
-                    return this.columnnssf;
+                    return this.columndisease;
                 }
             }
             
@@ -1292,14 +1292,14 @@ namespace hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbpatientRow AddtbpatientRow(short id, string name, string gender, string address, string nssf, System.DateTime dob, string phone, short age, string bloodtype) {
+            public tbpatientRow AddtbpatientRow(short id, string name, string gender, string address, string disease, System.DateTime dob, string phone, short age, string bloodtype) {
                 tbpatientRow rowtbpatientRow = ((tbpatientRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
                         name,
                         gender,
                         address,
-                        nssf,
+                        disease,
                         dob,
                         phone,
                         age,
@@ -1330,7 +1330,7 @@ namespace hospital {
                 this.columnname = base.Columns["name"];
                 this.columngender = base.Columns["gender"];
                 this.columnaddress = base.Columns["address"];
-                this.columnnssf = base.Columns["nssf"];
+                this.columndisease = base.Columns["disease"];
                 this.columndob = base.Columns["dob"];
                 this.columnphone = base.Columns["phone"];
                 this.columnage = base.Columns["age"];
@@ -1348,8 +1348,8 @@ namespace hospital {
                 base.Columns.Add(this.columngender);
                 this.columnaddress = new global::System.Data.DataColumn("address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnaddress);
-                this.columnnssf = new global::System.Data.DataColumn("nssf", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnssf);
+                this.columndisease = new global::System.Data.DataColumn("disease", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndisease);
                 this.columndob = new global::System.Data.DataColumn("dob", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndob);
                 this.columnphone = new global::System.Data.DataColumn("phone", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3431,17 +3431,17 @@ namespace hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string nssf {
+            public string disease {
                 get {
                     try {
-                        return ((string)(this[this.tabletbpatient.nssfColumn]));
+                        return ((string)(this[this.tabletbpatient.diseaseColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nssf\' in table \'tbpatient\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'disease\' in table \'tbpatient\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletbpatient.nssfColumn] = value;
+                    this[this.tabletbpatient.diseaseColumn] = value;
                 }
             }
             
@@ -3559,14 +3559,14 @@ namespace hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsnssfNull() {
-                return this.IsNull(this.tabletbpatient.nssfColumn);
+            public bool IsdiseaseNull() {
+                return this.IsNull(this.tabletbpatient.diseaseColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetnssfNull() {
-                this[this.tabletbpatient.nssfColumn] = global::System.Convert.DBNull;
+            public void SetdiseaseNull() {
+                this[this.tabletbpatient.diseaseColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -6,19 +6,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.55in</Width>
+              <Width>1.25in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.25in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.55in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.55in</Width>
+              <Width>1.75in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.55in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.55in</Width>
+              <Width>1.75in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -47,7 +47,9 @@
                       </Paragraphs>
                       <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
-                        <Border />
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -80,7 +82,6 @@
                       <rd:DefaultName>Textbox4</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
@@ -115,7 +116,6 @@
                       <rd:DefaultName>Textbox6</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
@@ -150,7 +150,6 @@
                       <rd:DefaultName>Textbox8</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
@@ -185,7 +184,6 @@
                       <rd:DefaultName>Textbox10</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
@@ -223,7 +221,6 @@
                       <rd:DefaultName>id</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
@@ -256,7 +253,6 @@
                       <rd:DefaultName>ambulanceNo</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
@@ -289,7 +285,6 @@
                       <rd:DefaultName>staffName</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
@@ -312,7 +307,7 @@
                             <TextRun>
                               <Value>=Fields!departureTime.Value</Value>
                               <Style>
-                                <Format>dd-MM-yyyy</Format>
+                                <Format>dd-MM-yyyy hh:mm:ss tt</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -324,7 +319,6 @@
                       <rd:DefaultName>departureTime</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
@@ -347,7 +341,7 @@
                             <TextRun>
                               <Value>=Fields!arriveTime.Value</Value>
                               <Style>
-                                <Format>dd-MM-yyyy</Format>
+                                <Format>dd-MM-yyyy hh:mm:ss tt</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -359,7 +353,6 @@
                       <rd:DefaultName>arriveTime</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
@@ -397,7 +390,7 @@
         <DataSetName>DataSet</DataSetName>
         <Top>0.06944in</Top>
         <Height>1.10416in</Height>
-        <Width>7.75in</Width>
+        <Width>7.55in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -405,10 +398,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.20833in</Height>
+    <Height>1.3736in</Height>
     <Style />
   </Body>
-  <Width>7.76042in</Width>
+  <Width>8.21354in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>
@@ -504,16 +497,16 @@
         </Field>
         <Field Name="departureTime">
           <DataField>departureTime</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="arriveTime">
           <DataField>arriveTime</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>D:\Programming\C#\Assigment\hospital\hospital\DataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\User\source\repos\hospital\hospital\DataSet.xsd</rd:SchemaPath>
         <rd:TableName>tbambulance</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
