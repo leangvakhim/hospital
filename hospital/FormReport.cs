@@ -38,7 +38,7 @@ namespace hospital
                 switch (type)
                 {
                     case _ReportType.Doctor:
-                        LoadData(sqlquery, "tbdoctor", "hospital\\Report.rdlc");
+                        LoadData(sqlquery, "tbdoctor", "hospital\\DoctorReport.rdlc");
                         break;
                     case _ReportType.Bed:
                         LoadData(sqlquery, "tbbed", "hospital\\BedReport.rdlc");
@@ -152,6 +152,11 @@ namespace hospital
             Form doctor = form;
             doctor.Show();
             this.Hide();
+        }
+
+        private void FormReport_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

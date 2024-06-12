@@ -127,7 +127,7 @@ namespace hospital
             conn = new MySqlConnection(MySQLConn);
             if (btnSave.Text == "Save")
             {
-                if (txtName.Text.Equals(""))
+                if (txtName.Text == "")
                 {
                     MessageBox.Show("Please enter name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -379,9 +379,10 @@ namespace hospital
 
         private void btnReport_Click(object sender, EventArgs e)
         {
+            string reportQuery = "SELECT * FROM tbdoctor WHERE active = 1 AND name LIKE '%" + txtName.Text + "%' ORDER BY id DESC";
             buttonReport = true;
             TrackUserAction("Report");
-            FormReport report = new FormReport(doctor_username, doctor_role, FormReport._ReportType.Doctor, sqlquery);
+            FormReport report = new FormReport(doctor_username, doctor_role, FormReport._ReportType.Doctor, reportQuery);
             report.Show();
             this.Hide();
         }
@@ -425,7 +426,7 @@ namespace hospital
 
         private bool ContainsSpecialCharacters(string text)
         {
-            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ";
 
             return text.Any(c => !allowedCharacters.Contains(c));
         }

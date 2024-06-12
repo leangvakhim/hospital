@@ -106,14 +106,12 @@ namespace hospital
 
             string searchQuery = "SELECT * FROM tbrecord WHERE actionDateTime BETWEEN @StartDate AND @EndDate ORDER BY userID DESC";
 
-            //MessageBox.Show(StartDate.ToString() + "\n" + EndDate.ToString());
             using (MySqlConnection conn = new MySqlConnection(MySQLConn))
             {
                 using (MySqlCommand command = new MySqlCommand(searchQuery, conn))
                 {
                     command.Parameters.AddWithValue("@StartDate", StartDate);
                     command.Parameters.AddWithValue("@EndDate", EndDate);
-
                     try
                     {
                         conn.Open();
@@ -152,7 +150,7 @@ namespace hospital
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnReport_Click(object sender, EventArgs e)
         {
             FormReport report = new FormReport(recordlog_username, recordlog_role, FormReport._ReportType.Record, sqlquery);
             report.Show();

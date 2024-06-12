@@ -381,7 +381,8 @@ namespace hospital
 
         private void btnreport_Click(object sender, EventArgs e)
         {
-            FormReport report = new FormReport(ambulance_username, ambulance_role, FormReport._ReportType.Ambulance, sqlquery);
+            string reportQuery = "SELECT * FROM tbambulance WHERE staffName LIKE '%"+cbStaff.SelectedItem.ToString()+"%' && active = 1 ORDER BY id DESC";
+            FormReport report = new FormReport(ambulance_username, ambulance_role, FormReport._ReportType.Ambulance, reportQuery);
             buttonReport = true;
             report.Show();
             this.Hide();

@@ -28,6 +28,7 @@ namespace hospital
 
         void Authenticate()
         {
+            var key = "sw9zbIu5mZ1AouhBGKikQWyhUhFdGftx";
             string MySQLConn = "server=127.0.0.1; user=root; database=hospital; password=";
             MySqlConnection conn = new MySqlConnection(MySQLConn);
             try
@@ -35,8 +36,12 @@ namespace hospital
                 conn.Open();
                 MySqlCommand command = new MySqlCommand("SELECT name, password, position FROM tbadmin WHERE active = 1 AND password = @Password AND name = @Name", conn);
 
-                command.Parameters.AddWithValue("@Name", txtusername.Text);
-                command.Parameters.AddWithValue("@Password", txtpassword.Text);
+                String userLoginName = txtusername.Text;
+                String userLoginPassword = txtpassword.Text;
+                var encryptedUserLoginPassword = EncryptionDecryption.EncryptString(key, userLoginPassword);
+
+                command.Parameters.AddWithValue("@Name", userLoginName);
+                command.Parameters.AddWithValue("@Password", encryptedUserLoginPassword);
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -49,7 +54,6 @@ namespace hospital
                         FormManagement formManagement = new FormManagement(username, role);
                         formManagement.Show();
                         this.Hide();
-                        //MessageBox.Show(username + role);
                         break;
                     }
                 }

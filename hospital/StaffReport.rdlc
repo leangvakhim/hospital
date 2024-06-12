@@ -52,7 +52,6 @@
                       <rd:DefaultName>Textbox8</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
@@ -88,7 +87,6 @@
                       <rd:DefaultName>Textbox10</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
@@ -123,7 +121,9 @@
                       </Paragraphs>
                       <rd:DefaultName>Textbox12</rd:DefaultName>
                       <Style>
-                        <Border />
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -156,7 +156,9 @@
                       </Paragraphs>
                       <rd:DefaultName>Textbox14</rd:DefaultName>
                       <Style>
-                        <Border />
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -189,7 +191,9 @@
                       </Paragraphs>
                       <rd:DefaultName>Textbox16</rd:DefaultName>
                       <Style>
-                        <Border />
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -222,7 +226,9 @@
                       </Paragraphs>
                       <rd:DefaultName>Textbox18</rd:DefaultName>
                       <Style>
-                        <Border />
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -235,7 +241,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.95139in</Height>
+              <Height>1.25139in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -260,7 +266,9 @@
                       </Paragraphs>
                       <rd:DefaultName>id</rd:DefaultName>
                       <Style>
-                        <Border />
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -293,7 +301,9 @@
                       </Paragraphs>
                       <rd:DefaultName>name</rd:DefaultName>
                       <Style>
-                        <Border />
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -326,7 +336,9 @@
                       </Paragraphs>
                       <rd:DefaultName>position</rd:DefaultName>
                       <Style>
-                        <Border />
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -359,7 +371,9 @@
                       </Paragraphs>
                       <rd:DefaultName>gender</rd:DefaultName>
                       <Style>
-                        <Border />
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -399,7 +413,9 @@
                       </Paragraphs>
                       <rd:DefaultName>salary</rd:DefaultName>
                       <Style>
-                        <Border />
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -415,13 +431,14 @@
                       <Source>Database</Source>
                       <Value>=Fields!photo.Value</Value>
                       <MIMEType>image/jpeg</MIMEType>
-                      <Sizing>FitProportional</Sizing>
+                      <Sizing>Fit</Sizing>
                       <Style>
                         <Border>
-                          <Style>None</Style>
+                          <Style>Solid</Style>
                         </Border>
                       </Style>
                     </Image>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -450,7 +467,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet</DataSetName>
         <Top>0.05556in</Top>
-        <Height>1.90278in</Height>
+        <Height>2.20278in</Height>
         <Width>7.96874in</Width>
         <Style>
           <Border>
@@ -459,7 +476,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.95834in</Height>
+    <Height>2.25834in</Height>
     <Style />
   </Body>
   <Width>7.96875in</Width>
@@ -525,7 +542,11 @@
     <LeftMargin>0.5in</LeftMargin>
     <TopMargin>0.5in</TopMargin>
     <BottomMargin>0.5in</BottomMargin>
-    <Style />
+    <Style>
+      <Border>
+        <Style>Solid</Style>
+      </Border>
+    </Style>
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>

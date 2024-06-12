@@ -2,13 +2,17 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Configuration;
 using System.Windows.Forms;
+using static Mysqlx.Expect.Open.Types.Condition.Types;
 
 namespace hospital
 {
@@ -60,6 +64,8 @@ namespace hospital
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            var key = "sw9zbIu5mZ1AouhBGKikQWyhUhFdGftx";
+
             conn = new MySqlConnection(MySQLConn);
             buttonSave = true;
             if (btnSave.Text == "Save")
@@ -69,7 +75,8 @@ namespace hospital
                     MessageBox.Show("Please enter name.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtName.Focus();
                     return;
-                }else if (txtName.ForeColor == System.Drawing.Color.Red)
+                }
+                else if (txtName.ForeColor == System.Drawing.Color.Red)
                 {
                     MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -110,6 +117,7 @@ namespace hospital
                     string password = txtPassword.Text;
                     string confirmPassword = txtConfirmPassword.Text;
                     string position = "";
+
                     if (cbPosition.SelectedIndex == 1)
                     {
                         position = "View Only";
@@ -129,13 +137,13 @@ namespace hospital
                         txtPassword.Focus();
                         return;
                     }
-
+                    var encryptedPassword = EncryptionDecryption.EncryptString(key, password);
                     string query = "INSERT INTO tbadmin(id, name, position, password) VALUES (@id, @name, @position, @password)";
                     MySqlCommand command = new MySqlCommand(query, conn);
                     command.Parameters.AddWithValue("id", "");
                     command.Parameters.AddWithValue("name", name);
                     command.Parameters.AddWithValue("position", position);
-                    command.Parameters.AddWithValue("password", password);
+                    command.Parameters.AddWithValue("password", encryptedPassword);
                     command.ExecuteNonQuery();
                     TrackUserAction("Save");
 
@@ -163,6 +171,7 @@ namespace hospital
             {
                 btnSave.Text = "Save";
                 btnEdit.Enabled = false;
+                btnRemove.Enabled = false;
                 txtID.Enabled = false;
                 int maxId = 0;
                 conn.Open();
@@ -360,6 +369,7 @@ namespace hospital
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            var key = "sw9zbIu5mZ1AouhBGKikQWyhUhFdGftx";
             if (txtName.Text == "")
             {
                 MessageBox.Show("Please enter a name to reset new password", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -375,23 +385,27 @@ namespace hospital
             MySqlConnection conn = new MySqlConnection(MySQLConn);
             try
             {
-                string newpassword = "1234";
+                string newpassword = txtName.Text+"_1234";
+                var encryptedNewPassword = EncryptionDecryption.EncryptString(key, newpassword);
                 conn.Open();
                 String updateQuery = "UPDATE tbadmin SET password = @newValue WHERE id = @id || name = @name";
                 MySqlCommand command = new MySqlCommand(updateQuery, conn);
 
-                command.Parameters.AddWithValue("@newValue", txtName.Text +"_" +newpassword);
+                command.Parameters.AddWithValue("@newValue",encryptedNewPassword);
                 command.Parameters.AddWithValue("@id", txtID.Text);
                 command.Parameters.AddWithValue("@name", txtName.Text);
 
                 command.ExecuteNonQuery();
                 TrackUserAction("Reset");
-                MessageBox.Show("Your new password is: " + txtName.Text + "_" + newpassword, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Your new password is: " + newpassword, "New Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 txtID.Clear();
                 txtName.Clear();
                 txtPassword.Clear();
                 txtConfirmPassword.Clear();
+                btnSave.Text = "Save";
+                txtPassword.Enabled = true;
+                txtConfirmPassword.Enabled = true;
                 cbPosition.SelectedIndex = 0;
 
                 Refresh();
@@ -468,7 +482,7 @@ namespace hospital
         
         private bool ContainsSpecialCharacters(string text)
         {
-            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.";
 
             return text.Any(c => !allowedCharacters.Contains(c));
         }

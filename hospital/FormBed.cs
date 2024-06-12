@@ -391,7 +391,6 @@ namespace hospital
 
         private void DisplayInComboBox()
         {
-            //cbBedID.Items.Clear();
             try
             {
                 using (conn = new MySqlConnection(MySQLConn))
@@ -478,7 +477,8 @@ namespace hospital
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            FormReport report = new FormReport(bed_username, bed_role, FormReport._ReportType.Bed, sqlquery);
+            string reportQuery = "SELECT * FROM tbbed WHERE name LIKE '%"+txtName.Text+"%' AND active = 1 ORDER BY id DESC";
+            FormReport report = new FormReport(bed_username, bed_role, FormReport._ReportType.Bed, reportQuery);
             buttonReport = true;
             report.Show();
             this.Hide();
@@ -487,7 +487,7 @@ namespace hospital
 
         private bool ContainsSpecialCharacters(string text)
         {
-            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ";
 
             return text.Any(c => !allowedCharacters.Contains(c));
         }

@@ -376,7 +376,8 @@ namespace hospital
 
         private void BtnReport_Click(object sender, EventArgs e)
         {
-            FormReport report = new FormReport(medicine_username, medicine_role, FormReport._ReportType.Medicine, sqlquery);
+            string reportQuery = "SELECT * FROM tbmedicine WHERE name LIKE '%"+txtName.Text+"%' && active = 1 ORDER BY id DESC";
+            FormReport report = new FormReport(medicine_username, medicine_role, FormReport._ReportType.Medicine, reportQuery);
             buttonReport = true;
             report.Show();
             TrackUserAction("Report");

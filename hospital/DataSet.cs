@@ -4,6 +4,10 @@
 
     partial class DataSet
     {
+        partial class tbpatientDataTable
+        {
+        }
+
         partial class tbbedDataTable
         {
         }

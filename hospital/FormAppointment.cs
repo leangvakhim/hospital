@@ -369,7 +369,8 @@ namespace hospital
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            FormReport report = new FormReport(appointment_username, appointment_role, FormReport._ReportType.Appointment, sqlquery);
+            string reportQuery = "SELECT * FROM tbappointment WHERE name LIKE '%"+txtName.Text+"%' && active = 1 ORDER BY id DESC";
+            FormReport report = new FormReport(appointment_username, appointment_role, FormReport._ReportType.Appointment, reportQuery);
             report.Show();
             buttonReport = true;
             this.Hide();
@@ -446,7 +447,7 @@ namespace hospital
 
         private bool ContainsSpecialCharacters(string text)
         {
-            string allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            string allowedCharacters = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
             return text.Any(c => !allowedCharacters.Contains(c));
         }
