@@ -62,6 +62,16 @@ namespace hospital
                     MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                else if (txtphone.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("Please enter number only.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (txtage.ForeColor == System.Drawing.Color.Red)
+                {
+                    MessageBox.Show("Please enter number only.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 buttonEdit = true;
                 btnSave.Text = "New";
                 conn.Open();

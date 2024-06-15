@@ -106,7 +106,7 @@ namespace hospital
                 maxId = Convert.ToInt32(result);
                 int nextId = maxId + 1;
                 txtID.Text = nextId.ToString();
-                
+
             }
             catch (Exception ex)
             {
@@ -273,16 +273,7 @@ namespace hospital
                     MessageBox.Show("No Special Character enter.", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                // check duplicated data
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.Cells[1].Value.ToString().Equals(txtName.Text) && row.Cells[2].Value.ToString().Equals(dateTimeCheckIn.Value) && row.Cells[3].Value.ToString().Equals(dateTimeCheckOut.Value))
-                    {
-                        MessageBox.Show("This user already assists. Please try again!!!", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        conn.Close();
-                        return;
-                    }
-                }
+
                 buttonEdit = true;
                 btnSave.Text = "Save";
                 conn.Open();
@@ -302,7 +293,7 @@ namespace hospital
                 update_command.Parameters.AddWithValue("newBedID", bedID);
                 update_command.Parameters.AddWithValue("newCheckIn", CheckInDate);
                 update_command.Parameters.AddWithValue("id", txtID.Text);
-                if(CheckInDate == CheckOutDate)
+                if (CheckInDate == CheckOutDate)
                     update_command.Parameters.AddWithValue("newCheckOut", "0001-01-01");
                 else
                     update_command.Parameters.AddWithValue("newCheckOut", CheckOutDate);
@@ -327,11 +318,11 @@ namespace hospital
                 TrackUserAction("Edit");
 
                 txtName.Clear();
+                cbBedID.Items.Remove(cbBedID.SelectedItem);
                 if (string.IsNullOrEmpty(previousBedID))
                 {
                     cbBedID.Items.Add(previousBedID);
                 }
-                cbBedID.Items.Remove(cbBedID.SelectedItem);
                 cbBedID.SelectedIndex = 0;
                 dateTimeCheckIn.Value = DateTime.Now;
                 dateTimeCheckOut.Value = DateTime.Now;
@@ -370,7 +361,12 @@ namespace hospital
 
                 TrackUserAction("Remove");
 
-                cbBedID.Items.Add(cbBedID.SelectedItem);
+                object selectedItem = cbBedID.SelectedItem;
+
+                if (!cbBedID.Items.Contains(selectedItem))
+                {
+                    cbBedID.Items.Add(selectedItem);
+                }
 
                 txtID.Clear();
                 txtName.Clear();
@@ -448,6 +444,10 @@ namespace hospital
                 MySqlCommand commandBedID = new MySqlCommand(sqlquery, conn);
                 commandBedID.Parameters.AddWithValue("@id", selectedRow.Cells[0].Value.ToString());
                 object result = commandBedID.ExecuteScalar();
+
+                //cbBedID.Items.Clear();
+                //DisplayInComboBox();
+
                 if (result != null && result != DBNull.Value)
                 {
                     string BedID = result.ToString();
@@ -456,8 +456,15 @@ namespace hospital
 
                     if (!string.IsNullOrEmpty(previousBedID))
                     {
-                        cbBedID.Items.Remove(previousBedID);
+                        if (cbBedID.Items.Contains(previousBedID))
+                        {
+                            cbBedID.Items.Remove(previousBedID);
+                        }
+
                     }
+                        //if (cbBedID.Items.Contains(previousBedID))
+                        //cbBedID.Items.Remove(previousBedID);
+
                     previousBedID = BedID;
                 }
 

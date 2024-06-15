@@ -46,7 +46,7 @@
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
             this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturn.Location = new System.Drawing.Point(1372, 2);
+            this.btnReturn.Location = new System.Drawing.Point(1799, 8);
             this.btnReturn.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(149, 56);
@@ -58,13 +58,14 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(44, 252);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(1437, 489);
+            this.dataGridView1.Size = new System.Drawing.Size(1894, 489);
             this.dataGridView1.TabIndex = 113;
             // 
             // btnSearch
@@ -73,7 +74,8 @@
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearch.Location = new System.Drawing.Point(828, 129);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
+
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(261, 82);
             this.btnSearch.TabIndex = 114;
@@ -88,7 +90,7 @@
             this.startDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.startDate.Location = new System.Drawing.Point(100, 140);
-            this.startDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.startDate.Margin = new System.Windows.Forms.Padding(4);
             this.startDate.Name = "startDate";
             this.startDate.Size = new System.Drawing.Size(289, 62);
             this.startDate.TabIndex = 115;
@@ -99,7 +101,7 @@
             this.endDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.endDate.Location = new System.Drawing.Point(468, 140);
-            this.endDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.endDate.Margin = new System.Windows.Forms.Padding(4);
             this.endDate.Name = "endDate";
             this.endDate.Size = new System.Drawing.Size(289, 62);
             this.endDate.TabIndex = 116;
@@ -138,7 +140,7 @@
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReport.Location = new System.Drawing.Point(1157, 129);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(4);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(264, 85);
             this.btnReport.TabIndex = 119;
@@ -152,7 +154,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1524, 775);
+            this.ClientSize = new System.Drawing.Size(1960, 775);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -161,7 +163,7 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnReturn);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormRecordLog";
             this.Text = "FormRecordLog";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormRecordLog_FormClosing);

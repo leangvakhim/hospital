@@ -139,7 +139,7 @@ namespace hospital
             // 
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.Location = new System.Drawing.Point(572, 106);
-            this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Multiline = true;
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(565, 66);
@@ -147,9 +147,10 @@ namespace hospital
             // 
             // txtName
             // 
+            this.txtName.BackColor = System.Drawing.Color.White;
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(572, 188);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(565, 66);
@@ -160,7 +161,7 @@ namespace hospital
             // 
             this.txtQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQty.Location = new System.Drawing.Point(572, 269);
-            this.txtQty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQty.Margin = new System.Windows.Forms.Padding(4);
             this.txtQty.Multiline = true;
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(565, 66);
@@ -171,7 +172,7 @@ namespace hospital
             // 
             this.txtUnitPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUnitPrice.Location = new System.Drawing.Point(572, 344);
-            this.txtUnitPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUnitPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtUnitPrice.Multiline = true;
             this.txtUnitPrice.Name = "txtUnitPrice";
             this.txtUnitPrice.Size = new System.Drawing.Size(565, 66);
@@ -185,7 +186,7 @@ namespace hospital
             this.expiryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expiryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.expiryDate.Location = new System.Drawing.Point(572, 441);
-            this.expiryDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.expiryDate.Margin = new System.Windows.Forms.Padding(4);
             this.expiryDate.Name = "expiryDate";
             this.expiryDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.expiryDate.Size = new System.Drawing.Size(565, 68);
@@ -197,7 +198,7 @@ namespace hospital
             this.BtnSave.Image = ((System.Drawing.Image)(resources.GetObject("BtnSave.Image")));
             this.BtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSave.Location = new System.Drawing.Point(88, 558);
-            this.BtnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnSave.Margin = new System.Windows.Forms.Padding(4);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(239, 94);
             this.BtnSave.TabIndex = 124;
@@ -212,7 +213,7 @@ namespace hospital
             this.BtnSearch.Image = ((System.Drawing.Image)(resources.GetObject("BtnSearch.Image")));
             this.BtnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSearch.Location = new System.Drawing.Point(627, 558);
-            this.BtnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Size = new System.Drawing.Size(265, 94);
             this.BtnSearch.TabIndex = 125;
@@ -227,7 +228,7 @@ namespace hospital
             this.BtnEdit.Image = ((System.Drawing.Image)(resources.GetObject("BtnEdit.Image")));
             this.BtnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnEdit.Location = new System.Drawing.Point(360, 558);
-            this.BtnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.BtnEdit.Name = "BtnEdit";
             this.BtnEdit.Size = new System.Drawing.Size(221, 94);
             this.BtnEdit.TabIndex = 126;
@@ -243,7 +244,7 @@ namespace hospital
             this.BtnRemove.Image = ((System.Drawing.Image)(resources.GetObject("BtnRemove.Image")));
             this.BtnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnRemove.Location = new System.Drawing.Point(933, 558);
-            this.BtnRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnRemove.Margin = new System.Windows.Forms.Padding(4);
             this.BtnRemove.Name = "BtnRemove";
             this.BtnRemove.Size = new System.Drawing.Size(296, 94);
             this.BtnRemove.TabIndex = 127;
@@ -258,7 +259,7 @@ namespace hospital
             this.BtnReport.Image = ((System.Drawing.Image)(resources.GetObject("BtnReport.Image")));
             this.BtnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnReport.Location = new System.Drawing.Point(1256, 558);
-            this.BtnReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnReport.Margin = new System.Windows.Forms.Padding(4);
             this.BtnReport.Name = "BtnReport";
             this.BtnReport.Size = new System.Drawing.Size(261, 94);
             this.BtnReport.TabIndex = 128;
@@ -271,7 +272,7 @@ namespace hospital
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(88, 684);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
