@@ -75,6 +75,7 @@
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearch.Location = new System.Drawing.Point(828, 129);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
+
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(261, 82);
             this.btnSearch.TabIndex = 114;
