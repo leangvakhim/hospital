@@ -74,16 +74,14 @@ A desktop-based hospital management application built with **C# and WinForms**, 
 - Email notification system
 - Automatic data backups
 
-⸻
+---
 
-👨‍💻 Author
+## 👨‍💻 Author
 
 Leang Vakhim
-Portfolio Website
-GitHub Profile
 
-⸻
+---
 
-📄 License
+## 📄 License
 
 This project is for educational/demo purposes. All rights reserved.
